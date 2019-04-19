@@ -1,7 +1,7 @@
 welcome: |
   🔸 @LastSupportBot v{{version}}.
 
-  Добро пожаловать в бот-фабрику ботов технической поддержки.
+  Welcome to the bot technical support.
 
   <b>Avaliable commands:</b>
 
@@ -10,19 +10,20 @@ welcome: |
 
   /language - Change language.
 
-  По вопросам технической поддержки, а так же чтобы посмотреть как это работает в живую, обращайся в @RocketBotsBot.
+  For technical support, as well as to see how it works live, please contact @RocketBotsBot.
 
 premium:
   alert: |
     🔹 Avaliable in premium mode.
 
   text: |
-    🔹 Следующие функции бота доступны только в премиум-варианте:
+    🔹 The following bot features are only available in the premium version:
 
-      🔸 Рассылки
-      🔸 Логи и статистика
+      🔸 Broadcast
+      🔸 Logs and statistics
+      
 
-    Если вы эти функции вам нужны или вы хотите интегрировать этот бот в свою систему поддержки пользователей, обратитесь с вашим вопросом в @RocketBotsBot.
+     If you need these features or you want to integrate this bot into your user support system, please contact me with your question at @RocketBotsBot.
 
 common:
   btn:
