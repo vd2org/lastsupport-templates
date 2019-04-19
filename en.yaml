@@ -35,7 +35,8 @@ common:
   unknown: |
     🔹 Unknown command.
     May be /help?
-
+  unknown_bot: |
+    🔹 Unknown bot.
 lang:
   text: |
     🔹 At the moment I speak with you in English. Which language do you want me to switch to?
