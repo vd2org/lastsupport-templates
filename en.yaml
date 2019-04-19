@@ -1,0 +1,359 @@
+welcome: |
+  🔸 @LastSupportBot v{{version}}.
+
+  Добро пожаловать в бот-фабрику ботов технической поддержки.
+
+  <b>Avaliable commands:</b>
+
+  /newbot - Add new bot.
+  /mybots - Show bots.
+
+  /language - Change language.
+
+  По вопросам технической поддержки, а так же чтобы посмотреть как это работает в живую, обращайся в @RocketBotsBot.
+
+premium:
+  alert: |
+    🔹 Avaliable in premium mode.
+
+  text: |
+    🔹 Следующие функции бота доступны только в премиум-варианте:
+
+      🔸 Рассылки
+      🔸 Логи и статистика
+
+    Если вы эти функции вам нужны или вы хотите интегрировать этот бот в свою систему поддержки пользователей, обратитесь с вашим вопросом в @RocketBotsBot.
+
+common:
+  btn:
+    back: |
+      ↩️
+  langname: |
+    🇺🇸 English
+  cancelled: |
+    🔹 Cancelled. What next?
+  unknown: |
+    🔹 Unknown command.
+    May be /help?
+
+lang:
+  text: |
+    🔹 At the moment I speak with you in English. Which language do you want me to switch to?
+
+    ❓ Смена языка не влияет на язык уже созданных ботов.
+    Поменять язык уже созданного ботов можно в настройке этого бота.
+  ok: |
+    🔹 In english now.
+
+mybots:
+  bots: |
+    🔹 Your bots:
+  nobots: |
+    🔹 You don't have any bots.
+
+    Чтобы добавить нового используй команду /newbot.
+  bot: |
+    {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
+
+newbot:
+  token: |
+    🔸 Adding new bot.
+
+    Для начала, нужно создать нового бота у @BotFather или воспльзоваться старым.
+
+    Send me token or simply forward message with token from BotFather.
+
+    Чтобы отменить добавление бота нажми /cancel.
+  fail: |
+    🔸 ⚠️ Unable to authorize your bot.
+
+    Проверь отправленный token и попробуй еще раз.
+
+    Чтобы отменить добавление бота нажми /cancel.
+  exist: |
+    🔸 ⚠️ This bot already registred here.
+
+    Нельзя один бот добавить два раза.
+
+    Чтобы отменить добавление бота нажми /cancel.
+
+  ok: |
+    🔸 Bot @{{bot.username}} checked and added.
+
+    Теперь его можно настроить.
+
+manage:
+  text: |
+    @{{bot.username}}
+
+    Status: {%if bot.active%}🎾 Включен{%else%}🏐️ Выключен{%endif%}
+    Created: {{bot.created|elapsed}}
+    Language: {{bot.language}}
+
+    Group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>None</i>{%endif%}
+
+  language:
+    language: |
+      🌏 Language
+    text: |
+      🔹 Language for @{{bot.username}}.
+
+      Current language: {{bot.language}}
+
+      ❓ Смена языка не влияет на язык бота-конструктора, а так же на других созданных ботов.
+  start:
+    start: |
+      ▶️ Start
+    started:
+      🔸 Bot @{{bot.username}} was started. Через несколько секунд он начнет работать.
+    already: |
+      🔸 Bot @{{bot.username}} already started and working.
+  stop:
+    stop: |
+      ⏹ Stop
+    stopped:
+      🔸 Bot @{{bot.username}} stopped. Он больше не будет обрабатывать сообщения.
+    already: |
+      🔸 Bot @{{bot.username}} already stopped.
+  group:
+    group: |
+      👫 Group's settings
+    text: |
+      🔹 Ты можешь добавить @{{bot.username}} в группу чтобы отвечать на сообщения могли не только ты, но и все участники группы.
+
+      Добавь бота в группу и выполни команду /authorize@{{bot.username}}.
+
+      ⚠️ Бот одновременно может работать только в одной группе. Можно добавить несколько разных ботов в одну группу.
+
+      Your group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Не задана</i>{%endif%}
+    leave: |
+      🚶 Disagle & leave
+    leaved: |
+      ⚠️ Bot was removed from group.
+  types:
+    btn: |
+      💬 Message types
+    text: |
+      🔹 Message types settings for @{{bot.username}}.
+
+      Тут ты можешь выбрать типы сообщений, которые пользователи могут присылать в твой бот.
+    types:
+      text: |
+        {%if 'text' in bot.types%}✅{%else%}❌{%endif%} 📝 Text
+      audio: |
+        {%if 'audio' in bot.types%}✅{%else%}❌{%endif%} 💽 Audio
+      document: |
+        {%if 'document' in bot.types%}✅{%else%}❌{%endif%} 📃 Documents
+      animation: |
+        {%if 'animation' in bot.types%}✅{%else%}❌{%endif%} 🐈 Animations
+      photo: |
+        {%if 'photo' in bot.types%}✅{%else%}❌{%endif%} 🖼️ Photos
+      sticker: |
+        {%if 'sticker' in bot.types%}✅{%else%}❌{%endif%} ❤️ Stickers
+      video: |
+        {%if 'video' in bot.types%}✅{%else%}❌{%endif%} 📺 Videos
+      voice: |
+        {%if 'voice' in bot.types%}✅{%else%}❌{%endif%} 🎧 Voices
+      video_note: |
+        {%if 'video_note' in bot.types%}✅{%else%}❌{%endif%} 🤳 Videonotes
+      contact: |
+        {%if 'contact' in bot.types%}✅{%else%}❌{%endif%} 📇 Contacts
+      location: |
+        {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ Locations
+      venue: |
+        {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 Venues
+      forwards: |
+        {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ Allow forwards
+  messages: |
+    📝 Messages settings
+  broadcast: |
+    🎙️ Broadcasting
+  logs: |
+    📊 Logs and statistics
+  integrations: |
+    🔗 Integrations
+  token: |
+    🔑 Change token
+  delete:
+    btn: |
+      ❌ Remove
+    text: |
+      🔸 Remove @{{bot.username}} from system?
+
+      ⚠️ <b>Внимание!</b> Это удалит настройки, логи статистику и все связанные с ботом данные!
+
+      ⚠️ <b>Внимание!</b> Это действие нельзя будет отменить!
+      {%if step=='two'%}
+      <b>📛📛📛 Ты правда в этом уверен?!</b>{%endif%}
+    deleted: |
+      🔸 Бот @{{bot.username}} удален из системы.
+    positives:
+      1: Yes.
+      2: Yes, i shure!
+    negatives:
+      1: Нет!
+      2: Ну нет же!
+      3: Никогда!
+      4: Я передумал!
+      5: В другой раз!
+      6: Нет! Нет! Нет!
+      7: Ни за что!
+      8: Это ошибка!
+
+group:
+  welcome: |
+    🔹 Hi! I'm technical support bot.
+
+    Чтобы авторизовать меня в этой группе, владелец бота должен выполнить команду /authorize@{{bot.username}}.
+  auth:
+    ok: |
+      🔹 Bot was authorized. Теперь сообщения будут приходить в эту группу.
+
+      Чтобы получить помощь по командам нажми /help.
+    already: |
+      🔹 Бот уже авторизован в этой группе.
+    other: |
+      🔹 Бот авторизован в другой группе.
+    deny: |
+      🔹 ⚠️ Авторизовать бота может только его владелец.
+    removed: |
+      🔹 Авторизация удалена.
+  channel: |
+    🔹 ⚠️ Этот бот не предназначен для использования в каналах!
+
+member:
+  help: |
+    🔹 How to use?
+
+    Сообщения от пользователей вашего бота будут пересылаться сюда.
+
+    Чтобы ответить пользователю, нужно ответить на пересланное сообщение.
+
+    /info в ответ на сообщение пользователя выводит информацию о пользователе и его настройки.
+  fail: |
+    🔹 ⚠️ Не могу получить информацию о пользователе. Сообщение не отпрравлено.
+  failcmd: |
+    🔹 ⚠️ Не могу получить информацию об этом сообщении.
+  info: |
+    🔹 Information about user(when message was delivired):
+
+    <b>ID</b>: {{request.user_id}}
+    <b>Name</b>: {{request.user.first_name}}{%if request.user.last_name %} / {{request.user.last_name}}{%endif%}
+    <b>Language</b>: {{request.user.language_code}}
+
+    Actual information: /user_{{request.user_id}}
+    Ban: /ban_{{request.user_id}}
+  userfail: |
+    🔹 ⚠️ Can't get information about user.
+  user: |
+    🔹 Information about user:
+
+    <b>ID</b>: {{user.user_id}}
+    <b>Name</b>: {{user.first_name}}{%if user.last_name %} / {{user.last_name}}{%endif%}
+    <b>Language</b>: {{user.language_code}}
+
+    <b>Created:</b> {{user.created|elapsed}}
+    <b>Last message:</b> {{user.last_message|elapsed}}
+
+    <b>Messages</b>: {{requests}}
+    <b>Replies</b>: {{responses}}
+
+    <b>Banned</b>: {%if user.is_banned%}<b>⚠️ Yes!</b>{%else%}No{%endif%}
+
+    Ban: /ban_{{user.user_id}}
+  ban: |
+    🔹 User {{user.user_id}} <b>{% if user.is_banned%}⚠️ banned{%else%}unbanned{%endif%}</b>!
+
+
+user:
+  welcome: |
+    🔹 Welcome!
+
+    Send here a message and it will be send to technical support group.
+  sent: |
+    🔸 Message was sent.
+  forward: |
+    🔹 ⚠️ Forbid to forward messages here.
+  type: |
+    🔹 ⚠️ Message was not sent
+
+    You can send following message types:
+
+    {{T('user/types', bot=bot)}}
+  types: |
+    {%if 'text' in bot.types%}📝 Text{{'\n'}}{%endif-%}
+    {%if 'audio' in bot.types%}💽 Audio{{'\n'}}{%endif-%}
+    {%if 'document' in bot.types%}📃 Documents{{'\n'}}{%endif-%}
+    {%if 'animation' in bot.types%}🐈 Animations{{'\n'}}{%endif-%}
+    {%if 'photo' in bot.types%}🖼️ Photos{{'\n'}}{%endif-%}
+    {%if 'sticker' in bot.types%}❤️ Stickers{{'\n'}}{%endif-%}
+    {%if 'video' in bot.types%}📺 Videos{{'\n'}}{%endif-%}
+    {%if 'voice' in bot.types%}🎧 Voices{{'\n'}}{%endif-%}
+    {%if 'video_note' in bot.types%}🤳 Videonotes{{'\n'}}{%endif-%}
+    {%if 'contact' in bot.types%}📇 Contacts{{'\n'}}{%endif-%}
+    {%if 'location' in bot.types%}🛰️ Locations{{'\n'}}{%endif-%}
+    {%if 'venue' in bot.types%}🏬 Venues{%endif-%}
+
+messages:
+  text: |
+    🔹 Message settings for @{{bot.username}}.
+
+    В этом разделе ты можешь задать свои сообщения для пользователей.
+
+    ❓ Можно задать время через которое пользователю снова придет уведомление что сообщение отправлено.
+    ❓ Для сообщения `{{T('messages/select/type')}}` нужно вставить <b>[TYPES]</b> в то место, где будет список поддерживаемых типов.
+
+    🔹 Выбери соответствующее сообщение снизу и потом его можно будет отредактировать или вернуть стандартное.
+
+  edition: |
+    🔹 Edition `{{T('messages/select/'+selected)}}` for @{{bot.username}}.
+
+    Отправь новое сообщение и оно будет сохранено.
+    Для отмены редактирования нажми /cancel.
+
+    You can use html-like syntax for formatting:
+
+    <b>bold text</b>
+    <code>&lt;b&gt;bold&lt;/b&gt; or &lt;strong&gt;bold&lt;/strong&gt;</code>
+
+    <i>italic text</i>
+    <code>&lt;i&gt;italic&lt;/i&gt; or &lt;em&gt;italic&lt;/em&gt;</code>
+
+    <a href="http://www.example.com/">inline URL</a>
+    <code>&lt;a href="http://www.example.com/"&gt;inline URL&lt;/a&gt;</code>
+
+    <code>inline fixed-width</code>
+    <code>&lt;code&gt;inline fixed-width&lt;/code&gt;</code>
+
+    <pre>pre-formatted fixed-width block</pre>
+    <code>&lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</code>
+  error: |
+      🔹 There was error while sending message probably becouse invalid formatting.
+
+      <code>{{error}}</code>
+
+      🔹 Fix formatting and send your message again.
+
+      🔹 Для отмены редактирования нажми /cancel.
+  edit: |
+    ✍️ Edit
+  revert: |
+    🔙 Revert
+  sent:
+    header: |
+      🕔 Repeat every:
+    value: |
+      {%if bot.sent_delay == 0%}Всегда{%else%}{{bot.sent_delay}}m{%endif%}
+    minus: |
+      ⏪
+    plus: |
+      ⏩
+  select:
+    welcome: |
+      {%if selected%}🔺️ {%endif%}👋 Welcome
+    sent: |
+      {%if selected%}🔺️ {%endif%}📨 Sent
+    forward: |
+      {%if selected%}🔺️ {%endif%}⏩ Forward
+    type: |
+      {%if selected%}🔺️ {%endif%}🆎 Type
