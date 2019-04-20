@@ -1,7 +1,7 @@
 welcome: |
   🔸 @LastSupportBot v{{version}}.
 
-  Добро пожаловать в бот-фабрику ботов технической поддержки.
+  Welcome to the bot technical support.
 
   <b>Avaliable commands:</b>
 
@@ -10,19 +10,20 @@ welcome: |
 
   /language - Change language.
 
-  По вопросам технической поддержки, а так же чтобы посмотреть как это работает в живую, обращайся в @RocketBotsBot.
+  For technical support, as well as to see how it works live, please contact @RocketBotsBot.
 
 premium:
   alert: |
     🔹 Avaliable in premium mode.
 
   text: |
-    🔹 Следующие функции бота доступны только в премиум-варианте:
+    🔹 The following bot features are only available in the premium version:
 
-      🔸 Рассылки
-      🔸 Логи и статистика
+      🔸 Broadcast
+      🔸 Logs and statistics
+      
 
-    Если вы эти функции вам нужны или вы хотите интегрировать этот бот в свою систему поддержки пользователей, обратитесь с вашим вопросом в @RocketBotsBot.
+     If you need these features or you want to integrate this bot into your user support system, please contact me with your question at @RocketBotsBot.
 
 common:
   btn:
@@ -41,8 +42,11 @@ lang:
   text: |
     🔹 At the moment I speak with you in English. Which language do you want me to switch to?
 
-    ❓ Смена языка не влияет на язык уже созданных ботов.
-    Поменять язык уже созданного ботов можно в настройке этого бота.
+    ❓ Changing the language does not affect the language of already created bots..
+
+45
+
+    You can change the language of the already created bots in the settings of this bot.
   ok: |
     🔹 In english now.
 
@@ -52,7 +56,7 @@ mybots:
   nobots: |
     🔹 You don't have any bots.
 
-    Чтобы добавить нового используй команду /newbot.
+    To add a new team use /newbot.
   bot: |
     {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
 
@@ -60,34 +64,34 @@ newbot:
   token: |
     🔸 Adding new bot.
 
-    Для начала, нужно создать нового бота у @BotFather или воспльзоваться старым.
+    For starters, you need to create a new bot from @BotFather.
 
     Send me token or simply forward message with token from BotFather.
 
-    Чтобы отменить добавление бота нажми /cancel.
+    To cancel the addition of a bot click /cancel.
   fail: |
     🔸 ⚠️ Unable to authorize your bot.
 
-    Проверь отправленный token и попробуй еще раз.
+    Check sent token and try again.
 
-    Чтобы отменить добавление бота нажми /cancel.
+    To cancel the addition of a bot click /cancel.
   exist: |
     🔸 ⚠️ This bot already registred here.
 
-    Нельзя один бот добавить два раза.
+    You can not add one bot twice.
 
-    Чтобы отменить добавление бота нажми /cancel.
+    To cancel the addition of a bot click /cancel.
 
   ok: |
     🔸 Bot @{{bot.username}} checked and added.
 
-    Теперь его можно настроить.
+    Now you can configure it.
 
 manage:
   text: |
     @{{bot.username}}
 
-    Status: {%if bot.active%}🎾 Включен{%else%}🏐️ Выключен{%endif%}
+    Status: {%if bot.active%}🎾 Included{%else%}🏐️ Switched off{%endif%}
     Created: {{bot.created|elapsed}}
     Language: {{bot.language}}
 
@@ -101,32 +105,32 @@ manage:
 
       Current language: {{bot.language}}
 
-      ❓ Смена языка не влияет на язык бота-конструктора, а так же на других созданных ботов.
+      ❓ Changing the language does not affect the language of the bot designe, as well as other created bots..
   start:
     start: |
       ▶️ Start
     started:
-      🔸 Bot @{{bot.username}} was started. Через несколько секунд он начнет работать.
+      🔸 Bot @{{bot.username}} was started. In a few seconds, it will start working.
     already: |
       🔸 Bot @{{bot.username}} already started and working.
   stop:
     stop: |
       ⏹ Stop
     stopped:
-      🔸 Bot @{{bot.username}} stopped. Он больше не будет обрабатывать сообщения.
+      🔸 Bot @{{bot.username}} stopped. It will no longer process messages..
     already: |
       🔸 Bot @{{bot.username}} already stopped.
   group:
     group: |
       👫 Group's settings
     text: |
-      🔹 Ты можешь добавить @{{bot.username}} в группу чтобы отвечать на сообщения могли не только ты, но и все участники группы.
+      🔹 You can add @{{bot.username}} in group to answer the messages not only to you but to all members of the group.
 
-      Добавь бота в группу и выполни команду /authorize@{{bot.username}}.
+      Add a bot to the group and execute the command /authorize@{{bot.username}}.
 
-      ⚠️ Бот одновременно может работать только в одной группе. Можно добавить несколько разных ботов в одну группу.
+      ⚠️ A bot can only work in one group at a time.. You can add several different bots to the same group.
 
-      Your group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Не задана</i>{%endif%}
+      Your group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Not set</i>{%endif%}
     leave: |
       🚶 Disagle & leave
     leaved: |
@@ -137,7 +141,7 @@ manage:
     text: |
       🔹 Message types settings for @{{bot.username}}.
 
-      Тут ты можешь выбрать типы сообщений, которые пользователи могут присылать в твой бот.
+      Here you can choose the types of messages, which users can send to your bot.
     types:
       text: |
         {%if 'text' in bot.types%}✅{%else%}❌{%endif%} 📝 Text
@@ -181,60 +185,69 @@ manage:
     text: |
       🔸 Remove @{{bot.username}} from system?
 
-      ⚠️ <b>Внимание!</b> Это удалит настройки, логи статистику и все связанные с ботом данные!
+      ⚠️ <b>Attention!</b> This will remove the settings., logs statistics and all data associated with the bot!
 
-      ⚠️ <b>Внимание!</b> Это действие нельзя будет отменить!
+188
+
+      ⚠️ <b>Attention!</b> This will remove the settings., logs statistics and all data associated with the bot!
+
+188
+
+one
+
+
+      ⚠️ <b>Attention!</b> This action cannot be undone!
       {%if step=='two'%}
-      <b>📛📛📛 Ты правда в этом уверен?!</b>{%endif%}
+      <b>📛📛📛 Are you really sure?!</b>{%endif%}
     deleted: |
-      🔸 Бот @{{bot.username}} удален из системы.
+      🔸 Are you really sure @{{bot.username}} deleted from the system.
     positives:
       1: Yes.
-      2: Yes, i shure!
+      2: Yes, i am sure!
     negatives:
-      1: Нет!
-      2: Ну нет же!
-      3: Никогда!
-      4: Я передумал!
-      5: В другой раз!
-      6: Нет! Нет! Нет!
-      7: Ни за что!
-      8: Это ошибка!
+      1: No!
+      2: Hell no!
+      3: Never!
+      4: I changed my mind!
+      5: Next time!
+      6: No! No! No!
+      7: Never!
+      8: This is a mistake!
 
 group:
   welcome: |
-    🔹 Hi! I'm technical support bot.
+    🔹 Hi! I'm a technical support bot.
 
-    Чтобы авторизовать меня в этой группе, владелец бота должен выполнить команду /authorize@{{bot.username}}.
+    To authorize me in this group, the bot owner must execute the command /authorize@{{bot.username}}.
   auth:
     ok: |
-      🔹 Bot was authorized. Теперь сообщения будут приходить в эту группу.
+      🔹 Bot was authorized. Now messages will come to this group..
 
-      Чтобы получить помощь по командам нажми /help.
+      For command help click /help.
     already: |
-      🔹 Бот уже авторизован в этой группе.
+      🔹 This bot is already authorized in this group.
     other: |
-      🔹 Бот авторизован в другой группе.
+      🔹 Bot is authorized in another group.
     deny: |
-      🔹 ⚠️ Авторизовать бота может только его владелец.
+      🔹 ⚠️ Only the owner of the bot can authorize it.
     removed: |
-      🔹 Авторизация удалена.
+      🔹 Authorization deleted.
   channel: |
-    🔹 ⚠️ Этот бот не предназначен для использования в каналах!
+    🔹 ⚠️ This bot is not intended for use in channels!
 
 member:
   help: |
     🔹 How to use?
 
-    Сообщения от пользователей вашего бота будут пересылаться сюда.
+    Messages from users of your bot will be sent here.
 
-    Чтобы ответить пользователю, нужно ответить на пересланное сообщение.
+    To reply to the user, you must reply to the forwarded message..
 
-    /info в ответ на сообщение пользователя выводит информацию о пользователе и его настройки.
+    /info in response to the user's message displays information about the user and his settings.
   fail: |
-    🔹 ⚠️ Не могу получить информацию о пользователе. Сообщение не отпрравлено.
+    🔹 ⚠️ I can not get information about the user. Message not sent.
   failcmd: |
-    🔹 ⚠️ Не могу получить информацию об этом сообщении.
+    🔹 ⚠️ I can not get information about this message.
   info: |
     🔹 Information about user(when message was delivired):
 
@@ -299,18 +312,18 @@ messages:
   text: |
     🔹 Message settings for @{{bot.username}}.
 
-    В этом разделе ты можешь задать свои сообщения для пользователей.
+    In this section you can set your messages for users..
 
-    ❓ Можно задать время через которое пользователю снова придет уведомление что сообщение отправлено.
-    ❓ Для сообщения `{{T('messages/select/type')}}` нужно вставить <b>[TYPES]</b> в то место, где будет список поддерживаемых типов.
+    ❓ You can set the time after which the user will receive a notification again after the message has been sent..
+    ❓ For the message `{{T('messages/select/type')}}` need to insert <b>[TYPES]</b> to the place where the list of supported types will be.
 
-    🔹 Выбери соответствующее сообщение снизу и потом его можно будет отредактировать или вернуть стандартное.
+    🔹 Select the appropriate message from the bottom and then you can edit it or return the standard one..
 
   edition: |
     🔹 Edition `{{T('messages/select/'+selected)}}` for @{{bot.username}}.
 
-    Отправь новое сообщение и оно будет сохранено.
-    Для отмены редактирования нажми /cancel.
+    Send a new message and it will be saved.
+    To cancel editing click /cancel.
 
     You can use html-like syntax for formatting:
 
@@ -335,7 +348,7 @@ messages:
 
       🔹 Fix formatting and send your message again.
 
-      🔹 Для отмены редактирования нажми /cancel.
+      🔹 To cancel editing click /cancel.
   edit: |
     ✍️ Edit
   revert: |
@@ -344,7 +357,7 @@ messages:
     header: |
       🕔 Repeat every:
     value: |
-      {%if bot.sent_delay == 0%}Всегда{%else%}{{bot.sent_delay}}m{%endif%}
+      {%if bot.sent_delay == 0%}Is always{%else%}{{bot.sent_delay}}m{%endif%}
     minus: |
       ⏪
     plus: |
