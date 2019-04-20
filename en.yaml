@@ -21,7 +21,6 @@ premium:
 
       🔸 Broadcast
       🔸 Logs and statistics
-      
 
      If you need these features or you want to integrate this bot into your user support system, please contact me with your question at @RocketBotsBot.
 
@@ -38,15 +37,18 @@ common:
     May be /help?
   unknown_bot: |
     🔹 Unknown bot.
+
 lang:
   text: |
     🔹 At the moment I speak with you in English. Which language do you want me to switch to?
 
-    ❓ Changing the language does not affect the language of already created bots..
-
-45
+    ❓ Changing the language does not affect the language of already created bots.
 
     You can change the language of the already created bots in the settings of this bot.
+
+    <i>If you want to spaek with bot in your language, you can translate it here:</i>
+
+    https://github.com/vd2org/lastsupport-templates
   ok: |
     🔹 In english now.
 
@@ -105,7 +107,7 @@ manage:
 
       Current language: {{bot.language}}
 
-      ❓ Changing the language does not affect the language of the bot designe, as well as other created bots..
+      ❓ Changing the language does not affect the language of the bot designe, as well as other created bots.
   start:
     start: |
       ▶️ Start
@@ -117,7 +119,7 @@ manage:
     stop: |
       ⏹ Stop
     stopped:
-      🔸 Bot @{{bot.username}} stopped. It will no longer process messages..
+      🔸 Bot @{{bot.username}} stopped. It will no longer process messages.
     already: |
       🔸 Bot @{{bot.username}} already stopped.
   group:
@@ -128,7 +130,7 @@ manage:
 
       Add a bot to the group and execute the command /authorize@{{bot.username}}.
 
-      ⚠️ A bot can only work in one group at a time.. You can add several different bots to the same group.
+      ⚠️ A bot can only work in one group at a time. You can add several different bots to the same group.
 
       Your group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Not set</i>{%endif%}
     leave: |
@@ -185,16 +187,7 @@ manage:
     text: |
       🔸 Remove @{{bot.username}} from system?
 
-      ⚠️ <b>Attention!</b> This will remove the settings., logs statistics and all data associated with the bot!
-
-188
-
-      ⚠️ <b>Attention!</b> This will remove the settings., logs statistics and all data associated with the bot!
-
-188
-
-one
-
+      ⚠️ <b>Attention!</b> This will remove the settings, logs statistics and all data associated with the bot!
 
       ⚠️ <b>Attention!</b> This action cannot be undone!
       {%if step=='two'%}
@@ -221,7 +214,7 @@ group:
     To authorize me in this group, the bot owner must execute the command /authorize@{{bot.username}}.
   auth:
     ok: |
-      🔹 Bot was authorized. Now messages will come to this group..
+      🔹 Bot was authorized. Now messages will come to this group.
 
       For command help click /help.
     already: |
@@ -241,7 +234,7 @@ member:
 
     Messages from users of your bot will be sent here.
 
-    To reply to the user, you must reply to the forwarded message..
+    To reply to the user, you must reply to the forwarded message.
 
     /info in response to the user's message displays information about the user and his settings.
   fail: |
@@ -278,7 +271,6 @@ member:
   ban: |
     🔹 User {{user.user_id}} <b>{% if user.is_banned%}⚠️ banned{%else%}unbanned{%endif%}</b>!
 
-
 user:
   welcome: |
     🔹 Welcome!
@@ -312,12 +304,12 @@ messages:
   text: |
     🔹 Message settings for @{{bot.username}}.
 
-    In this section you can set your messages for users..
+    In this section you can set your messages for users.
 
-    ❓ You can set the time after which the user will receive a notification again after the message has been sent..
+    ❓ You can set the time after which the user will receive a notification again after the message has been sent.
     ❓ For the message `{{T('messages/select/type')}}` need to insert <b>[TYPES]</b> to the place where the list of supported types will be.
 
-    🔹 Select the appropriate message from the bottom and then you can edit it or return the standard one..
+    🔹 Select the appropriate message from the bottom and then you can edit it or return the standard one.
 
   edition: |
     🔹 Edition `{{T('messages/select/'+selected)}}` for @{{bot.username}}.
