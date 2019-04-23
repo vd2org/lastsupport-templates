@@ -179,8 +179,25 @@ manage:
     📊 Logs and statistics
   integrations: |
     🔗 Integrations
-  token: |
-    🔑 Change token
+  token:
+    btn: |
+      🔑 Change token
+    active: |
+      ⚠️ You should stop bot before update token!
+    enter: |
+      🔸 Updating bot's token.
+
+      Send me token or simply forward message with token from BotFather.
+
+      To cancel the updation click /cancel.
+    otherbot: |
+      🔸 ⚠️ You can't use token of another bot.
+
+      Check sent token and try again.
+
+      To cancel the updation click /cancel.
+    updated: |
+      🔸 Token was successfully updated.
   delete:
     btn: |
       ❌ Remove
