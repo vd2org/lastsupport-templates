@@ -206,6 +206,10 @@ manage:
       6: No! No! No!
       7: Never!
       8: This is a mistake!
+  auth: |
+    ‼️‼️ Your bot @{{bot.username}} was stoped due to authorization fail.
+
+    To continue work you should update api-key of the bot.
 
 group:
   welcome: |
