@@ -40,6 +40,8 @@ common:
     May be /help?
   unknown_bot: |
     🔹 Unknown bot.
+  edition: |
+    🔸 Edition not supported.
 
 lang:
   text: |
