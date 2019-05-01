@@ -21,8 +21,11 @@ premium:
 
       🔸 Broadcast
       🔸 Logs and statistics
+    {%-if bot.premium%}
 
-     If you need these features or you want to integrate this bot into your user support system, please contact me with your question at @RocketBotsBot.
+    Your premium for @{{bot.username}} was expired: {{bot.premium|elapsed}}{%endif%}
+
+    If you need these features or you want to integrate this bot into your user support system, please contact me with your question at @RocketBotsBot.
 
 common:
   btn:
@@ -93,9 +96,11 @@ manage:
   text: |
     @{{bot.username}}
 
-    Status: {%if bot.active%}🎾 Included{%else%}🏐️ Switched off{%endif%}
+    Status: {%if bot.active%}🎾 Running{%else%}🏐️ Switched off{%endif%}
     Created: {{bot.created|elapsed}}
     Language: {{bot.language}}
+    {%-if bot.premium and bot.premium > now()%}
+    Premium: {{bot.premium|remaining}}{%endif%}
 
     Group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>None</i>{%endif%}
 
@@ -355,13 +360,13 @@ messages:
     <pre>pre-formatted fixed-width block</pre>
     <code>&lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</code>
   error: |
-      🔹 There was error while sending message probably becouse invalid formatting.
+    🔹 There was error while sending message probably becouse invalid formatting.
 
-      <code>{{error}}</code>
+    <code>{{error}}</code>
 
-      🔹 Fix formatting and send your message again.
+    🔹 Fix formatting and send your message again.
 
-      🔹 To cancel editing click /cancel.
+    🔹 To cancel editing click /cancel.
   edit: |
     ✍️ Edit
   revert: |
@@ -384,3 +389,125 @@ messages:
       {%if selected%}🔺️ {%endif%}⏩ Forward
     type: |
       {%if selected%}🔺️ {%endif%}🆎 Type
+
+broadcast:
+  btn:
+    new: |
+      🆕 New
+    view: |
+      👀 View
+    start: |
+      ▶️ Start
+    pause: |
+      ⏸ Pause
+    stop: |
+      🛑 Stop
+    delete: |
+      ❌ Delete
+    archive: |
+      📚 Archive
+    preview: |
+      👀 Link previews: {%if broadcast.data.preview%}On{%else%}Off{%endif%}
+    buttons: |
+      ⌨ Add keyboard
+    delbtns: |
+      ️❌ Remove keyboard
+    refresh: |
+      🔄 Refresh
+
+  keyboard:
+    set: |
+      🔹 Send me keyboard for add to post in following format:
+
+      <code>Caption = http://example.com/</code>
+
+      You can use from <b>1</b> to <b>12</b> buttons.
+
+      For cancel hit /cancel.
+    toomany: |
+      🔹 Too many buttons.
+      You can use from <b>1</b> to <b>12</b> buttons.
+    error: |
+      🔹 There was error while setting keyboard probably becouse invalid formatting.
+      {%if error%}
+      <code>{{error}}</code>
+      {%endif%}
+
+      Try to fix formatting and send your keyboard again or hit /cancel.
+    saved: |
+      🔹 Keyboard was saved.
+
+  states:
+    new: |
+      🆕 NEW
+    started: |
+      ▶️ RUNNING
+    paused: |
+      ⏸ PAUSED
+    stopped: |
+      ⏹ STOPPED
+    finished: |
+      ☑️ FINISHED
+
+  unknown: |
+    🔸 Unknown broadcast!
+
+  exist: |
+    🔸 Only one active broadcast can be created!
+
+  main: |
+    🔹 Broadcast for @{{bot.username}}
+    {%if current%}
+    Broadcast: #{{current._id}}
+    {%if current.started%}Started: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}
+    State: <b>{{T('broadcast/states/'+current.state)}}</b>
+    {%if current.users.total%}Sent: <b>{{current.users.sent}}</b> of <b>{{current.users.total}}</b> and <b>{{current.users.errors}}</b> errors{%endif%}
+    {%else%}
+    No active broadcasts yet.
+
+    ❓ Only one active broadcast can be created at same time.
+
+    ❓ Broadcast commands(start, pause, stop) can take up to one minute to process.
+
+    ❓ After finish your broadcast will be moved to archive.
+    {%endif%}
+
+  new: |
+    🔸 New broadcast for @{{bot.username}}
+
+    Send me new message or hit /cancel.
+
+    <b>HTML-style formatting help:</b>
+
+    <b>bold text</b>
+    <code>&lt;b&gt;bold&lt;/b&gt; or &lt;strong&gt;bold&lt;/strong&gt;</code>
+
+    <i>italic text</i>
+    <code>&lt;i&gt;italic&lt;/i&gt; or &lt;em&gt;italic&lt;/em&gt;</code>
+
+    <a href="http://www.example.com/">inline URL</a>
+    <code>&lt;a href="http://www.example.com/"&gt;inline URL&lt;/a&gt;</code>
+
+    <code>inline fixed-width</code>
+    <code>&lt;code&gt;inline fixed-width&lt;/code&gt;</code>
+
+    <pre>pre-formatted fixed-width block</pre>
+    <code>&lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</code>
+  notsupport: |
+    🔸 Bot supports only text messages. Try again or hit /cancel.
+  error: |
+    🔹 There was error while creating post probably because invalid formatting.
+
+    <code>{{error}}</code>
+
+    🔹 Try to fix formatting and send your post again or hit /cancel.
+  created: |
+    🔸 Your new broadcast was created.
+  deleted: |
+    🔸 Your new broadcast #{{broadcast._id}} was deleted.
+  started: |
+    🔸 Your broadcast #{{broadcast._id}} was started.
+  paused: |
+    🔸 Your broadcast #{{broadcast._id}} was paused.
+  stopped: |
+    🔸 Your broadcast #{{broadcast._id}} was stopped.
