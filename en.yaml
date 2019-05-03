@@ -114,7 +114,7 @@ manage:
 
       Current language: {{bot.language}}
 
-      ❓ Changing the language does not affect the language of the bot designe, as well as other created bots.
+      ❓ Changing the language does not affect the language of the bot design, as well as other created bots.
   start:
     start: |
       ▶️ Start
@@ -153,9 +153,9 @@ manage:
       Here you can choose the types of messages, which users can send to your bot.
     types:
       text: |
-        {%if 'text' in bot.types%}✅{%else%}❌{%endif%} 📝 Text
+        {%if 'text' in bot.types%}✅{%else%}❌{%endif%} 📝 Texts
       audio: |
-        {%if 'audio' in bot.types%}✅{%else%}❌{%endif%} 💽 Audio
+        {%if 'audio' in bot.types%}✅{%else%}❌{%endif%} 💽 Audios
       document: |
         {%if 'document' in bot.types%}✅{%else%}❌{%endif%} 📃 Documents
       animation: |
@@ -270,7 +270,7 @@ member:
   failcmd: |
     🔹 ⚠️ I can not get information about this message.
   info: |
-    🔹 Information about user(when message was delivired):
+    🔹 Information about user(when message was delivered):
 
     <b>ID</b>: {{request.user_id}}
     <b>Name</b>: {{request.user.first_name}}{%if request.user.last_name %} / {{request.user.last_name}}{%endif%}
@@ -362,7 +362,7 @@ messages:
     <pre>pre-formatted fixed-width block</pre>
     <code>&lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</code>
   error: |
-    🔹 There was error while sending message probably becouse invalid formatting.
+    🔹 There was error while sending message probably because invalid formatting.
 
     <code>{{error}}</code>
 
@@ -430,7 +430,7 @@ broadcast:
       🔹 Too many buttons.
       You can use from <b>1</b> to <b>12</b> buttons.
     error: |
-      🔹 There was error while setting keyboard probably becouse invalid formatting.
+      🔹 There was error while setting keyboard probably because invalid formatting.
       {%if error%}
       <code>{{error}}</code>
       {%endif%}
