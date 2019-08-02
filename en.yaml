@@ -152,6 +152,8 @@ manage:
     text: |
       🔹 Message types settings for @{{bot.username}}.
 
+      ❓ Use delay if you users sends messages though defective inline bots.
+
       Here you can choose the types of messages, which users can send to your bot.
     types:
       text: |
@@ -180,6 +182,8 @@ manage:
         {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 Venues
       forwards: |
         {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ Allow forwards
+      delay: |
+        {%if bot.message_delay%}✅{%else%}❌{%endif%} ⏸ Delay
   messages: |
     📝 Messages settings
   broadcast: |
