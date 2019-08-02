@@ -477,7 +477,7 @@ broadcast:
 
     ❓ Broadcast commands(start, pause, stop) can take up to one minute to process.
 
-    ❓ After finish your broadcast will be moved to archive.
+    ❓ Finished broadcasts will be moved to archive.
     {%endif%}
 
   new: |
@@ -504,7 +504,7 @@ broadcast:
   notsupport: |
     🔸 Bot supports only text messages. Try again or hit /cancel.
   error: |
-    🔹 There was error while creating post probably because invalid formatting.
+    🔹 There was an error while creating post probably because invalid formatting.
 
     <code>{{error}}</code>
 
