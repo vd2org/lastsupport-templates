@@ -14,21 +14,6 @@ welcome: |
 
   News and updates: @RocketBotsNews
 
-premium:
-  alert: |
-    🔹 Avaliable in premium mode.
-
-  text: |
-    🔹 The following bot features are only available in the premium version:
-
-      🔸 Broadcast
-      🔸 Logs and statistics
-    {%-if bot.premium%}
-
-    Your premium for @{{bot.username}} was expired: {{bot.premium|elapsed}}{%endif%}
-
-    If you need these features or you want to integrate this bot into your user support system, please contact me with your question at @RocketBotsBot.
-
 common:
   btn:
     back: |
@@ -103,8 +88,6 @@ manage:
     Status: {%if bot.active%}🎾 Running{%else%}🏐️ Switched off{%endif%}
     Created: {{bot.created|elapsed}}
     Language: {{bot.language}}
-    {%-if bot.premium and bot.premium > now()%}
-    Premium: {{bot.premium|remaining}}{%endif%}
 
     Group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>None</i>{%endif%}
 
