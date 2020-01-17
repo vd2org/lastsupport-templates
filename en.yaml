@@ -75,7 +75,6 @@ newbot:
     You can not add one bot twice.
 
     To cancel the addition of a bot click /cancel.
-
   ok: |
     🔸 Bot @{{bot.username}} checked and added.
 
@@ -90,7 +89,6 @@ manage:
     Language: {{bot.language}}
 
     Group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>None</i>{%endif%}
-
   language:
     language: |
       🌏 Language
@@ -110,7 +108,7 @@ manage:
   stop:
     stop: |
       ⏹ Stop
-    stopped:
+    stopped: |
       🔸 Bot @{{bot.username}} stopped. It will no longer process messages.
     already: |
       🔸 Bot @{{bot.username}} already stopped.
@@ -327,7 +325,6 @@ messages:
     ❓ For the message `{{T('messages/select/type')}}` need to insert <b>[TYPES]</b> to the place where the list of supported types will be.
 
     🔹 Select the appropriate message from the bottom and then you can edit it or return the standard one.
-
   edition: |
     🔹 Edition `{{T('messages/select/'+selected)}}` for @{{bot.username}}.
 
@@ -417,6 +414,7 @@ broadcast:
       For cancel hit /cancel.
     toomany: |
       🔹 Too many buttons.
+
       You can use from <b>1</b> to <b>12</b> buttons.
     error: |
       🔹 There was error while setting keyboard probably because invalid formatting.
@@ -462,7 +460,6 @@ broadcast:
 
     ❓ Finished broadcasts will be moved to archive.
     {%endif%}
-
   new: |
     🔸 New broadcast for @{{bot.username}}
 
