@@ -1,0 +1,501 @@
+chào mừng: |
+  🔸 @LastSupportBot v {{version}}.
+
+  Chào mừng đến với hỗ trợ kỹ thuật bot.
+
+  <b> Các lệnh khả dụng: </b>
+
+  / newbot - Thêm bot mới.
+  / mybots - Hiển thị bot.
+
+  / language - Thay đổi ngôn ngữ.
+
+  Để được hỗ trợ kỹ thuật, cũng như để xem cách nó hoạt động trực tiếp, vui lòng liên hệ với @RocketBotsBot.
+
+  Tin tức và cập nhật: @RocketBotsNews
+
+chung:
+  btn:
+    trở lại: |
+      ↩️
+  langname: |
+    🇻🇳 tiếng việt
+  bị hủy: |
+    🔹 Đã hủy. Tiếp theo là gì?
+  không rõ: |
+    🔹 Lệnh không xác định.
+    Có thể được / giúp đỡ?
+  chưa biết_bot: |
+    🔹 Bot không xác định.
+  ấn bản: |
+    🔸 Phiên bản không được hỗ trợ.
+
+lang:
+  văn bản: |
+    🔹 Hiện tại tôi đang nói chuyện với bạn bằng tiếng Anh. Bạn muốn tôi chuyển sang ngôn ngữ nào?
+
+    ❓ Thay đổi ngôn ngữ không ảnh hưởng đến ngôn ngữ của các bot đã được tạo.
+
+    Bạn có thể thay đổi ngôn ngữ của các bot đã được tạo trong phần cài đặt của bot này.
+
+    <i> Nếu bạn muốn nói chuyện với bot bằng ngôn ngữ của mình, bạn có thể dịch nó tại đây: </i>
+
+    https://github.com/vd2org/lastsupport-templates
+  ok: |
+    🔹 Bây giờ bằng tiếng Anh.
+
+mybots:
+  bot: |
+    🔹 Các bot của bạn:
+  nobots: |
+    🔹 Bạn không có bất kỳ bot nào.
+
+    Để thêm một nhóm mới sử dụng / newbot.
+  bot: |
+    {% if bot.active%} 🎾 {% else%} 🏐️ {% endif%} {{bot.username}}
+
+newbot:
+  mã thông báo: |
+    🔸 Thêm bot mới.
+
+    Để bắt đầu, bạn cần tạo một bot mới từ @BotFather.
+
+    Gửi cho tôi mã thông báo hoặc đơn giản là chuyển tiếp tin nhắn với mã thông báo từ BotFather.
+
+    Để hủy bỏ việc thêm bot nhấp / hủy.
+  thất bại: |
+    🔸 ⚠️ Không thể ủy quyền cho bot của bạn.
+
+    Kiểm tra mã thông báo đã gửi và thử lại.
+
+    Để hủy bỏ việc thêm bot nhấp / hủy.
+  tồn tại: |
+    🔸 ⚠️ Bot này đã được đăng ký ở đây.
+
+    Bạn không thể thêm một bot hai lần.
+
+    Để hủy bỏ việc thêm bot nhấp / hủy.
+  ok: |
+    🔸 Bot @ {{bot.username}} đã kiểm tra và thêm.
+
+    Bây giờ bạn có thể cấu hình nó.
+
+quản lý:
+  văn bản: |
+    @ {{bot.username}}
+
+    Trạng thái: {% if bot.active%} 🎾 Đang chạy {% else%} 🏐️ Đã tắt {% endif%}
+    Đã tạo: {{bot.create | elapsed}}
+    Ngôn ngữ: {{bot.language}}
+
+    Nhóm: {% if bot.group%} {{bot.group.title | Escape}} {% else%} <i> Không có </i> {% endif%}
+  ngôn ngữ:
+    ngôn ngữ: |
+      🌏 Ngôn ngữ
+    văn bản: |
+      🔹 Ngôn ngữ cho @ {{bot.username}}.
+
+      Ngôn ngữ hiện tại: {{bot.language}}
+
+      ❓ Việc thay đổi ngôn ngữ không ảnh hưởng đến ngôn ngữ của thiết kế bot, cũng như các bot được tạo khác.
+  khởi đầu:
+    bắt đầu: |
+      ▶ ️ Bắt đầu
+    đã bắt đầu:
+      🔸 Bot @ {{bot.username}} đã được khởi động. Trong vài giây nữa, nó sẽ bắt đầu hoạt động.
+    rồi: |
+      🔸 Bot @ {{bot.username}} đã bắt đầu và hoạt động.
+  dừng lại:
+    dừng lại: |
+      ⏹ Dừng lại
+    đã dừng: |
+      🔸 Bot @ {{bot.username}} đã dừng. Nó sẽ không xử lý tin nhắn nữa.
+    rồi: |
+      🔸 Bot @ {{bot.username}} đã dừng.
+  nhóm:
+    nhóm: |
+      👫 Cài đặt của nhóm
+    văn bản: |
+      🔹 Bạn có thể thêm @ {{bot.username}} vào nhóm để trả lời tin nhắn không chỉ cho bạn mà cho tất cả các thành viên trong nhóm.
+
+      Thêm bot vào nhóm và thực hiện lệnh /authorize@{{bot.username}}.
+
+      ⚠️ Một bot chỉ có thể hoạt động trong một nhóm tại một thời điểm. Bạn có thể thêm nhiều bot khác nhau vào cùng một nhóm.
+
+      Nhóm của bạn: {% if bot.group%} {{bot.group.title | Escape}} {% else%} <i> Chưa đặt </i> {% endif%}
+    để lại: |
+      🚶 Disagle và rời đi
+    lá: |
+      ⚠️ Bot đã bị xóa khỏi nhóm.
+  các loại:
+    btn: |
+      💬 Các loại tin nhắn
+    văn bản: |
+      🔹 Cài đặt loại tin nhắn cho @ {{bot.username}}.
+
+      ❓ Sử dụng độ trễ nếu người dùng của bạn gửi tin nhắn thông qua các bot nội tuyến bị lỗi.
+
+      Tại đây, bạn có thể chọn các loại tin nhắn mà người dùng có thể gửi tới bot của bạn.
+    các loại:
+      văn bản: |
+        {% if 'text' in bot.types%} ✅ {% else%} ❌ {% endif%} 📝 Nội dung
+      âm thanh: |
+        {% if 'audio' in bot.types%} ✅ {% else%} ❌ {% endif%} 💽 Audios
+      tài liệu: |
+        {% if 'document' trong bot.types%} ✅ {% else%} ❌ {% endif%} 📃 Tài liệu
+      hoạt hình: |
+        {% if 'animation' in bot.types%} ✅ {% else%} ❌ {% endif%} 🐈 Hoạt ảnh
+      ảnh: |
+        {% if 'photo' in bot.types%} ✅ {% else%} ❌ {% endif%} 🖼️ Hình ảnh
+      nhãn dán: |
+        {% if 'sticker' in bot.types%} ✅ {% else%} ❌ {% endif%} ❤️ Hình dán
+      video: |
+        {% if 'video' in bot.types%} ✅ {% else%} ❌ {% endif%} 📺 Video
+      giọng nói: |
+        {% if 'voice' trong bot.types%} ✅ {% else%} ❌ {% endif%} 🎧 Voices
+      video_note: |
+        {% if 'video_note' trong bot.types%} ✅ {% else%} ❌ {% endif%} 🤳 Videonotes
+      liên hệ: |
+        {% if 'contact' in bot.types%} ✅ {% else%} ❌ {% endif%} 📇 Danh bạ
+      vị trí: |
+        {% if 'location' in bot.types%} ✅ {% else%} ❌ {% endif%} 🛰️ Vị trí
+      địa điểm: |
+        {% if 'venue' in bot.types%} ✅ {% else%} ❌ {% endif%} 🏬 Địa điểm
+      tiền đạo: |
+        {% if bot.allow_forwards%} ✅ {% else%} ❌ {% endif%} ↪️ Cho phép chuyển tiếp
+      trì hoãn: |
+        {% if bot.message_delay%} ✅ {% else%} ❌ {% endif%} ⏸ Trì hoãn
+  tin nhắn: |
+    📝 Cài đặt tin nhắn
+  phát sóng: |
+    🎙️ Phát sóng
+  nhật ký: |
+    📊 Nhật ký và thống kê
+  tích hợp: |
+    🔗 Tích hợp
+  mã thông báo:
+    btn: |
+      🔑 Thay đổi mã thông báo
+    hoạt động: |
+      ⚠️ Bạn nên dừng bot trước khi cập nhật mã thông báo!
+    nhập: |
+      🔸 Cập nhật mã thông báo của bot.
+
+      Gửi cho tôi mã thông báo hoặc đơn giản là chuyển tiếp tin nhắn với mã thông báo từ BotFather.
+
+      Để hủy cập nhật, hãy nhấp / hủy.
+    otherbot: |
+      🔸 ⚠️ Bạn không thể sử dụng mã thông báo của bot khác.
+
+      Kiểm tra mã thông báo đã gửi và thử lại.
+
+      Để hủy cập nhật, hãy nhấp / hủy.
+    cập nhật: |
+      🔸 Token đã được cập nhật thành công.
+  xóa bỏ:
+    btn: |
+      ❌ Loại bỏ
+    văn bản: |
+      🔸 Xóa @ {{bot.username}} khỏi hệ thống?
+
+      ⚠️ <b> Chú ý! </b> Thao tác này sẽ xóa cài đặt, thống kê nhật ký và tất cả dữ liệu liên quan đến bot!
+
+      ⚠️ <b> Chú ý! </b> Không thể hoàn tác hành động này!
+      {% nếu bước == 'hai'%}
+      <b> 📛📛📛 Bạn có thực sự chắc chắn không ?! </b> {% endif%}
+    đã xóa: |
+      🔸 Bạn có thực sự chắc chắn rằng @ {{bot.username}} đã bị xóa khỏi hệ thống không.
+    tích cực:
+      1: Vâng.
+      2: Vâng, tôi chắc chắn!
+    phủ định:
+      1: Không!
+      2: Không!
+      3: Không bao giờ!
+      4: Tôi đã đổi ý!
+      5: Lần sau!
+      6: Không! Không! Không!
+      7: Không bao giờ!
+      8: Đây là một sai lầm!
+  auth: |
+    ‼ ️‼ ️ Bot @ {{bot.username}} của bạn đã bị dừng do không cấp quyền được.
+
+    Để tiếp tục công việc, bạn nên cập nhật api-key của bot.
+
+nhóm:
+  chào mừng: |
+    🔹 Xin chào! Tôi là một bot hỗ trợ kỹ thuật.
+
+    Để ủy quyền cho tôi trong nhóm này, chủ sở hữu bot phải thực thi lệnh /authorize@{{bot.username}}.
+  auth:
+    ok: |
+      🔹 Bot đã được ủy quyền. Bây giờ tin nhắn sẽ đến với nhóm này.
+
+      Để được trợ giúp lệnh, hãy nhấp vào / help.
+    rồi: |
+      🔹 Bot này đã được ủy quyền trong nhóm này.
+    khác: |
+      🔹 Bot được ủy quyền trong một nhóm khác.
+    từ chối: |
+      🔹 ⚠️ Chỉ chủ sở hữu bot mới có thể ủy quyền.
+    đã gỡ bỏ: |
+      🔹 Đã xóa ủy quyền.
+  kênh: |
+    🔹 ⚠️ Bot này không dùng cho các kênh!
+
+hội viên:
+  giúp đỡ: |
+    🔹 Làm thế nào để sử dụng?
+
+    Tin nhắn từ người dùng bot của bạn sẽ được gửi ở đây.
+
+    Để trả lời người dùng, bạn phải trả lời thư được chuyển tiếp.
+
+    / info để trả lời tin nhắn của người dùng hiển thị thông tin về người dùng và cài đặt của anh ta.
+  thất bại: |
+    🔹 ⚠️ Tôi không thể lấy thông tin về người dùng. Tin nhắn chưa được gửi.
+  failcmd: |
+    🔹 ⚠️ Tôi không thể nhận được thông tin về tin nhắn này.
+  thông tin: |
+    🔹 Thông tin về người dùng (khi tin nhắn được gửi):
+
+    <b> ID </b>: {{request.user_id}}
+    <b> Tên </b>: {{request.user.first_name}} {% if request.user.last_name%} / {{request.user.last_name}} {% endif%}
+    <b> Ngôn ngữ </b>: {{request.user.language_code}}
+
+    Thông tin thực tế: /user_{{request.user_id}}
+    Cấm: /ban_{{request.user_id}}
+  userfail: |
+    🔹 ⚠️ Không thể lấy thông tin về người dùng.
+  người dùng: |
+    🔹 Thông tin về người dùng:
+
+    <b> ID </b>: {{user.user_id}}
+    <b> Tên </b>: {{user.first_name}} {% if user.last_name%} / {{user.last_name}} {% endif%}
+    <b> Ngôn ngữ </b>: {{user.language_code}}
+
+    <b> Đã tạo: </b> {{user.create | elapsed}}
+    <b> Tin nhắn cuối cùng: </b> {{user.last_message | elapsed}}
+
+    <b> Thông báo </b>: {{request}}
+    <b> Trả lời </b>: {{response}}
+
+    <b> Bị cấm </b>: {% if user.is_banned%} <b> ⚠️ Có! </b> {% else%} Không {% endif%}
+
+    Cấm: /ban_{{user.user_id}}
+  cấm: |
+    🔹 Người dùng {{user.user_id}} <b> {% if user.is_banned%} ⚠️ bị cấm {% else%} bỏ cấm {% endif%} </b>!
+
+người sử dụng:
+  chào mừng: |
+    🔹 Chào mừng!
+
+    Gửi ở đây một tin nhắn và nó sẽ được gửi đến nhóm hỗ trợ kỹ thuật.
+  đã gửi: |
+    🔸 Tin nhắn đã được gửi.
+  chuyển tiếp: |
+    🔹 ⚠️ Cấm chuyển tiếp tin nhắn tại đây.
+  loại: |
+    🔹 ⚠️ Tin nhắn chưa được gửi
+
+    Bạn có thể gửi các loại tin nhắn sau:
+
+    {{T ('user / styles', bot = bot)}}
+  các loại: |
+    {% if 'text' in bot.types%} 📝 Text {{'\ n'}} {% endif-%}
+    {% if 'audio' trong bot.types%} 💽 Audio {{'\ n'}} {% endif-%}
+    {% if 'document' trong bot.types%} 📃 Documents {{'\ n'}} {% endif-%}
+    {% if 'animation' in bot.types%} 🐈 Animations {{'\ n'}} {% endif-%}
+    {% if 'photo' in bot.types%} 🖼️ Ảnh {{'\ n'}} {% endif-%}
+    {% if 'sticker' in bot.types%} ❤️ Hình dán {{'\ n'}} {% endif-%}
+    {% if 'video' in bot.types%} 📺 Videos {{'\ n'}} {% endif-%}
+    {% if 'voice' trong bot.types%} 🎧 Voices {{'\ n'}} {% endif-%}
+    {% if 'video_note' trong bot.types%} 🤳 Videonotes {{'\ n'}} {% endif-%}
+    {% if 'contact' in bot.types%} 📇 Danh bạ {{'\ n'}} {% endif-%}
+    {% if 'location' trong bot.types%} 🛰️ Vị trí {{'\ n'}} {% endif-%}
+    {% if 'venue' in bot.types%} 🏬 Địa điểm {% endif-%}
+
+tin nhắn:
+  văn bản: |
+    🔹 Cài đặt tin nhắn cho @ {{bot.username}}.
+
+    Trong phần này, bạn có thể đặt tin nhắn của mình cho người dùng.
+
+    ❓ Bạn có thể đặt thời gian mà sau đó người dùng sẽ nhận lại thông báo sau khi tin nhắn được gửi đi.
+    ❓ Đối với thông báo `{{T ('messages / select / type')}} cần chèn <b> [TYPES] </b> vào vị trí có danh sách các loại được hỗ trợ.
+
+    🔹 Chọn tin nhắn thích hợp từ dưới cùng và sau đó bạn có thể chỉnh sửa hoặc trả lại tin nhắn chuẩn.
+  ấn bản: |
+    🔹 Phiên bản `{{T ('messages / select /' + selected)}} cho @ {{bot.username}}.
+
+    Gửi một tin nhắn mới và nó sẽ được lưu.
+    Để hủy chỉnh sửa, hãy nhấp / hủy.
+
+    Bạn có thể sử dụng cú pháp giống html để định dạng:
+
+    <b> văn bản in đậm </b>
+    <code> & lt; b & gt; bold & lt; / b & gt; hoặc & lt; strong & gt; bold & lt; / strong & gt; </code>
+
+    <i> văn bản in nghiêng </i>
+    <code> & lt; i & gt; italic & lt; / i & gt; hoặc & lt; em & gt; in nghiêng & lt; / em & gt; </code>
+
+    <a href="http://www.example.com/"> URL nội tuyến </a>
+    <code> & lt; a href = "http://www.example.com/" & gt; URL nội tuyến & lt; / a & gt; </code>
+
+    <code> inline fixed-width </code>
+    <code> & lt; code & gt; inline fixed-width & lt; / code & gt; </code>
+
+    <pre> khối có chiều rộng cố định được định dạng trước </pre>
+    <code> & lt; khối mã có độ rộng cố định được định dạng trước & lt; / pre & gt; </code>
+  lỗi: |
+    🔹 Đã xảy ra lỗi khi gửi tin nhắn có thể do định dạng không hợp lệ.
+
+    <code> {{error}} </code>
+
+    🔹 Sửa định dạng và gửi lại tin nhắn của bạn.
+
+    🔹 Để hủy chỉnh sửa, nhấp / hủy.
+  chỉnh sửa: |
+    ✍️ Chỉnh sửa
+  hoàn nguyên: |
+    🔙 Hoàn nguyên
+  gởi:
+    tiêu đề: |
+      🕔 Lặp lại mỗi:
+    giá trị: |
+      {% if bot.sent_delay == 0%} Luôn là {% else%} {{bot.sent_delay}} m {% endif%}
+    trừ: |
+      ⏪
+    cộng thêm: |
+      ⏩
+  lựa chọn:
+    chào mừng: |
+      {% nếu được chọn%} 🔺️ {% endif%} 👋 Chào mừng
+    đã gửi: |
+      {% nếu được chọn%} 🔺️ {% endif%} 📨 Đã gửi
+    chuyển tiếp: |
+      {% nếu được chọn%} 🔺️ {% endif%} ⏩ Chuyển tiếp
+    loại: |
+      {% nếu được chọn%} 🔺️ {% endif%} 🆎 Loại
+
+phát sóng:
+  btn:
+    mới: |
+      🆕 Mới
+    xem: |
+      👀 Xem
+    bắt đầu: |
+      ▶ ️ Bắt đầu
+    tạm dừng: |
+      ⏸ Tạm dừng
+    dừng lại: |
+      🛑 Dừng lại
+    xóa: |
+      ❌ Xóa
+    lưu trữ: |
+      📚 Lưu trữ
+    xem trước: |
+      👀 Xem trước liên kết: {% if broadcast.data.preview%} Bật {% else%} Tắt {% endif%}
+    các nút: |
+      ⌨ Thêm bàn phím
+    nợ: |
+      ️❌ Xóa bàn phím
+    làm mới: |
+      🔄 Làm mới
+
+  bàn phím:
+    bộ: |
+      🔹 Gửi cho tôi bàn phím để thêm vào bài viết ở định dạng sau:
+
+      <code> Caption = http://example.com/ </code>
+
+      Bạn có thể sử dụng các nút từ <b> 1 </b> đến <b> 12 </b>.
+
+      Để hủy, nhấn / hủy.
+    toomany: |
+      🔹 Quá nhiều nút.
+
+      Bạn có thể sử dụng các nút từ <b> 1 </b> đến <b> 12 </b>.
+    lỗi: |
+      🔹 Đã xảy ra lỗi khi đặt bàn phím có thể do định dạng không hợp lệ.
+      {% nếu lỗi%}
+      <code> {{error}} </code>
+      {% endif%}
+
+      Cố gắng sửa định dạng và gửi lại bàn phím của bạn hoặc nhấn / hủy.
+    đã lưu: |
+      🔹 Bàn phím đã được lưu.
+
+  Những trạng thái:
+    mới: |
+      🆕 MỚI
+    bắt đầu: |
+      ▶ ️ CHẠY
+    tạm dừng: |
+      ⏸ ĐÃ TẠM DỪNG
+    đã dừng: |
+      ⏹ ĐÃ NGỪNG
+    xong: |
+      ☑️ ĐÃ KẾT THÚC
+
+  không rõ: |
+    🔸 Phát sóng không xác định!
+
+  tồn tại: |
+    🔸 Chỉ có thể tạo một chương trình phát sóng đang hoạt động!
+
+  chính: |
+    🔹 Phát cho @ {{bot.username}}
+    {% nếu hiện tại%}
+    Phát sóng: # {{current._id}}
+    {% if current.started%} Đã bắt đầu: <b> {{current.started | Elapsed (show_seconds = True)}} </b> {% endif%}
+    Trạng thái: <b> {{T ('broadcast / state /' + current.state)}} </b>
+    {% if current.users.total%} Đã gửi: <b> {{current.users.sent}} </b> trong tổng số <b> {{current.users.total}} </b> và <b> { {current.users.errors}} </b> lỗi {% endif%}
+    {% khác%}
+    Chưa có chương trình phát sóng nào.
+
+    ❓ Chỉ có thể tạo một chương trình phát sóng đang hoạt động cùng một lúc.
+
+    ❓ Các lệnh phát (bắt đầu, tạm dừng, dừng) có thể mất đến một phút để xử lý.
+
+    ❓ Các chương trình phát sóng đã hoàn thành sẽ được chuyển vào kho lưu trữ.
+    {% endif%}
+  mới: |
+    🔸 Chương trình phát sóng mới cho @ {{bot.username}}
+
+    Gửi cho tôi tin nhắn mới hoặc nhấn / hủy.
+
+    <b> Trợ giúp về định dạng kiểu HTML: </b>
+
+    <b> văn bản in đậm </b>
+    <code> & lt; b & gt; bold & lt; / b & gt; hoặc & lt; strong & gt; bold & lt; / strong & gt; </code>
+
+    <i> văn bản in nghiêng </i>
+    <code> & lt; i & gt; italic & lt; / i & gt; hoặc & lt; em & gt; in nghiêng & lt; / em & gt; </code>
+
+    <a href="http://www.example.com/"> URL nội tuyến </a>
+    <code> & lt; a href = "http://www.example.com/" & gt; URL nội tuyến & lt; / a & gt; </code>
+
+    <code> inline fixed-width </code>
+    <code> & lt; code & gt; inline fixed-width & lt; / code & gt; </code>
+
+    <pre> khối có chiều rộng cố định được định dạng trước </pre>
+    <code> & lt; khối mã có độ rộng cố định được định dạng trước & lt; / pre & gt; </code>
+  notsupport: |
+    🔸 Bot chỉ hỗ trợ tin nhắn văn bản. Thử lại hoặc nhấn / hủy.
+  lỗi: |
+    🔹 Đã xảy ra lỗi khi tạo bài đăng có thể do định dạng không hợp lệ.
+
+    <code> {{error}} </code>
+
+    🔹 Cố gắng sửa định dạng và gửi lại bài đăng của bạn hoặc nhấn / hủy.
+  đã tạo: |
+    🔸 Chương trình phát sóng mới của bạn đã được tạo.
+  đã xóa: |
+    🔸 Chương trình phát sóng mới # {{broadcast._id}} của bạn đã bị xóa.
+  bắt đầu: |
+    🔸 Chương trình phát sóng # {{broadcast._id}} của bạn đã được bắt đầu.
+  tạm dừng: |
+    🔸 Chương trình phát sóng # {{broadcast._id}} của bạn đã bị tạm dừng.
+  đã dừng: |
+    🔸 Chương trình phát sóng # {{broadcast._id}} của bạn đã bị dừng.
