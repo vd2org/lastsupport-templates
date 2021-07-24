@@ -280,7 +280,7 @@ member:
 
     {%if user.is_banned%}<b>⚠️ bị cấm!</b>{%endif%}
   ban: |
-    🔹 Người dùng {{user.user_id}} <b> {%if user.is_banned%} ⚠️ bị cấm {%else%} bỏ cấm {%endif%} </b>!
+    🔹 Người dùng {%if user.is_banned%} ⚠️ bị cấm {%else%} bỏ cấm {%endif%}!
 
 user:
   welcome: |

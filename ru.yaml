@@ -280,7 +280,7 @@ member:
 
     {%if user.is_banned%}<b>⚠️ Забанен!</b>{%endif%}
   ban: |
-    🔹 Пользователь {{user.user_id}} <b>{% if user.is_banned%}⚠️ забанен{%else%}разбанен{%endif%}</b>!
+    🔹 Пользователь {% if user.is_banned%}⚠️ забанен{%else%}разбанен{%endif%}!
 
 user:
   welcome: |
