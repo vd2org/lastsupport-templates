@@ -27,8 +27,6 @@ common:
     Có thể được / giúp đỡ?
   unknown_bot: |
     🔹 Bot không xác định.
-  edition: |
-    🔸 Phiên bản không được hỗ trợ.
 
 lang:
   text: |
@@ -257,32 +255,19 @@ member:
   failcmd: |
     🔹 ⚠️ Tôi không thể nhận được thông tin về tin nhắn này.
   info: |
-    🔹 Thông tin về người dùng (khi tin nhắn được gửi):
-
-    <b> ID </b>: {{request.user_id}}
-    <b> Tên </b>: {{request.user.first_name}} {%if request.user.last_name%} / {{request.user.last_name}} {%endif%}
-    <b> Ngôn ngữ </b>: {{request.user.language_code}}
-
-    Thông tin thực tế: /user_{{request.user_id}}
-    Cấm: /ban_{{request.user_id}}
+    {{request.user_id | er}} <a href="tg://user?id={{request.user_id}}">#{{request.user_id}}</a> {{request.user.first_name}}{%if request.user.last_name %} {{request.user.last_name}}{%endif%}
   userfail: |
     🔹 ⚠️ Không thể lấy thông tin về người dùng.
   user: |
-    🔹 Thông tin về người dùng:
+    {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">#{{user.user_id}}</a> {{user.first_name}}{%if user.last_name %} {{user.last_name}}{%endif%}
 
-    <b> ID </b>: {{user.user_id}}
-    <b> Tên </b>: {{user.first_name}} {%if user.last_name%} / {{user.last_name}} {%endif%}
-    <b> Ngôn ngữ </b>: {{user.language_code}}
+    <b>🌎 Ngôn ngữ</b>: {{user.language_code}}
+    <b>🗽 Đã tạo:</b> {{user.created|elapsed}}
+    <b>🕐 Tin nhắn cuối cùng:</b> {{user.last_message|elapsed}}
+    <b>📥 Thông báo</b>: {{requests}}
+    <b>📤 Trả lời</b>: {{responses}}
 
-    <b> Đã tạo: </b> {{user.create | elapsed}}
-    <b> Tin nhắn cuối cùng: </b> {{user.last_message | elapsed}}
-
-    <b> Thông báo </b>: {{request}}
-    <b> Trả lời </b>: {{response}}
-
-    <b> Bị cấm </b>: {%if user.is_banned%} <b> ⚠️ Có! </b> {%else%} Không {%endif%}
-
-    Cấm: /ban_{{user.user_id}}
+    {%if user.is_banned%}<b>⚠️ bị cấm!</b>{%endif%}
   ban: |
     🔹 Người dùng {{user.user_id}} <b> {%if user.is_banned%} ⚠️ bị cấm {%else%} bỏ cấm {%endif%} </b>!
 

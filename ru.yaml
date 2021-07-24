@@ -27,8 +27,6 @@ common:
     Может быть /help?
   unknown_bot: |
     🔹 Неизвестный бот.
-  edition: |
-    🔸 Редактирование не поддерживается.
 
 lang:
   text: |
@@ -257,32 +255,19 @@ member:
   failcmd: |
     🔹 ⚠️ Не могу получить информацию об этом сообщении.
   info: |
-    🔹 Информация о пользователе на момент отправки сообщения:
-
-    <b>ID</b>: {{request.user_id}}
-    <b>Имя</b>: {{request.user.first_name}}{%if request.user.last_name %} / {{request.user.last_name}}{%endif%}
-    <b>Код языка</b>: {{request.user.language_code}}
-
-    Актуальная информация: /user_{{request.user_id}}
-    Банить: /ban_{{request.user_id}}
+    {{request.user_id | er}} <a href="tg://user?id={{request.user_id}}">#{{request.user_id}}</a> {{request.user.first_name}}{%if request.user.last_name %} {{request.user.last_name}}{%endif%}
   userfail: |
     🔹 ⚠️ Не могу получить информацию о пользователе.
   user: |
-    🔹 Информация о пользователе:
+    {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">#{{user.user_id}}</a> {{user.first_name}}{%if user.last_name %} {{user.last_name}}{%endif%}
 
-    <b>ID</b>: {{user.user_id}}
-    <b>Имя</b>: {{user.first_name}}{%if user.last_name %} / {{user.last_name}}{%endif%}
-    <b>Код языка</b>: {{user.language_code}}
+    <b>🌎 Язык</b>: {{user.language_code}}
+    <b>🗽 Создан:</b> {{user.created|elapsed}}
+    <b>🕐 Писал:</b> {{user.last_message|elapsed}}
+    <b>📥 Сообщений</b>: {{requests}}
+    <b>📤 Ответов</b>: {{responses}}
 
-    <b>Создан:</b> {{user.created|elapsed}}
-    <b>Писал:</b> {{user.last_message|elapsed}}
-
-    <b>Сообщений</b>: {{requests}}
-    <b>Ответов</b>: {{responses}}
-
-    <b>Забанен</b>: {%if user.is_banned%}<b>⚠️ Да!</b>{%else%}Нет{%endif%}
-
-    Банить: /ban_{{user.user_id}}
+    {%if user.is_banned%}<b>⚠️ Забанен!</b>{%endif%}
   ban: |
     🔹 Пользователь {{user.user_id}} <b>{% if user.is_banned%}⚠️ забанен{%else%}разбанен{%endif%}</b>!
 

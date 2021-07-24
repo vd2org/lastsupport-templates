@@ -27,8 +27,6 @@ common:
     May be /help?
   unknown_bot: |
     🔹 Unknown bot.
-  edition: |
-    🔸 Edition not supported.
 
 lang:
   text: |
@@ -257,34 +255,21 @@ member:
   failcmd: |
     🔹 ⚠️ I can not get information about this message.
   info: |
-    🔹 Information about user(when message was delivered):
-
-    <b>ID</b>: {{request.user_id}}
-    <b>Name</b>: {{request.user.first_name}}{%if request.user.last_name %} / {{request.user.last_name}}{%endif%}
-    <b>Language</b>: {{request.user.language_code}}
-
-    Actual information: /user_{{request.user_id}}
-    Ban: /ban_{{request.user_id}}
+    {{request.user_id | er}} <a href="tg://user?id={{request.user_id}}">#{{request.user_id}}</a> {{request.user.first_name}}{%if request.user.last_name %} {{request.user.last_name}}{%endif%}
   userfail: |
     🔹 ⚠️ Can't get information about user.
   user: |
-    🔹 Information about user:
+    {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">#{{user.user_id}}</a> {{user.first_name}}{%if user.last_name %} {{user.last_name}}{%endif%}
 
-    <b>ID</b>: {{user.user_id}}
-    <b>Name</b>: {{user.first_name}}{%if user.last_name %} / {{user.last_name}}{%endif%}
-    <b>Language</b>: {{user.language_code}}
+    <b>🌎 Language</b>: {{user.language_code}}
+    <b>🗽 Created:</b> {{user.created|elapsed}} <b>ago</b>
+    <b>🕐 Last message:</b> {{user.last_message|elapsed}} <b>ago</b>
+    <b>📥 Messages</b>: {{requests}}
+    <b>📤 Replies</b>: {{responses}}
 
-    <b>Created:</b> {{user.created|elapsed}}
-    <b>Last message:</b> {{user.last_message|elapsed}}
-
-    <b>Messages</b>: {{requests}}
-    <b>Replies</b>: {{responses}}
-
-    <b>Banned</b>: {%if user.is_banned%}<b>⚠️ Yes!</b>{%else%}No{%endif%}
-
-    Ban: /ban_{{user.user_id}}
+    {%if user.is_banned%}<b>⚠️ Banned!</b>{%endif%}
   ban: |
-    🔹 User {{user.user_id}} <b>{% if user.is_banned%}⚠️ banned{%else%}unbanned{%endif%}</b>!
+    🔹 User is {% if user.is_banned%}⚠️ banned{%else%}unbanned{%endif%}!
 
 user:
   welcome: |
