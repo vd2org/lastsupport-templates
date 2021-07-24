@@ -266,11 +266,11 @@ member:
   failcmd: |
     🔹 ⚠️ Не могу получить информацию об этом сообщении.
   info: |
-    {{request.user_id | er}} <a href="tg://user?id={{request.user_id}}">#{{request.user_id}}</a> {{request.user.first_name}}{%if request.user.last_name %} {{request.user.last_name}}{%endif%}
+    {{request.user_id | er}} <a href="tg://user?id={{request.user_id}}">&{{request.user_id}}</a> {{request.user.first_name}}{%if request.user.last_name %} {{request.user.last_name}}{%endif%}
   userfail: |
     🔹 ⚠️ Не могу получить информацию о пользователе.
   user: |
-    {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">#{{user.user_id}}</a> {{user.first_name}}{%if user.last_name %} {{user.last_name}}{%endif%}
+    {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name}}{%if user.last_name %} {{user.last_name}}{%endif%}
 
     <b>🌎 Язык</b>: {{user.language_code}}
     <b>🗽 Создан:</b> {{user.created|elapsed}}
