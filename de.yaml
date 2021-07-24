@@ -242,6 +242,17 @@ group:
     🔹 ⚠️ Dies ist nicht zur Verwendung in Kanälen vorgesehen!
 
 member:
+  btn:
+    close: |
+      ❌
+    user: |
+      🙇‍♂️ User
+    ban: |
+      🚷 Ban
+    unban: |
+      🦾 Unban
+    deleteall: |
+      🚫 Delete all
   help: |
     🔹 Wie benutzt man den Bot?
 
