@@ -165,10 +165,28 @@ manage:
         {%if bot.message_delay%} ✅ {%else%} ❌ {%endif%} ⏸ Trì hoãn
   messages: |
     📝 Cài đặt tin nhắn
+  export:
+    btn: |
+      ⏬ Export
+    text: |
+      🔹 Export for @{{bot.username}}
+      {%if not export%}
+      Nothing has been exported yet. 😓
+      {%else%}
+      Last export was requested at {{export.created | elapsed}} ago.
+
+      Status: <b>{{export.state|upper}}</b>
+      {%endif%}
+    refresh: |
+      🔄 Refresh
+    request: |
+      ⏬ Request export
+    wait: |
+      ⚠️ Please wait {{to | remaining}} for the next request.
+    only_one: |
+      ⚠️ Only one export can be active at a time.
   broadcast: |
     🎙️ Phát sóng
-  logs: |
-    📊 Nhật ký và thống kê
   integrations: |
     🔗 Tích hợp
   token:
