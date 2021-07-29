@@ -402,10 +402,8 @@ broadcast:
       ▶️ Start
     pause: |
       ⏸ Pause
-    stop: |
-      🛑 Stop
-    delete: |
-      ❌ Delete
+    cancel: |
+      ❌ Cancel
     archive: |
       📚 Archive
     preview: |
@@ -447,8 +445,8 @@ broadcast:
       ▶️ RUNNING
     paused: |
       ⏸ PAUSED
-    stopped: |
-      ⏹ STOPPED
+    cancelled: |
+      ❌ CANCELLED
     finished: |
       ☑️ FINISHED
 
@@ -462,9 +460,14 @@ broadcast:
     🔹 Broadcast for @{{bot.username}}
     {%if current%}
     Broadcast: #{{current._id}}
-    {%if current.started%}Started: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}
-    State: <b>{{T('broadcast/states/'+current.state)}}</b>
-    {%if current.users.total%}Sent: <b>{{current.users.sent}}</b> of <b>{{current.users.total}}</b> and <b>{{current.users.errors}}</b> errors{%endif%}
+    Created: <b>{{current.created|elapsed}}</b>{%if current.started%}
+    Started: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}{%if current.finished%}
+    Finished: <b>{{current.finished|elapsed}}</b>{%endif%}
+
+    <b>{{T('broadcast/states/'+current.state)}}</b>{%if stat%}
+
+    Sent: <b>{{stat.sent}}</b> of <b>{{stat.total}}</b>
+    Errors: <b>{{stat.errors}}</b>{%endif%}
     {%else%}
     No active broadcasts yet.
 
@@ -505,11 +508,9 @@ broadcast:
     🔹 Try to fix formatting and send your post again or hit /cancel.
   created: |
     🔸 Your new broadcast was created.
-  deleted: |
-    🔸 Your new broadcast #{{broadcast._id}} was deleted.
+  cancelled: |
+    🔸 Your new broadcast #{{broadcast._id}} was cancelled.
   started: |
     🔸 Your broadcast #{{broadcast._id}} was started.
   paused: |
     🔸 Your broadcast #{{broadcast._id}} was paused.
-  stopped: |
-    🔸 Your broadcast #{{broadcast._id}} was stopped.

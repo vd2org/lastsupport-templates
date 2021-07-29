@@ -402,10 +402,8 @@ broadcast:
       ▶️ Запуск
     pause: |
       ⏸ Пауза
-    stop: |
-      🛑 Остановить
-    delete: |
-      ❌ Удалить
+    cancel: |
+      ❌ Отменить
     archive: |
       📚 Архив
     preview: |
@@ -447,8 +445,8 @@ broadcast:
       ▶️ РАССЫЛАЕТСЯ
     paused: |
       ⏸ НА ПАУЗЕ
-    stopped: |
-      ⏹ ОСТАНОВЛЕНА
+    cancelled: |
+      ❌ ОТМЕНЕНА
     finished: |
       ☑️ ЗАВЕРШЕНА
 
@@ -462,11 +460,16 @@ broadcast:
     🔹 Рассылка в @{{bot.username}}
     {%if current%}
     Рассылка: #{{current._id}}
-    {%if current.started%}Started: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}
-    Состояние: <b>{{T('broadcast/states/'+current.state)}}</b>
-    {%if current.users.total%}Отправлено: <b>{{current.users.sent}}</b> из <b>{{current.users.total}}</b>, <b>{{current.users.errors}}</b> ошибок{%endif%}
+    Создана: <b>{{current.created|elapsed}}</b>{%if current.started%}
+    Запущена: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}{%if current.finished%}
+    Завершена: <b>{{current.finished|elapsed}}</b>{%endif%}
+
+    <b>{{T('broadcast/states/'+current.state)}}</b>{%if stat%}
+
+    Отправлено: <b>{{stat.sent}}</b> из <b>{{stat.total}}</b>
+    Ошибок: <b>{{stat.errors}}</b>{%endif%}
     {%else%}
-    Нет активной рассылки
+    Нет активной рассылки.
 
     ❓ Одновременно может быть только одна активная рассылка.
 
@@ -505,11 +508,9 @@ broadcast:
     🔹 Исправь его и отправь пост снова.
   created: |
     🔸 Создана новая рассылка
-  deleted: |
-    🔸 Рассылка #{{broadcast._id}} удалена.
+  cancelled: |
+    🔸 Рассылка #{{broadcast._id}} отменена.
   started: |
     🔸 Рассылка #{{broadcast._id}} запущена.
   paused: |
     🔸 Рассылка #{{broadcast._id}} поставлена на паузу.
-  stopped: |
-    🔸 Рассылка #{{broadcast._id}} остановлена.
