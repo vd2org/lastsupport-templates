@@ -477,6 +477,8 @@ broadcast:
 
     ❓ Các chương trình phát sóng đã hoàn thành sẽ được chuyển vào kho lưu trữ.
     {%endif%}
+  archive: |
+    🔹 Boradcast archive for @{{bot.username}}
   new: |
     🔸 Chương trình phát sóng mới cho @{{bot.username}}
 

@@ -477,6 +477,8 @@ broadcast:
 
     ❓ Finished broadcasts will be moved to archive.
     {%endif%}
+  archive: |
+    🔹 Boradcast archive for @{{bot.username}}
   new: |
     🔸 New broadcast for @{{bot.username}}
 
