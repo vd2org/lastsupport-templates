@@ -314,7 +314,7 @@ user:
 
     You can send following message types:
 
-    {{T('user/types', bot=bot)}}
+    $types
   types: |
     {%if 'text' in bot.types%}📝 Text{{'\n'}}{%endif-%}
     {%if 'audio' in bot.types%}💽 Audio{{'\n'}}{%endif-%}
@@ -336,7 +336,11 @@ messages:
     In this section you can set your messages for users.
 
     ❓ You can set the time after which the user will receive a notification again after the message has been sent.
-    ❓ For the message `{{T('messages/select/type')}}` need to insert <b>[TYPES]</b> to the place where the list of supported types will be.
+    ❓ The following variables can be used in all messages:
+       ▪️ <code>$first_name</code> - user's first name
+       ▪️ <code>$last_name</code> - user's second name
+       ▪️ <code>$full_name</code> - first+second name
+       ▪️ <code>$types</code> - list of supported message types
 
     🔹 Select the appropriate message from the bottom and then you can edit it or return the standard one.
   edition: |

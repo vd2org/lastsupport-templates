@@ -49,8 +49,8 @@ mybots:
     🔹 Du hast keine Bots.
 
     Um einen Bot hinzuzufügen, nützen Sie /newbot.
-bot: |
-  {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
+  bot: |
+    {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
 
 newbot:
   token: |
@@ -314,7 +314,7 @@ user:
 
     Sie können folgende Meldungstypen senden:
 
-    {{T('user/types', bot=bot)}}
+    $types
   types: |
     {%if 'text' in bot.types%}📝 Text{{'\n'}}{%endif-%}
     {%if 'audio' in bot.types%}💽 Audio{{'\n'}}{%endif-%}
@@ -336,7 +336,11 @@ messages:
     Hier können Sie Ihre Antworte festlegen.
 
     ❓ Sie können die Wartezeit einstellen, nach der der Benutzer eine Meldung erhält, dass seine Frage akzeptiert wurde.
-    ❓ Eine Meldung `{{T('messages/select/type')}}` soll <b>[TYPES]</b> beinhalten, um die Liste der unterstützten Meldungstypen zu zeigen.
+    ❓ The following variables can be used in all messages:
+       ▪️ <code>$first_name</code> - user's first name
+       ▪️ <code>$last_name</code> - user's second name
+       ▪️ <code>$full_name</code> - first+second name
+       ▪️ <code>$types</code> - list of supported message types
 
     🔹 Wählen Sie die entsprechende Antwort von unten aus, um sie zu bearbeiten oder zurückzusetzen.
   edition: |
