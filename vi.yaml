@@ -273,6 +273,8 @@ member:
       🦾 Unban
     deleteall: |
       🚫 Delete all
+    past_msg: |
+      ⤴️
   help: |
     🔹 Làm thế nào để sử dụng?
 
