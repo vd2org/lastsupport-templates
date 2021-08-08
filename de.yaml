@@ -281,6 +281,8 @@ member:
     /info Als Antwort werden Informationen über den Benutzer und seine Einstellungen angezeigt.
   fail: |
     🔹 ⚠️ Ich kann keine Informationen über den Benutzer erhalten. Sendung abgebrochen.
+  bot_baned: |
+    🔹 ⚠️ The user has blocked the bot. Message not sent.
   failcmd: |
     🔹 ⚠️ Ich kann keine Informationen über diese Mitteilung erhalten.
   info: |

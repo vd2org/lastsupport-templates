@@ -281,6 +281,8 @@ member:
     / info để trả lời tin nhắn của người dùng hiển thị thông tin về người dùng và cài đặt của anh ta.
   fail: |
     🔹 ⚠️ Tôi không thể lấy thông tin về người dùng. Tin nhắn chưa được gửi.
+  bot_baned: |
+    🔹 ⚠️ The user has blocked the bot. Message not sent.
   failcmd: |
     🔹 ⚠️ Tôi không thể nhận được thông tin về tin nhắn này.
   info: |
