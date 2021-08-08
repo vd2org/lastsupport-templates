@@ -82,7 +82,7 @@ manage:
     Создан: {{bot.created|elapsed}}
     Язык: {{bot.language}}
 
-    Группа: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Не задана</i>{%endif%}
+    Группа: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Не задана</i>{%endif%}
 
   language:
     language: |
@@ -117,7 +117,7 @@ manage:
 
       ⚠️ Бот одновременно может работать только в одной группе. Можно добавить несколько разных ботов в одну группу.
 
-      Текущая группа: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Не задана</i>{%endif%}
+      Текущая группа: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Не задана</i>{%endif%}
     leave: |
       🚶 Отключить
     leaved: |

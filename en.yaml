@@ -86,7 +86,7 @@ manage:
     Created: {{bot.created|elapsed}}
     Language: {{bot.language}}
 
-    Group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>None</i>{%endif%}
+    Group: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>None</i>{%endif%}
   language:
     language: |
       🌏 Language
@@ -120,7 +120,7 @@ manage:
 
       ⚠️ A bot can only work in one group at a time. You can add several different bots to the same group.
 
-      Your group: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Not set</i>{%endif%}
+      Your group: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Not set</i>{%endif%}
     leave: |
       🚶 Disagle & leave
     leaved: |

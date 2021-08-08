@@ -86,7 +86,7 @@ manage:
     Erstellt: {{bot.created|elapsed}}
     Sprache: {{bot.language}}
 
-    Gruppe: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Keine</i>{%endif%}
+    Gruppe: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Keine</i>{%endif%}
   language:
     language: |
       🌏 Sprache
@@ -120,7 +120,7 @@ manage:
 
       ⚠️ Ein Bot kann nur in einer Gruppe aktiv sein. Sie können mehrere verschiedene Bots in derselbe Gruppe hinzufügen.
 
-      Ihre Gruppe: {%if bot.group%}{{bot.group.title|escape}}{%else%}<i>Keine</i>{%endif%}
+      Ihre Gruppe: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Keine</i>{%endif%}
     leave: |
       🚶 Deaktivieren & leave
     leaved: |

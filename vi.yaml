@@ -86,7 +86,7 @@ manage:
     Đã tạo: {{bot.create | elapsed}}
     Ngôn ngữ: {{bot.language}}
 
-    Nhóm: {%if bot.group%} {{bot.group.title | escape}} {%else%} <i> Không có </i> {%endif%}
+    Nhóm: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Không có</i>{%endif%}
   language:
     language: |
       🌏 Ngôn ngữ
@@ -120,7 +120,7 @@ manage:
 
       ⚠️ Một bot chỉ có thể hoạt động trong một nhóm tại một thời điểm. Bạn có thể thêm nhiều bot khác nhau vào cùng một nhóm.
 
-      Nhóm của bạn: {%if bot.group%} {{bot.group.title | escape}} {%else%} <i> Chưa đặt </i> {%endif%}
+      Nhóm của bạn: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Chưa đặt</i>{%endif%}
     leave: |
       🚶 Disagle và rời đi
     leaved: |
