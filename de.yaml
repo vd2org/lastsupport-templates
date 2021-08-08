@@ -86,6 +86,8 @@ manage:
     Erstellt: {{bot.created|elapsed}}
     Sprache: {{bot.language}}
 
+    Users: {{bot.users_count}}
+
     Gruppe: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Keine</i>{%endif%}
   language:
     language: |

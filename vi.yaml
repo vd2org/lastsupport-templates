@@ -86,6 +86,8 @@ manage:
     Đã tạo: {{bot.create | elapsed}}
     Ngôn ngữ: {{bot.language}}
 
+    Users: {{bot.users_count}}
+
     Nhóm: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Không có</i>{%endif%}
   language:
     language: |

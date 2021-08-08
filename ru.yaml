@@ -82,6 +82,8 @@ manage:
     Создан: {{bot.created|elapsed}}
     Язык: {{bot.language}}
 
+    Пользователей: {{bot.users_count}}
+
     Группа: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Не задана</i>{%endif%}
 
   language:
