@@ -274,6 +274,8 @@ member:
       🚫 Удалить всё
     past_msg: |
       ⤴️
+    digest: |
+      📃 Дайджест
   help: |
     🔹 Как пользоваться ботом?
 
@@ -304,6 +306,11 @@ member:
     {%if user.is_banned%}<b>⚠️ Забанен!</b>{%endif%}
   ban: |
     🔹 Пользователь {% if user.is_banned%}⚠️ забанен{%else%}разбанен{%endif%}!
+  digest: |
+    🔹 Дайджест для {{user.user_id|er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}:
+    {%for msg in msgs%}
+    [{%if msg.msg_link_url%}<a href="{{msg.msg_link_url}}">{%endif%}{{msg.time|elapsed}}{%if msg.msg_link_url%}</a>{%endif%}] {%if msg.is_response%}🗣{%else%}{{user.user_id|er}}{%endif%}: {%if msg.msg.type == 'text'%}{{msg.msg.text|untag|crop}}{%else%}🏞 Медиа{%endif%}{%endfor%}
+
 
 user:
   welcome: |
