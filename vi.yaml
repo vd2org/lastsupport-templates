@@ -16,8 +16,46 @@ welcome: |
 
 common:
   btn:
+    new: |
+      🆕 Mới
+    refresh: |
+      🔄 Làm mới
+    addbtns: |
+      ⌨ Thêm bàn phím
+    delbtns: |
+      ️❌ Xóa bàn phím
+    preview: |
+      👀 Xem trước liên kết: {%if preview%}Bật{%else%}Tắt{%endif%}
+    up: |
+      ⬆️
+    down: |
+      ⬇️
+    delete: |
+      ❌ Loại bỏ
     back: |
       ↩️
+  keyboard:
+    set: |
+      🔹 Gửi cho tôi bàn phím để thêm vào bài viết ở định dạng sau:
+
+      <code> Caption = https://example.com/ </code>
+
+      Bạn có thể sử dụng các nút từ <b> 1 </b> đến <b> 12 </b>.
+
+      Để hủy, nhấn / hủy.
+    toomany: |
+      🔹 Quá nhiều nút.
+
+      Bạn có thể sử dụng các nút từ <b> 1 </b> đến <b> 12 </b>.
+    error: |
+      🔹 Đã xảy ra lỗi khi đặt bàn phím có thể do định dạng không hợp lệ.
+      {%if error%}
+      <code>{{error}}</code>
+      {%endif%}
+
+      Cố gắng sửa định dạng và gửi lại bàn phím của bạn hoặc nhấn / hủy.
+    saved: |
+      🔹 Bàn phím đã được lưu.
   langname: |
     🇻🇳 tiếng việt
   cancelled: |
@@ -179,8 +217,6 @@ manage:
 
       Status: <b>{{export.state|upper}}</b>
       {%endif%}
-    refresh: |
-      🔄 Refresh
     request: |
       ⏬ Request export
     wait: |
@@ -189,8 +225,8 @@ manage:
       ⚠️ Only one export can be active at a time.
   broadcast: |
     🎙️ Phát sóng
-  integrations: |
-    🔗 Tích hợp
+  qreplies: |
+    🗣 Quick replies
   token:
     btn: |
       🔑 Thay đổi mã thông báo
@@ -211,8 +247,6 @@ manage:
     updated: |
       🔸 Token đã được cập nhật thành công.
   delete:
-    btn: |
-      ❌ Loại bỏ
     text: |
       🔸 Xóa @{{bot.username}} khỏi hệ thống?
 
@@ -360,24 +394,7 @@ messages:
     🔹 Phiên bản `{{T('messages/select/'+selected)}}` cho @{{bot.username}}.
 
     Gửi một tin nhắn mới và nó sẽ được lưu.
-    Để hủy chỉnh sửa, hãy nhấp / hủy.
-
-    Bạn có thể sử dụng cú pháp giống html để định dạng:
-
-    <b> văn bản in đậm </b>
-    <code> &lt; b &gt; bold &lt; / b &gt; hoặc &lt; strong &gt; bold &lt; / strong &gt; </code>
-
-    <i> văn bản in nghiêng </i>
-    <code> &lt; i &gt; italic &lt; / i &gt; hoặc &lt; em &gt; in nghiêng &lt; / em &gt; </code>
-
-    <a href="http://www.example.com/"> URL nội tuyến </a>
-    <code> &lt; a href = "http://www.example.com/" &gt; URL nội tuyến &lt; / a &gt; </code>
-
-    <code> inline fixed-width </code>
-    <code> &lt; code &gt; inline fixed-width &lt; / code &gt; </code>
-
-    <pre> khối có chiều rộng cố định được định dạng trước </pre>
-    <code> &lt; khối mã có độ rộng cố định được định dạng trước &lt; / pre &gt; </code>
+    Để hủy chỉnh sửa, hãy nhấp /cancel.
   error: |
     🔹 Đã xảy ra lỗi khi gửi tin nhắn có thể do định dạng không hợp lệ.
 
@@ -411,8 +428,6 @@ messages:
 
 broadcast:
   btn:
-    new: |
-      🆕 Mới
     view: |
       👀 Xem
     start: |
@@ -423,37 +438,6 @@ broadcast:
       ❌ Cancel
     archive: |
       📚 Lưu trữ
-    preview: |
-      👀 Xem trước liên kết: {%if broadcast.data.preview%} Bật {%else%} Tắt {%endif%}
-    buttons: |
-      ⌨ Thêm bàn phím
-    delbtns: |
-      ️❌ Xóa bàn phím
-    refresh: |
-      🔄 Làm mới
-
-  keyboard:
-    set: |
-      🔹 Gửi cho tôi bàn phím để thêm vào bài viết ở định dạng sau:
-
-      <code> Caption = http://example.com/ </code>
-
-      Bạn có thể sử dụng các nút từ <b> 1 </b> đến <b> 12 </b>.
-
-      Để hủy, nhấn / hủy.
-    toomany: |
-      🔹 Quá nhiều nút.
-
-      Bạn có thể sử dụng các nút từ <b> 1 </b> đến <b> 12 </b>.
-    error: |
-      🔹 Đã xảy ra lỗi khi đặt bàn phím có thể do định dạng không hợp lệ.
-      {%if error%}
-      <code>{{error}}</code>
-      {%endif%}
-
-      Cố gắng sửa định dạng và gửi lại bàn phím của bạn hoặc nhấn / hủy.
-    saved: |
-      🔹 Bàn phím đã được lưu.
 
   states:
     new: |
@@ -500,23 +484,6 @@ broadcast:
     🔸 Chương trình phát sóng mới cho @{{bot.username}}
 
     Gửi cho tôi tin nhắn mới hoặc nhấn / hủy.
-
-    <b> Trợ giúp về định dạng kiểu HTML: </b>
-
-    <b> văn bản in đậm </b>
-    <code> &lt; b &gt; bold &lt; / b &gt; hoặc &lt; strong &gt; bold &lt; / strong &gt; </code>
-
-    <i> văn bản in nghiêng </i>
-    <code> &lt; i &gt; italic &lt; / i &gt; hoặc &lt; em &gt; in nghiêng &lt; / em &gt; </code>
-
-    <a href="http://www.example.com/"> URL nội tuyến </a>
-    <code> &lt; a href = "http://www.example.com/" &gt; URL nội tuyến &lt; / a &gt; </code>
-
-    <code> inline fixed-width </code>
-    <code> &lt; code &gt; inline fixed-width &lt; / code &gt; </code>
-
-    <pre> khối có chiều rộng cố định được định dạng trước </pre>
-    <code> &lt; khối mã có độ rộng cố định được định dạng trước &lt; / pre &gt; </code>
   notsupport: |
     🔸 Bot chỉ hỗ trợ tin nhắn văn bản. Thử lại hoặc nhấn / hủy.
   error: |
@@ -528,8 +495,22 @@ broadcast:
   created: |
     🔸 Chương trình phát sóng mới của bạn đã được tạo.
   cancelled: |
-    🔸 Chương trình phát sóng mới # {{broadcast._id}} của bạn đã bị xóa.
+    🔸 Chương trình phát sóng mới #{{broadcast._id}} của bạn đã bị xóa.
   started: |
-    🔸 Chương trình phát sóng # {{broadcast._id}} của bạn đã được bắt đầu.
+    🔸 Chương trình phát sóng #{{broadcast._id}} của bạn đã được bắt đầu.
   paused: |
-    🔸 Chương trình phát sóng # {{broadcast._id}} của bạn đã bị tạm dừng.
+    🔸 Chương trình phát sóng #{{broadcast._id}} của bạn đã bị tạm dừng.
+
+qreplies:
+  text: |
+    🔹 Quick replies for @{{bot.username}}
+  new: |
+    🔸 New quick reply for @{{bot.username}}
+
+    Send me new message or hit /cancel.
+  reply: |
+    🔸 Quick reply ...
+  not_found: |
+    ⚠️ Quick reply was not found!
+  deleted: |
+    🔹 Quick reply is deleted.

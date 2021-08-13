@@ -16,8 +16,46 @@ welcome: |
 
 common:
   btn:
+    new: |
+      🆕 New
+    refresh: |
+      🔄 Refresh
+    addbtns: |
+      ⌨ Add keyboard
+    delbtns: |
+      ️❌ Remove keyboard
+    preview: |
+      👀 Link previews: {%if preview%}On{%else%}Off{%endif%}
+    up: |
+      ⬆️
+    down: |
+      ⬇️
+    delete: |
+      ❌ Remove
     back: |
       ↩️
+  keyboard:
+    set: |
+      🔹 Send me keyboard for add to post in following format:
+
+      <code>Caption = https://example.com/</code>
+
+      You can use from <b>1</b> to <b>12</b> buttons.
+
+      For cancel hit /cancel.
+    toomany: |
+      🔹 Too many buttons.
+
+      You can use from <b>1</b> to <b>12</b> buttons.
+    error: |
+      🔹 There was error while setting keyboard probably because invalid formatting.
+      {%if error%}
+      <code>{{error}}</code>
+      {%endif%}
+
+      Try to fix formatting and send your keyboard again or hit /cancel.
+    saved: |
+      🔹 Keyboard was saved.
   langname: |
     🇺🇸 English
   cancelled: |
@@ -179,8 +217,6 @@ manage:
 
       Status: <b>{{export.state|upper}}</b>
       {%endif%}
-    refresh: |
-      🔄 Refresh
     request: |
       ⏬ Request export
     wait: |
@@ -189,8 +225,8 @@ manage:
       ⚠️ Only one export can be active at a time.
   broadcast: |
     🎙️ Broadcasting
-  integrations: |
-    🔗 Integrations
+  qreplies: |
+    🗣 Quick replies
   token:
     btn: |
       🔑 Change token
@@ -211,8 +247,6 @@ manage:
     updated: |
       🔸 Token was successfully updated.
   delete:
-    btn: |
-      ❌ Remove
     text: |
       🔸 Remove @{{bot.username}} from system?
 
@@ -361,23 +395,6 @@ messages:
 
     Send a new message and it will be saved.
     To cancel editing click /cancel.
-
-    You can use html-like syntax for formatting:
-
-    <b>bold text</b>
-    <code>&lt;b&gt;bold&lt;/b&gt; or &lt;strong&gt;bold&lt;/strong&gt;</code>
-
-    <i>italic text</i>
-    <code>&lt;i&gt;italic&lt;/i&gt; or &lt;em&gt;italic&lt;/em&gt;</code>
-
-    <a href="http://www.example.com/">inline URL</a>
-    <code>&lt;a href="http://www.example.com/"&gt;inline URL&lt;/a&gt;</code>
-
-    <code>inline fixed-width</code>
-    <code>&lt;code&gt;inline fixed-width&lt;/code&gt;</code>
-
-    <pre>pre-formatted fixed-width block</pre>
-    <code>&lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</code>
   error: |
     🔹 There was error while sending message probably because invalid formatting.
 
@@ -411,8 +428,6 @@ messages:
 
 broadcast:
   btn:
-    new: |
-      🆕 New
     view: |
       👀 View
     start: |
@@ -423,37 +438,6 @@ broadcast:
       ❌ Cancel
     archive: |
       📚 Archive
-    preview: |
-      👀 Link previews: {%if broadcast.data.preview%}On{%else%}Off{%endif%}
-    buttons: |
-      ⌨ Add keyboard
-    delbtns: |
-      ️❌ Remove keyboard
-    refresh: |
-      🔄 Refresh
-
-  keyboard:
-    set: |
-      🔹 Send me keyboard for add to post in following format:
-
-      <code>Caption = http://example.com/</code>
-
-      You can use from <b>1</b> to <b>12</b> buttons.
-
-      For cancel hit /cancel.
-    toomany: |
-      🔹 Too many buttons.
-
-      You can use from <b>1</b> to <b>12</b> buttons.
-    error: |
-      🔹 There was error while setting keyboard probably because invalid formatting.
-      {%if error%}
-      <code>{{error}}</code>
-      {%endif%}
-
-      Try to fix formatting and send your keyboard again or hit /cancel.
-    saved: |
-      🔹 Keyboard was saved.
 
   states:
     new: |
@@ -500,23 +484,6 @@ broadcast:
     🔸 New broadcast for @{{bot.username}}
 
     Send me new message or hit /cancel.
-
-    <b>HTML-style formatting help:</b>
-
-    <b>bold text</b>
-    <code>&lt;b&gt;bold&lt;/b&gt; or &lt;strong&gt;bold&lt;/strong&gt;</code>
-
-    <i>italic text</i>
-    <code>&lt;i&gt;italic&lt;/i&gt; or &lt;em&gt;italic&lt;/em&gt;</code>
-
-    <a href="http://www.example.com/">inline URL</a>
-    <code>&lt;a href="http://www.example.com/"&gt;inline URL&lt;/a&gt;</code>
-
-    <code>inline fixed-width</code>
-    <code>&lt;code&gt;inline fixed-width&lt;/code&gt;</code>
-
-    <pre>pre-formatted fixed-width block</pre>
-    <code>&lt;pre&gt;pre-formatted fixed-width code block&lt;/pre&gt;</code>
   notsupport: |
     🔸 Bot supports only text messages. Try again or hit /cancel.
   error: |
@@ -533,3 +500,17 @@ broadcast:
     🔸 Your broadcast #{{broadcast._id}} was started.
   paused: |
     🔸 Your broadcast #{{broadcast._id}} was paused.
+
+qreplies:
+  text: |
+    🔹 Quick replies for @{{bot.username}}
+  new: |
+    🔸 New quick reply for @{{bot.username}}
+
+    Send me new message or hit /cancel.
+  reply: |
+    🔸 Quick reply ...
+  not_found: |
+    ⚠️ Quick reply was not found!
+  deleted: |
+    🔹 Quick reply is deleted.
