@@ -325,7 +325,7 @@ member:
   failcmd: |
     🔹 ⚠️ Не могу получить информацию об этом сообщении.
   info: |
-    {{request.user_id | er}} <a href="tg://user?id={{request.user_id}}">&{{request.user_id}}</a> {{request.user.first_name | escape}}{%if request.user.last_name%} {{request.user.last_name | escape}}{%endif%}
+    {{request.user.id | er}} <a href="tg://user?id={{request.user.id}}">&{{request.user.id}}</a> {{request.user.first_name | escape}}{%if request.user.last_name%} {{request.user.last_name | escape}}{%endif%}
   userfail: |
     🔹 ⚠️ Не могу получить информацию о пользователе.
   user: |
