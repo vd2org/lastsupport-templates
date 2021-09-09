@@ -1,0 +1,516 @@
+welcome: |
+  🔸 @LastSupportBot v{{version}}.
+
+  Welcome to the bot technical support.
+
+  <b>Avaliable commands:</b>
+
+  /newbot - Add new bot.
+  /mybots - Show bots.
+
+  /language - Change language.
+
+  For technical support, as well as to see how it works live, please contact @RocketBotsBot.
+
+  News and updates: @RocketBotsNews
+
+common:
+  btn:
+    new: |
+      🆕 جديد
+    refresh: |
+      🔄 تحديث
+    addbtns: |
+      ⌨ اضافة كيبورد
+    delbtns: |
+      ️❌ حذف كيبورد
+    preview: |
+      👀 Link previews: {%if preview%}On{%else%}Off{%endif%}
+    up: |
+      ⬆️
+    down: |
+      ⬇️
+    delete: |
+      ❌ حذف
+    back: |
+      ↩️
+  keyboard:
+    set: |
+      🔹 Send me keyboard for add to post in following format:
+
+      <code>Caption = https://example.com/</code>
+
+      You can use from <b>1</b> to <b>12</b> buttons.
+
+      For cancel hit /cancel.
+    toomany: |
+      🔹 Too many buttons.
+
+      You can use from <b>1</b> to <b>12</b> buttons.
+    error: |
+      🔹 There was error while setting keyboard probably because invalid formatting.
+      {%if error%}
+      <code>{{error}}</code>
+      {%endif%}
+
+      Try to fix formatting and send your keyboard again or hit /cancel.
+    saved: |
+      🔹 Keyboard was saved.
+  langname: |
+    🇺🇸 الانجليزية
+  cancelled: |
+    🔹 Cancelled. What next?
+  unknown: |
+    🔹 Unknown command.
+    May be /help?
+  unknown_bot: |
+    🔹 Unknown bot.
+
+lang:
+  text: |
+    🔹 At the moment I speak with you in English. Which language do you want me to switch to?
+
+    ❓ Changing the language does not affect the language of already created bots.
+
+    You can change the language of the already created bots in the settings of this bot.
+
+    <i>If you want to speak with bot in your language, you can translate it here:</i>
+
+    https://github.com/vd2org/lastsupport-templates
+  ok: |
+    🔹 In english now.
+
+mybots:
+  bots: |
+    🔹 Your bots:
+  nobots: |
+    🔹 You don't have any bots.
+
+    To add a new team use /newbot.
+  bot: |
+    {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
+
+newbot:
+  token: |
+    🔸 Adding new bot.
+
+    For starters, you need to create a new bot from @BotFather.
+
+    Send me token or simply forward message with token from BotFather.
+
+    To cancel the addition of a bot click /cancel.
+  fail: |
+    🔸 ⚠️ Unable to authorize your bot.
+
+    Check sent token and try again.
+
+    To cancel the addition of a bot click /cancel.
+  exist: |
+    🔸 ⚠️ This bot already registred here.
+
+    You can not add one bot twice.
+
+    To cancel the addition of a bot click /cancel.
+  ok: |
+    🔸 Bot @{{bot.username}} checked and added.
+
+    Now you can configure it.
+
+manage:
+  text: |
+    @{{bot.username}}
+
+    Status: {%if bot.active%}🎾 Running{%else%}🏐️ Switched off{%endif%}
+    Created: {{bot.created|elapsed}}
+    Language: {{bot.language}}
+
+    Users: {{bot.users_count}}
+
+    Group: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>None</i>{%endif%}
+  language:
+    language: |
+      🌏 Language
+    text: |
+      🔹 Language for @{{bot.username}}.
+
+      Current language: {{bot.language}}
+
+      ❓ Changing the language does not affect the language of the bot design, as well as other created bots.
+  start:
+    start: |
+      ▶️ Start
+    started:
+      🔸 Bot @{{bot.username}} was started. In a few seconds, it will start working.
+    already: |
+      🔸 Bot @{{bot.username}} already started and working.
+  stop:
+    stop: |
+      ⏹ Stop
+    stopped: |
+      🔸 Bot @{{bot.username}} stopped. It will no longer process messages.
+    already: |
+      🔸 Bot @{{bot.username}} already stopped.
+  group:
+    group: |
+      👫 Group's settings
+    text: |
+      🔹 You can add @{{bot.username}} in group to answer the messages not only to you but to all members of the group.
+
+      Add a bot to the group and execute the command /authorize@{{bot.username}}.
+
+      ⚠️ A bot can only work in one group at a time. You can add several different bots to the same group.
+
+      Your group: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Not set</i>{%endif%}
+    leave: |
+      🚶 Disagle & leave
+    leaved: |
+      ⚠️ Bot was removed from group.
+  types:
+    btn: |
+      💬 Message types
+    text: |
+      🔹 Message types settings for @{{bot.username}}.
+
+      ❓ Use delay if you users sends messages though defective inline bots.
+
+      Here you can choose the types of messages, which users can send to your bot.
+    types:
+      text: |
+        {%if 'text' in bot.types%}✅{%else%}❌{%endif%} 📝 Texts
+      audio: |
+        {%if 'audio' in bot.types%}✅{%else%}❌{%endif%} 💽 Audios
+      document: |
+        {%if 'document' in bot.types%}✅{%else%}❌{%endif%} 📃 Documents
+      animation: |
+        {%if 'animation' in bot.types%}✅{%else%}❌{%endif%} 🐈 Animations
+      photo: |
+        {%if 'photo' in bot.types%}✅{%else%}❌{%endif%} 🖼️ Photos
+      sticker: |
+        {%if 'sticker' in bot.types%}✅{%else%}❌{%endif%} ❤️ Stickers
+      video: |
+        {%if 'video' in bot.types%}✅{%else%}❌{%endif%} 📺 Videos
+      voice: |
+        {%if 'voice' in bot.types%}✅{%else%}❌{%endif%} 🎧 Voices
+      video_note: |
+        {%if 'video_note' in bot.types%}✅{%else%}❌{%endif%} 🤳 Videonotes
+      contact: |
+        {%if 'contact' in bot.types%}✅{%else%}❌{%endif%} 📇 Contacts
+      location: |
+        {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ Locations
+      venue: |
+        {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 Venues
+      forwards: |
+        {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ Allow forwards
+      delay: |
+        {%if bot.message_delay%}✅{%else%}❌{%endif%} ⏸ Delay
+  messages: |
+    📝 Messages settings
+  export:
+    btn: |
+      ⏬ Export
+    text: |
+      🔹 Export for @{{bot.username}}
+      {%if not export%}
+      Nothing has been exported yet. 😓
+      {%else%}
+      Last export was requested at {{export.created | elapsed}} ago.
+
+      Status: <b>{{export.state|upper}}</b>
+      {%endif%}
+    request: |
+      ⏬ Request export
+    wait: |
+      ⚠️ Please wait {{to | remaining}} for the next request.
+    only_one: |
+      ⚠️ Only one export can be active at a time.
+  broadcast: |
+    🎙️ Broadcasting
+  qreplies: |
+    🗣 Quick replies
+  token:
+    btn: |
+      🔑 Change token
+    active: |
+      ⚠️ You should stop bot before update token!
+    enter: |
+      🔸 Updating bot's token.
+
+      Send me token or simply forward message with token from BotFather.
+
+      To cancel the updation click /cancel.
+    otherbot: |
+      🔸 ⚠️ You can't use token of another bot.
+
+      Check sent token and try again.
+
+      To cancel the updation click /cancel.
+    updated: |
+      🔸 Token was successfully updated.
+  delete:
+    text: |
+      🔸 Remove @{{bot.username}} from system?
+
+      ⚠️ <b>Attention!</b> This will remove the settings, logs statistics and all data associated with the bot!
+
+      ⚠️ <b>Attention!</b> This action cannot be undone!
+      {%if step=='two'%}
+      <b>📛📛📛 Are you really sure?!</b>{%endif%}
+    deleted: |
+      🔸 Are you really sure @{{bot.username}} deleted from the system.
+    positives:
+      1: Yes.
+      2: Yes, i am sure!
+    negatives:
+      1: No!
+      2: Hell no!
+      3: Never!
+      4: I changed my mind!
+      5: Next time!
+      6: No! No! No!
+      7: Never!
+      8: This is a mistake!
+  auth: |
+    ‼️‼️ Your bot @{{bot.username}} was stoped due to authorization fail.
+
+    To continue work you should update api-key of the bot.
+
+group:
+  welcome: |
+    🔹 Hi! I'm a technical support bot.
+
+    To authorize me in this group, the bot owner must execute the command /authorize@{{bot.username}}.
+  auth:
+    ok: |
+      🔹 Bot was authorized. Now messages will come to this group.
+
+      For command help click /help.
+    already: |
+      🔹 This bot is already authorized in this group.
+    other: |
+      🔹 Bot is authorized in another group.
+    deny: |
+      🔹 ⚠️ Only the owner of the bot can authorize it.
+    removed: |
+      🔹 Authorization deleted.
+  channel: |
+    🔹 ⚠️ This bot is not intended for use in channels!
+
+member:
+  btn:
+    close: |
+      ❌
+    user: |
+      🙇‍♂️ User
+    ban: |
+      🚷 حظر
+    unban: |
+      🦾 Unban
+    deleteall: |
+      🚫 حذف الكل
+    past_msg: |
+      ⤴️
+    digest: |
+      📃 السجل
+  help: |
+    🔹 How to use?
+
+    Messages from users of your bot will be sent here.
+
+    To reply to the user, you must reply to the forwarded message.
+
+    /info in response to the user's message displays information about the user and his settings.
+  fail: |
+    🔹 ⚠️ I can not get information about the user. Message not sent.
+  bot_baned: |
+    🔹 ⚠️ The user has blocked the bot. Message not sent.
+  failcmd: |
+    🔹 ⚠️ I can not get information about this message.
+  info: |
+    {{request.user_id | er}} <a href="tg://user?id={{request.user_id}}">&{{request.user_id}}</a> {{request.user.first_name | escape}}{%if request.user.last_name%} {{request.user.last_name | escape}}{%endif%}
+  userfail: |
+    🔹 ⚠️ Can't get information about user.
+  user: |
+    {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}
+
+    <b>🌎 اللغة</b>: {{user.language_code}}
+    <b>🗽 تم البداء في:</b> {{user.created|elapsed}} <b>ago</b>
+    <b>🕐 الرسالة الاخيرة:</b> {{user.last_message|elapsed}} <b>ago</b>
+    <b>📥 الرسائل</b>: {{requests}}
+    <b>📤 الردود</b>: {{responses}}
+
+    {%if user.is_banned%}<b>⚠️ Banned!</b>{%endif%}
+  ban: |
+    🔹 User is {% if user.is_banned%}⚠️ banned{%else%}unbanned{%endif%}!
+  digest: |
+    🔹 Digest for {{user.user_id|er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}:
+    {%for msg in msgs%}
+    [{%if msg.msg_link_url%}<a href="{{msg.msg_link_url}}">{%endif%}{{msg.time|elapsed}}{%if msg.msg_link_url%}</a>{%endif%}] {%if msg.is_response%}🗣{%else%}{{user.user_id|er}}{%endif%}: {%if msg.msg.type == 'text'%}{{msg.msg.text|untag|crop}}{%else%}🏞 Media{%endif%}{%endfor%}
+
+
+user:
+  welcome: |
+    🔹 Welcome!
+
+    Send here a message and it will be send to technical support group.
+  sent: |
+    🔸 Message was sent.
+  forward: |
+    🔹 ⚠️ Forbid to forward messages here.
+  type: |
+    🔹 ⚠️ Message was not sent
+
+    You can send following message types:
+
+    $types
+  types: |
+    {%if 'text' in bot.types%}📝 Text{{'\n'}}{%endif-%}
+    {%if 'audio' in bot.types%}💽 Audio{{'\n'}}{%endif-%}
+    {%if 'document' in bot.types%}📃 Documents{{'\n'}}{%endif-%}
+    {%if 'animation' in bot.types%}🐈 Animations{{'\n'}}{%endif-%}
+    {%if 'photo' in bot.types%}🖼️ Photos{{'\n'}}{%endif-%}
+    {%if 'sticker' in bot.types%}❤️ Stickers{{'\n'}}{%endif-%}
+    {%if 'video' in bot.types%}📺 Videos{{'\n'}}{%endif-%}
+    {%if 'voice' in bot.types%}🎧 Voices{{'\n'}}{%endif-%}
+    {%if 'video_note' in bot.types%}🤳 Videonotes{{'\n'}}{%endif-%}
+    {%if 'contact' in bot.types%}📇 Contacts{{'\n'}}{%endif-%}
+    {%if 'location' in bot.types%}🛰️ Locations{{'\n'}}{%endif-%}
+    {%if 'venue' in bot.types%}🏬 Venues{%endif-%}
+
+messages:
+  text: |
+    🔹 Message settings for @{{bot.username}}.
+
+    In this section you can set your messages for users.
+
+    ❓ You can set the time after which the user will receive a notification again after the message has been sent.
+    ❓ The following variables can be used in all messages:
+       ▪️ <code>$first_name</code> - user's first name
+       ▪️ <code>$last_name</code> - user's second name
+       ▪️ <code>$full_name</code> - first+second name
+       ▪️ <code>$types</code> - list of supported message types
+
+    🔹 Select the appropriate message from the bottom and then you can edit it or return the standard one.
+  edition: |
+    🔹 Edition `{{T('messages/select/'+selected)}}` for @{{bot.username}}.
+
+    Send a new message and it will be saved.
+    To cancel editing click /cancel.
+  error: |
+    🔹 There was error while sending message probably because invalid formatting.
+
+    <code>{{error}}</code>
+
+    🔹 Fix formatting and send your message again.
+
+    🔹 To cancel editing click /cancel.
+  edit: |
+    ✍️ Edit
+  revert: |
+    🔙 Revert
+  sent:
+    header: |
+      🕔 Repeat every:
+    value: |
+      {%if bot.sent_delay == 0%}Is always{%else%}{{bot.sent_delay}}m{%endif%}
+    minus: |
+      ⏪
+    plus: |
+      ⏩
+  select:
+    welcome: |
+      {%if selected%}🔺️ {%endif%}👋 Welcome
+    sent: |
+      {%if selected%}🔺️ {%endif%}📨 Sent
+    forward: |
+      {%if selected%}🔺️ {%endif%}⏩ Forward
+    type: |
+      {%if selected%}🔺️ {%endif%}🆎 Type
+
+broadcast:
+  btn:
+    view: |
+      👀 View
+    start: |
+      ▶️ Start
+    pause: |
+      ⏸ Pause
+    cancel: |
+      ❌ Cancel
+    archive: |
+      📚 Archive
+
+  states:
+    new: |
+      🆕 NEW
+    started: |
+      ▶️ RUNNING
+    paused: |
+      ⏸ PAUSED
+    cancelled: |
+      ❌ CANCELLED
+    finished: |
+      ☑️ FINISHED
+
+  unknown: |
+    🔸 Unknown broadcast!
+
+  exist: |
+    🔸 Only one active broadcast can be created!
+
+  main: |
+    🔹 Broadcast for @{{bot.username}}
+    {%if current%}
+    Broadcast: #{{current._id}}
+    Created: <b>{{current.created|elapsed}}</b>{%if current.started%}
+    Started: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}{%if current.finished%}
+    Finished: <b>{{current.finished|elapsed}}</b>{%endif%}
+
+    <b>{{T('broadcast/states/'+current.state)}}</b>{%if stat%}
+
+    Sent: <b>{{stat.sent}}</b> of <b>{{stat.total}}</b>
+    Errors: <b>{{stat.errors}}</b>{%endif%}
+    {%else%}
+    No active broadcasts yet.
+
+    ❓ Only one active broadcast can be created at same time.
+
+    ❓ Broadcast commands(start, pause, stop) can take up to one minute to process.
+
+    ❓ Finished broadcasts will be moved to archive.
+    {%endif%}
+  archive: |
+    🔹 Boradcast archive for @{{bot.username}}
+  new: |
+    🔸 New broadcast for @{{bot.username}}
+
+    Send me new message or hit /cancel.
+  notsupport: |
+    🔸 Bot supports only text messages. Try again or hit /cancel.
+  error: |
+    🔹 There was an error while creating post probably because invalid formatting.
+
+    <code>{{error}}</code>
+
+    🔹 Try to fix formatting and send your post again or hit /cancel.
+  created: |
+    🔸 Your new broadcast was created.
+  cancelled: |
+    🔸 Your new broadcast #{{broadcast._id}} was cancelled.
+  started: |
+    🔸 Your broadcast #{{broadcast._id}} was started.
+  paused: |
+    🔸 Your broadcast #{{broadcast._id}} was paused.
+
+qreplies:
+  text: |
+    🔹 Quick replies for @{{bot.username}}
+  new: |
+    🔸 New quick reply for @{{bot.username}}
+
+    Send me new message or hit /cancel.
+  reply: |
+    🔸 Quick reply ...
+  not_found: |
+    ⚠️ Quick reply was not found!
+  deleted: |
+    🔹 Quick reply is deleted.
