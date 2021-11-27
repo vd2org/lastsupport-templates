@@ -311,6 +311,8 @@ member:
       ⤴️
     digest: |
       📃 Digest
+    fwd_info: |
+      ➡️
   help: |
     🔹 Wie benutzt man den Bot?
 
@@ -346,7 +348,19 @@ member:
     🔹 Digest for {{user.user_id|er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}:
     {%for msg in msgs%}
     [{%if msg.msg_link_url%}<a href="{{msg.msg_link_url}}">{%endif%}{{msg.time|elapsed}}{%if msg.msg_link_url%}</a>{%endif%}] {%if msg.is_response%}🗣{%else%}{{user.user_id|er}}{%endif%}: {%if msg.msg.type == 'text'%}{{msg.msg.text|untag|crop}}{%else%}🏞 Media{%endif%}{%endfor%}
+  fwd_info: |
+    🔹 Message has forwarded from{%if fwd.channel%} the channel{%elif fwd.bot%} the bot{%elif fwd.hidden%} a hidden profile{%endif%}:
 
+    {%if fwd.user_id%}{{fwd.user_id | er}} <a href="tg://user?id={{fwd.user_id}}">&{{fwd.user_id}}</a>{%if fwd.first_name%} {{fwd.first_name | escape}}{%endif%}{%if fwd.last_name%} {{fwd.last_name | escape}}{%endif%}
+    {%endif-%}
+    {%if fwd.username%}<b>🗣 Username</b>: @{{fwd.username}}
+    {%endif-%}
+    {%if fwd.sender_name%}<b>🗣 Sender name</b>: {{fwd.sender_name | escape}}
+    {%endif-%}
+    {%if fwd.signature%}<b>🗣 Signature</b>: {{fwd.signature | escape}}
+    {%endif-%}
+    {%if fwd.language_code %}<b>🌎 Language</b>: {{fwd.language_code}}
+    {%endif-%}
 
 user:
   welcome: |
