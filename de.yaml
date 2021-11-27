@@ -332,6 +332,7 @@ member:
   user: |
     {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}
 
+    {%if user.username%}<b>🗣 Username</b>: @{{user.username}}{%endif%}
     <b>🌎 Sprache</b>: {{user.language_code}}
     <b>🗽 Erstellt:</b> {{user.created|elapsed}} <b>ago</b>
     <b>🕐 Letzte Meldung:</b> {{user.last_message|elapsed}} <b>ago</b>
