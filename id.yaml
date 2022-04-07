@@ -1,0 +1,531 @@
+welcome: |
+  🔸 @LastSupportBot v{{version}}.
+
+  Selamat datang di dukungan teknis bot..
+
+  <b>Perintah yang tersedia:</b>
+
+  /newbot - Tambahkan bot baru.
+  /mybots - Perlihatkan bot.
+
+  /language - Ubah bahasa.
+
+  Untuk dukungan teknis, serta untuk melihat cara kerjanya secara langsung, silakan hubungi @RocketBotsBot.
+
+  Berita dan pembaruan: @RocketBotsNews
+
+common:
+  btn:
+    new: |
+      🆕 Baru
+    refresh: |
+      🔄 Refresh
+    addbtns: |
+      ⌨ Tambah keyboard
+    delbtns: |
+      ️❌ Hapus keyboard
+    preview: |
+      👀 Pratinjau tautan: {%if preview%}On{%else%}Off{%endif%}
+    up: |
+      ⬆️
+    down: |
+      ⬇️
+    delete: |
+      ❌ Hapus
+    back: |
+      ↩️
+  keyboard:
+    set: |
+      🔹 Kirimkan saya keyboard untuk ditambahkan ke postingan dalam format berikut:
+
+      <code>Caption = https://example.com/</code>
+
+      Anda dapat menggunakan dari <b>1</b> to <b>12</b> tombol.
+
+      Untuk batal, tekan /cancel
+    toomany: |
+      🔹 Terlalu banyak tombol.
+
+      Anda dapat menggunakan dari <b>1</b> to <b>12</b> tombol.
+    error: |
+      🔹 Ada kesalahan saat mengatur keyboard mungkin karena pemformatan tidak valid.
+      {%if error%}
+      <code>{{error}}</code>
+      {%endif%}
+
+      Coba perbaiki pemformatan dan kirim keyboard Anda lagi atau tekan /cancel.
+    saved: |
+      🔹 Keyboard telah disimpan.
+  langname: |
+     🇮🇩 Indonesia
+  cancelled: |
+    🔹 Batal. Apa selanjutnya?
+  unknown: |
+    🔹 Perintah tidak dikenal.
+    Mungkin /help?
+  unknown_bot: |
+    🔹 Bot tidak dikenal.
+
+lang:
+  text: |
+    🔹 Saat ini saya berbicara dengan Anda dalam bahasa Indonesia. Bahasa apa yang Anda ingin untuk saya beralih ke?
+
+    ❓ Mengubah bahasa tidak memengaruhi bahasa bot yang sudah dibuat.
+
+    Anda dapat mengubah bahasa bot yang sudah dibuat di pengaturan bot ini.
+
+    <i>Jika Anda ingin berbicara dengan bot dalam bahasa Anda, Anda dapat menerjemahkannya di sini:</i>
+
+    https://github.com/vd2org/lastsupport-templates
+  ok: |
+    🔹 Di indonesia sekarang.
+
+mybots:
+  bots: |
+    🔹 Bot Anda:
+  nobots: |
+    🔹 Anda tidak memiliki bot sama sekali.
+
+    To add a new team use /newbot.
+  bot: |
+    {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
+
+newbot:
+  token: |
+    🔸 Tambahkan bot baru.
+
+    Sebagai permulaan, Anda perlu membuat bot baru dari @BotFather.
+
+    Kirikan saya token atau cukup teruskan pesan dengan token dari BotFather.
+
+    Untuk membatalkan penambahan bot klik /cancel.
+  fail: |
+    🔸 ⚠️ Tidak dapat mengotorisasi bot Anda.
+
+    Periksa token terkirim dan coba lagi.
+
+    Untuk membatalkan penambahan bot klik /cancel.
+  exist: |
+    🔸 ⚠️ Bot ini sudah terdaftarkan.
+
+    Anda tidak dapat menambahkan satu bot dua kali.
+
+    Untuk membatalkan penambahan bot klik /cancel.
+  ok: |
+    🔸 Bot @{{bot.username}} diperiksa dan ditambahkan.
+
+     Sekarang Anda dapat mengkonfigurasinya.
+
+manage:
+  text: |
+    @{{bot.username}}
+
+    Status: {%if bot.active%}🎾 Running{%else%}🏐️ Switched off{%endif%}
+    Dibuat: {{bot.created|elapsed}}
+    Bahasa: {{bot.language}}
+
+    Pengguna: {{bot.users_count}}
+
+    Grup: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>None</i>{%endif%}
+  language:
+    language: |
+      🌏 Bahasa
+    text: |
+      🔹 Bahasa untuk @{{bot.username}}.
+
+      Bahasa saat ini: {{bot.language}}
+
+      ❓ Mengubah bahasa tidak mempengaruhi bahasa desain bot, serta bot yang dibuat lainnya.
+  start:
+    start: |
+      ▶️ Mulai
+    started:
+      🔸 Bot @{{bot.username}} sudah dimulai. Dalam beberapa detik, itu akan mulai bekerja.
+    already: |
+      🔸 Bot @{{bot.username}} sudah dimulai dan bekerja.
+  stop:
+    stop: |
+      ⏹ Berhenti
+    stopped: |
+      🔸 Bot @{{bot.username}} Berhenti. Ini tidak akan lagi memproses pesan.
+    already: |
+      🔸 Bot @{{bot.username}} sudah dihentikan.
+  group:
+    group: |
+      👫 Pengaturan grup
+    text: |
+      🔹 Anda dapat menambahkan @{{bot.username}} dalam grup untuk menjawab pesan tidak hanya kepada Anda tetapi untuk semua anggota grup.
+
+      Tambahkan bot ke grup dan jalankan perintah /authorize@{{bot.username}}.
+
+      ⚠️ Bot hanya dapat bekerja dalam satu grup pada satu waktu. Anda dapat menambahkan beberapa bot yang berbeda ke grup yang sama.
+
+      Grup anda: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Tidak diatur</i>{%endif%}
+    leave: |
+      🚶 Nonaktifkan & tinggalkan
+    leaved: |
+      ⚠️ Bot telah dihapus dari grup.
+  types:
+    btn: |
+      💬 Tipe pesan
+    text: |
+      🔹 Pengaturan tipe pesan untuk @{{bot.username}}.
+
+      ❓ Gunakan penundaan jika Pengguna mengirim pesan meskipun bot inline rusak.
+
+      Di sini Anda dapat memilih jenis pesan, yang dapat dikirim pengguna ke bot Anda.
+    types:
+      text: |
+        {%if 'text' in bot.types%}✅{%else%}❌{%endif%} 📝 Teks
+      audio: |
+        {%if 'audio' in bot.types%}✅{%else%}❌{%endif%} 💽 Audio
+      document: |
+        {%if 'document' in bot.types%}✅{%else%}❌{%endif%} 📃 Documen
+      animation: |
+        {%if 'animation' in bot.types%}✅{%else%}❌{%endif%} 🐈 GIF
+      photo: |
+        {%if 'photo' in bot.types%}✅{%else%}❌{%endif%} 🖼️ Foto
+      sticker: |
+        {%if 'sticker' in bot.types%}✅{%else%}❌{%endif%} ❤️ Stiker
+      video: |
+        {%if 'video' in bot.types%}✅{%else%}❌{%endif%} 📺 Video
+      voice: |
+        {%if 'voice' in bot.types%}✅{%else%}❌{%endif%} 🎧 Pesan suara
+      video_note: |
+        {%if 'video_note' in bot.types%}✅{%else%}❌{%endif%} 🤳 Videonotes
+      contact: |
+        {%if 'contact' in bot.types%}✅{%else%}❌{%endif%} 📇 Kontak
+      location: |
+        {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ Lokasi
+      venue: |
+        {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 Venues
+      forwards: |
+        {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ Izinkan pesan diteruskan
+      delay: |
+        {%if bot.message_delay%}✅{%else%}❌{%endif%} ⏸ Delay
+  messages: |
+    📝 Pengaturan pesan
+  export:
+    btn: |
+      ⏬ Ekspor
+    text: |
+      🔹 Ekspor untuk @{{bot.username}}
+      {%if not export%}
+      Belum ada yang diekspor. 😓
+      {%else%}
+      Ekspor terakhir diminta di {{export.created | elapsed}} lalu.
+
+      Status: <b>{{export.state|upper}}</b>
+      {%endif%}
+    request: |
+      ⏬ Minta ekspor
+    wait: |
+      ⚠️ Mohon tunggu {{to | remaining}} untuk permintaan selanjutnya.
+    only_one: |
+      ⚠️ Hanya satu ekspor yang dapat aktif pada satu waktu.
+  broadcast: |
+    🎙️ Penyiaran
+  qreplies: |
+    🗣 Balasan cepat
+  token:
+    btn: |
+      🔑 Ganti token
+    active: |
+      ⚠️ Anda harus menghentikan bot sebelum memperbarui token!
+    enter: |
+      🔸 Memperbarui token bot.
+
+      Kirimkan saya token atau cukup teruskan pesan dengan token dari BotFather.
+
+      Untuk membatalkan pembaruan tekan /cancel
+    otherbot: |
+      🔸 ⚠️ Anda tidak dapat menggunakan token bot lain.
+
+      Periksa token terkirim dan coba lagi.
+
+      Untuk membatalkan pembaruan tekan /cancel
+    updated: |
+      🔸 Token telah diperbarui.
+  delete:
+    text: |
+      🔸 Hapus @{{bot.username}} dari sistem?
+
+      ⚠️ <b>Perhatian!</b> Ini akan menghapus pengaturan, statistik log, dan semua data yang terkait dengan bot!
+
+      ⚠️ <b>Perhatian!</b> Aksi ini tidak dapat dibatalkan.
+      {%if step=='two'%}
+      <b>📛📛📛 Apakah Anda benar-benar yakin ?!!</b>{%endif%}
+    deleted: |
+      🔸 Apakan anda benar-benar yakin @{{bot.username}} dihapus dari sistem..
+    positives:
+      1: Ya.
+      2: Ya, saya yakin!
+    negatives:
+      1: Tidak!
+      2: Fuck tidak!
+      3: Tidak akan!
+      4: Saya berubah pikiran!
+      5: Lain kali!
+      6: Tidak! Tidak! Tidak!
+      7: Tidak akan!
+      8: Ini sebuah kesalahan!
+  auth: |
+    ‼️‼️ Bot anda @{{bot.username}} telah dihentikan karena ototorisasi gagal.
+
+    Untuk melanjutkan pekerjaan, Anda harus memperbarui api-key bot.
+
+group:
+  welcome: |
+    🔹 Hai! Saya adalah bot dukungan teknis.
+
+    Untuk mengotorisasi saya dalam grup ini, pemilik bot harus menjalankan perintah /authorize@{{bot.username}}.
+  auth:
+    ok: |
+      🔹 Bot diotorisasi. Sekarang pesan akan datang ke grup ini.
+
+      Untuk bantuan perintah klik /help.
+    already: |
+      🔹 Bot ini sudah diotorisasi dalam grup ini.
+    other: |
+      🔹 Bot diotorisasi dalam grup lain.
+    deny: |
+      🔹 ⚠️ Hanya pemilik bot yang dapat mengotorisasinya.
+    removed: |
+      🔹 Otorisasi dihapus.
+  channel: |
+    🔹 ⚠️ Bot ini tidak dimaksudkan untuk digunakan di saluran!
+
+member:
+  btn:
+    close: |
+      ❌
+    user: |
+      🙇‍♂️ Pengguna
+    ban: |
+      🚷 Blokir
+    unban: |
+      🦾 Buka blokir
+    deleteall: |
+      🚫 Hapus semua
+    past_msg: |
+      ⤴️
+    digest: |
+      📃 Digest
+    fwd_info: |
+      ➡️
+  help: |
+    🔹 Bagaimana cara menggunakan?
+
+    Pesan dari pengguna bot Anda akan dikirim ke sini.
+
+    Untuk membalas pengguna, Anda harus membalas pesan yang diteruskan.
+
+    /info sebagai tanggapan terhadap pesan pengguna, menampilkan informasi tentang pengguna dan pengaturannya.
+  fail: |
+    🔹 ⚠️ Saya tidak bisa mendapatkan informasi tentang pengguna. Pesan tidak terkirim.
+  bot_baned: |
+    🔹 ⚠️ Pengguna telah memblokir bot. Pesan tidak terkirim.
+  failcmd: |
+    🔹 ⚠️ Saya tidak bisa mendapatkan informasi tentang pesan ini.
+  info: |
+    {{request.user.id | er}} <a href="tg://user?id={{request.user.id}}">&{{request.user.id}}</a> {{request.user.first_name | escape}}{%if request.user.last_name%} {{request.user.last_name | escape}}{%endif%}
+  userfail: |
+    🔹 ⚠️ Tidak dapat mendapatkan informasi tentang pengguna ini.
+  user: |
+    {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}
+
+    {%if user.username%}<b>🗣 Username</b>: @{{user.username}}{%endif%}
+    <b>🌎 Bahasa</b>: {{user.language_code}}
+    <b>🗽 Dibuat:</b> {{user.created|elapsed}} <b>ago</b>
+    <b>🕐 Pesan terakhir:</b> {{user.last_message|elapsed}} <b>ago</b>
+    <b>📥 Pesan</b>: {{requests}}
+    <b>📤 Balasan</b>: {{responses}}
+
+    {%if user.is_banned%}<b>⚠️ Diblokir!</b>{%endif%}
+  ban: |
+    🔹 User is {% if user.is_banned%}⚠️ blokir{%else%}telah di buka blokir{%endif%}!
+  digest: |
+    🔹 Digest for {{user.user_id|er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}:
+    {%for msg in msgs%}
+    [{%if msg.msg_link_url%}<a href="{{msg.msg_link_url}}">{%endif%}{{msg.time|elapsed}}{%if msg.msg_link_url%}</a>{%endif%}] {%if msg.is_response%}🗣{%else%}{{user.user_id|er}}{%endif%}: {%if msg.msg.type == 'text'%}{{msg.msg.text|untag|crop}}{%else%}🏞 Media{%endif%}{%endfor%}
+  fwd_info: |
+    🔹 Pesan telah diteruskan dari{%if fwd.channel%} saluran{%elif fwd.bot%} bot{%elif fwd.hidden%} profil tersembunyi{%endif%}:
+
+    {%if fwd.user_id%}{{fwd.user_id | er}} <a href="tg://user?id={{fwd.user_id}}">&{{fwd.user_id}}</a>{%if fwd.first_name%} {{fwd.first_name | escape}}{%endif%}{%if fwd.last_name%} {{fwd.last_name | escape}}{%endif%}
+    {%endif-%}
+    {%if fwd.username%}<b>🗣 Nama pengguna</b>: @{{fwd.username}}
+    {%endif-%}
+    {%if fwd.sender_name%}<b>🗣 Nama pengirim</b>: {{fwd.sender_name | escape}}
+    {%endif-%}
+    {%if fwd.signature%}<b>🗣 Tanda tangan</b>: {{fwd.signature | escape}}
+    {%endif-%}
+    {%if fwd.language_code %}<b>🌎 Bahasa</b>: {{fwd.language_code}}
+    {%endif-%}
+
+user:
+  welcome: |
+    🔹 Selamat datang!
+
+    Kirim pesan ke sini dan akan dikirim ke grup dukungan teknis.
+  sent: |
+    🔸 Pesan telah terkirim.
+  forward: |
+    🔹 ⚠️ Dilarang untuk meneruskan pesan di sini.
+  type: |
+    🔹 ⚠️ Pesan tidak terkirim
+
+    Anda dapat mengirim jenis pesan berikut:
+
+    $types
+  types: |
+    {%if 'text' in bot.types%}📝 Text{{'\n'}}{%endif-%}
+    {%if 'audio' in bot.types%}💽 Audio{{'\n'}}{%endif-%}
+    {%if 'document' in bot.types%}📃 Documen{{'\n'}}{%endif-%}
+    {%if 'animation' in bot.types%}🐈 GIF{{'\n'}}{%endif-%}
+    {%if 'photo' in bot.types%}🖼️ Foto{{'\n'}}{%endif-%}
+    {%if 'sticker' in bot.types%}❤️ Stiker{{'\n'}}{%endif-%}
+    {%if 'video' in bot.types%}📺 Video{{'\n'}}{%endif-%}
+    {%if 'voice' in bot.types%}🎧 Pesan suara{{'\n'}}{%endif-%}
+    {%if 'video_note' in bot.types%}🤳 Videonotes{{'\n'}}{%endif-%}
+    {%if 'contact' in bot.types%}📇 Kontak{{'\n'}}{%endif-%}
+    {%if 'location' in bot.types%}🛰️ Lokasi{{'\n'}}{%endif-%}
+    {%if 'venue' in bot.types%}🏬 Venues{%endif-%}
+
+messages:
+  text: |
+    🔹 Pesan pengaturan untuk @{{bot.username}}.
+
+    Di bagian ini Anda dapat mengatur pesan untuk pengguna.
+
+    ❓ Anda dapat mengatur waktu setelah itu pengguna akan menerima pemberitahuan lagi setelah pesan dikirim.
+    ❓ Variabel berikut dapat digunakan di semua pesan:
+       ▪️ <code>$first_name</code> - nama depan pengguna
+       ▪️ <code>$last_name</code> - nama belakang pengguna
+       ▪️ <code>$full_name</code> - nama depan+belakang
+       ▪️ <code>$types</code> - daftar tipe pesan yang didukung
+
+    🔹 Pilih pesan yang sesuai dari bawah dan kemudian Anda dapat mengeditnya atau mengembalikan pesan standar.
+  edition: |
+    🔹 Edit `{{T('messages/select/'+selected)}}` untuk @{{bot.username}}.
+
+    Kirim pesan baru dan itu akan disimpan.
+    Untuk batal mengedit tekan /cancel
+  error: |
+    🔹 Ada kesalahan saat mengirim pesan mungkin karena pemformatan tidak valid.
+
+    <code>{{error}}</code>
+
+    🔹 Perbaiki pemformatan dan kirim pesan Anda lagi.
+
+    🔹 Untuk batal tekan /cancel
+  edit: |
+    ✍️ Edit
+  revert: |
+    🔙 Kembali
+  sent:
+    header: |
+      🕔 Ulang setiap:
+    value: |
+      {%if bot.sent_delay == 0%}Is always{%else%}{{bot.sent_delay}}m{%endif%}
+    minus: |
+      ⏪
+    plus: |
+      ⏩
+  select:
+    welcome: |
+      {%if selected%}🔺️ {%endif%}👋 Selamat datang
+    sent: |
+      {%if selected%}🔺️ {%endif%}📨 Terkirim
+    forward: |
+      {%if selected%}🔺️ {%endif%}⏩ Diteruskan
+    type: |
+      {%if selected%}🔺️ {%endif%}🆎 Tipe
+
+broadcast:
+  btn:
+    view: |
+      👀 Lihat
+    start: |
+      ▶️ Mulai
+    pause: |
+      ⏸ Jeda
+    cancel: |
+      ❌ Batal
+    archive: |
+      📚 Arsip
+
+  states:
+    new: |
+      🆕 BARU
+    started: |
+      ▶️ DIJALANKAN
+    paused: |
+      ⏸ DIJEDA
+    cancelled: |
+      ❌ BATALKAN
+    finished: |
+      ☑️ SELESAI
+
+  unknown: |
+    🔸 Siaran tidak dikenal!
+
+  exist: |
+    🔸 Hanya satu siaran aktif yang dapat dibuat!
+
+  main: |
+    🔹 Siaran untuk @{{bot.username}}
+    {%if current%}
+    Siaran: #{{current._id}}
+    Dibuat: <b>{{current.created|elapsed}}</b>{%if current.started%}
+    Dimulai: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}{%if current.finished%}
+    Selesai: <b>{{current.finished|elapsed}}</b>{%endif%}
+
+    <b>{{T('broadcast/states/'+current.state)}}</b>{%if stat%}
+
+    Terkirim: <b>{{stat.sent}}</b> of <b>{{stat.total}}</b>
+    Error: <b>{{stat.errors}}</b>{%endif%}
+    {%else%}
+    Tidak ada siaran aktif.
+
+    ❓ Hanya satu siaran aktif yang dapat dibuat secara bersamaan.
+
+    ❓ Perintah siaran (mulai, jeda, berhenti) dapat memakan waktu hingga satu menit untuk diproses.
+
+    ❓ Siaran yang sudah selesai akan dipindahkan ke arsip.
+    {%endif%}
+  archive: |
+    🔹 Arsip siaran untuk @{{bot.username}}
+  new: |
+    🔸 Siaran baru untuk @{{bot.username}}
+
+    Kirimkan pesan baru atau tekan /cancel
+  notsupport: |
+    🔸 Bot hanya mendukung pesan teks. Coba lagi atau tekan /batalkan.
+  error: |
+    🔹 Ada kesalahan saat membuat posting mungkin karena pemformatan tidak valid.
+
+    <code>{{error}}</code>
+
+    🔹 Coba perbaiki pemformatan dan kirim posting Anda lagi atau tekan /batalkan.
+  created: |
+    🔸 Siaran baru Anda berhasil dibuat.
+  cancelled: |
+    🔸 Siaran Anda #{{broadcast._id}} telah dibatalkan.
+  started: |
+    🔸 Siaran Anda #{{broadcast._id}} telah dimulai.
+  paused: |
+    🔸 Siaran Anda #{{broadcast._id}} telah dijeda.
+
+qreplies:
+  text: |
+    🔹 Balasan cepat untuk @{{bot.username}}
+  new: |
+    🔸 Balasan cepat baru untuk @{{bot.username}}
+
+    Kirimi saya pesan baru atau tekan /cancel.
+  reply: |
+    🔸 Balasan cepat ...
+  not_found: |
+    ⚠️ Jawaban cepat tidak ditemukan!
+  deleted: |
+    🔹 Balasan cepat dihapus.
