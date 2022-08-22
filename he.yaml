@@ -17,7 +17,7 @@ welcome: |
 common:
   btn:
     new: |
-      🆕 New
+      🆕 חדש
     refresh: |
       🔄 לְרַעֲנֵן
     addbtns: |
