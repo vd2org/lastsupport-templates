@@ -1,0 +1,527 @@
+welcome: |
+  🔸 @LastSupportBot v{{version}}.
+
+  ברוכים הבאים לתמיכה הטכנית של הבוט.
+
+  <b>פקודות זמינות:</b>
+
+  /newbot - הוסף בוט חדש.
+  /mybots - הצג בוטים.
+
+  /language - בחר שפה.
+
+  לתמיכה טכנית, כמו גם כדי לראות איך זה עובד בשידור חי, אנא צור קשר @RocketBotsBot.
+
+  חדשות ועדכונים: @RocketBotsNews
+
+common:
+  btn:
+    new: |
+      🆕 חדש
+    refresh: |
+      🔄 לְרַעֲנֵן
+    addbtns: |
+      ⌨ הוסף מקלדת
+    delbtns: |
+      ️❌ הסר את המקלדת
+    preview: |
+      👀 הסר את המקלדת: {%if preview%}On{%else%}Off{%endif%}
+    up: |
+      ⬆️
+    down: |
+      ⬇️
+    delete: |
+      ❌ למחק
+    back: |
+      ↩️
+  keyboard:
+    set: |
+      🔹 שלח לי מקלדת להוספה לפוסט בפורמט הבא:
+
+      <code>Caption = https://t.me/robot_trick_channel/</code>
+
+      אתה יכול להשתמש מ <b>1</b> to <b>12</b> כפתורים.
+
+      לביטול לחץ /cancel.
+    toomany: |
+      🔹 יותר מדי כפתורים.
+
+      אתה יכול להשתמש מ <b>1</b> to <b>12</b> כפתורים.
+    error: |
+      🔹 אירעה שגיאה בעת הגדרת המקלדת כנראה בגלל עיצוב לא חוקי.
+      {%if error%}
+      <code>{{error}}</code>
+      {%endif%}
+
+      נסה לתקן את העיצוב ושלח את המקלדת שוב או לחץ /cancel.
+    saved: |
+      🔹 המקלדת נשמרה.
+  langname: |
+    🇺🇸 עברית
+  cancelled: |
+    🔹 בוטל מה עכשיו?
+  unknown: |
+    🔹 פקודה לא מזוהה.
+    אולי /help?
+  unknown_bot: |
+    🔹 בוט לא ידוע.
+
+lang:
+  text: |
+    🔹 כרגע אני מדבר איתך בעברית. לאיזו שפה אתה רוצה שאעבור?
+
+    ❓ שינוי השפה אינו משפיע על השפה של בוטים שכבר נוצרו.
+
+    אתה יכול לשנות את השפה של הבוטים שכבר נוצרו בהגדרות של הבוט הזה.
+
+    <i>אם אתה רוצה לדבר עם בוט בשפה שלך, אתה יכול לתרגם אותו כאן:</i>
+
+    https://github.com/vd2org/lastsupport-templates
+  ok: |
+    🔹 עכשיו בעברית.
+
+mybots:
+  bots: |
+    🔹 הבוטים שלך:
+  nobots: |
+    🔹 אין לך בוטים כרגע.
+
+    כדי להוסיף בוט חדש השתמש /newbot.
+  bot: |
+    {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
+
+newbot:
+  token: |
+    🔸 מוסיף בוט חדש.
+
+    בתור התחלה, אתה צריך ליצור בוט חדש מ @BotFather.
+
+    שלח לי אסימון או פשוט העבר הודעה עם אסימון מאת BotFather.
+
+    לביטול הוספת בוט לחץ /cancel.
+  fail: |
+    🔸 ⚠️ לא ניתן לאשר את הבוט שלך.
+
+    בדוק את האסימון שנשלח ונסה שוב.
+
+    לביטול הוספת בוט לחץ /cancel.
+  exist: |
+    🔸 ⚠️ הבוט הזה כבר נרשם כאן.
+
+    אתה לא יכול להוסיף בוט אחד פעמיים.
+
+    לביטול הוספת בוט לחץ /cancel.
+  ok: |
+    🔸 רובוט @{{bot.username}} בדוק ונוסף.
+
+    עכשיו אתה יכול להגדיר אותו.
+
+manage:
+  text: |
+    @{{bot.username}}
+
+    מצב: {%if bot.active%}🎾 Running{%else%}🏐️ Switched off{%endif%}
+    נוצר: {{bot.created|elapsed}}
+    שפה: {{bot.language}}
+
+    משתמשים: {{bot.users_count}}
+    קבוצה: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>None</i>{%endif%}
+  language:
+    language: |
+      🌏 Language
+    text: |
+      🔹 שפה עבור @{{bot.username}}.
+
+      שפה נוכחית: {{bot.language}}
+
+      ❓ שינוי השפה אינו משפיע על השפה של עיצוב הבוט, כמו גם על בוטים אחרים שנוצרו.
+  start:
+    start: |
+      ▶️ התחל
+    started:
+      🔸 בוט @{{bot.username}} התחיל. תוך כמה שניות, זה יתחיל לעבוד.
+    already: |
+      🔸 בוט @{{bot.username}} כבר התחיל ועובד.
+  stop:
+    stop: |
+      ⏹ עצור
+    stopped: |
+      🔸 בוט @{{bot.username}} הרובוט נעצר וכרגע לא ישלח הודעות.
+    already: |
+      🔸 בוט @{{bot.username}} כבר נעצר.
+  group:
+    group: |
+      👫 הגדרות הקבוצה
+    text: |
+      🔹 אתה יכול להוסיף @{{bot.username}} בקבוצה כדי לענות על ההודעות לא רק לך אלא לכל חברי הקבוצה.
+
+      הוסף בוט לקבוצה ושלח את הפקודה /authorize@{{bot.username}}.
+
+      ⚠️ בוט יכול לעבוד רק בקבוצה אחת בכל פעם. אתה יכול להוסיף כמה בוטים שונים לאותה קבוצה.
+
+      הקבוצה שלך: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Not set</i>{%endif%}
+    leave: |
+      🚶 התנתק ועזוב
+    leaved: |
+      ⚠️ הבוט הוסר מהקבוצה.
+  types:
+    btn: |
+      💬 סוגי הודעות
+    text: |
+      🔹 הגדרות סוגי הודעות עבור @{{bot.username}}.
+
+      ❓ השתמש בהשהיה אם המשתמשים שלך שולחים הודעות באמצעות בוטים מוטבעים פגומים.
+
+      כאן אתה יכול לבחור את סוגי ההודעות, שמשתמשים יכולים לשלוח לבוט שלך.
+    types:
+      text: |
+        {%if 'text' in bot.types%}✅{%else%}❌{%endif%} 📝 טקסטים
+      audio: |
+        {%if 'audio' in bot.types%}✅{%else%}❌{%endif%} 💽 אודיו
+      document: |
+        {%if 'document' in bot.types%}✅{%else%}❌{%endif%} 📃 מסמכים
+      animation: |
+        {%if 'animation' in bot.types%}✅{%else%}❌{%endif%} 🐈 אנימציות
+      photo: |
+        {%if 'photo' in bot.types%}✅{%else%}❌{%endif%} 🖼️ תמונות
+      sticker: |
+        {%if 'sticker' in bot.types%}✅{%else%}❌{%endif%} ❤️ מדבקות
+      video: |
+        {%if 'video' in bot.types%}✅{%else%}❌{%endif%} 📺 סרטונים
+      voice: |
+        {%if 'voice' in bot.types%}✅{%else%}❌{%endif%} 🎧 הקלטות
+      video_note: |
+        {%if 'video_note' in bot.types%}✅{%else%}❌{%endif%} 🤳 הערות וידאו
+      contact: |
+        {%if 'contact' in bot.types%}✅{%else%}❌{%endif%} 📇 אנשי קשר
+      location: |
+        {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ מיקומים
+      venue: |
+        {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 מיקומים
+      forwards: |
+        {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ אפשר העברה
+      delay: |
+        {%if bot.message_delay%}✅{%else%}❌{%endif%} ⏸ עיקוב
+  messages: |
+    📝 הגדרות הודעות
+  export:
+    btn: |
+      ⏬ יְצוּא
+    text: |
+      🔹 ייצוא עבור@{{bot.username}}
+      {%if not export%}
+      שום דבר לא יצא עדיין. 😓
+      {%else%}
+      הייצוא האחרון התבקש לפני- {{export.created | elapsed}}
+
+      מצב: <b>{{export.state|upper}}</b>
+      {%endif%}
+    request: |
+      ⏬ בקשת ייצוא
+    wait: |
+      ⚠️ המתן בבקשה {{to | remaining}} לבקשה הבאה.
+    only_one: |
+      ⚠️ רק ייצוא אחד יכול להיות פעיל בכל פעם.
+  broadcast: |
+    🎙️ שידור
+  qreplies: |
+    🗣 תשובות מהירות
+  token:
+    btn: |
+      🔑 שנה אסימון
+    active: |
+      ⚠️ עליך לעצור את הבוט לפני עדכון האסימון!
+    enter: |
+      🔸 מעדכן את האסימון של הבוט.
+
+      שלח לי אסימון או פשוט העבר הודעה עם אסימון מ-BotFather.
+
+      לביטול העדכון לחץ /cancel.
+    otherbot: |
+      🔸 ⚠️ אתה לא יכול להשתמש באסימון של בוט אחר.
+
+      בדוק את האסימון שנשלח ונסה שוב.
+
+      לביטול העדכון לחץ /cancel.
+    updated: |
+      🔸 האסימון עודכן בהצלחה.
+  delete:
+    text: |
+      🔸 להסיר את @{{bot.username}} מהמערכת?
+
+      ⚠️ <b>(שימו לב!)!</b> פעולה זו תסיר את ההגדרות, הסטטיסטיקות היומנים וכל הנתונים המשויכים לבוט!
+
+      ⚠️ <b>שימו לב!</b> לא ניתן לבטל פעולה זו!
+      {%if step=='two'%}
+      <b>📛📛📛 אתה באמת בטוח?!</b>{%endif%}
+    deleted: |
+      🔸 אתה באמת בטוח @{{bot.username}} נמחק מהמערכת.
+    positives:
+      1: כן.
+      2: כן אני בטוח!
+    negatives:
+      1: לא
+      2: ממש לא!
+      3: לעולם לא!
+      4: שיניתי את דעתי!
+      5: בפעם הבאה!
+      6: לא! לא! לא!
+      7: לעולם לא!
+      8: זו טעות!
+  auth: |
+    ‼️‼️ הבוט שלך @{{bot.username}} הופסק עקב כשל בהרשאה.
+
+    כדי להמשיך לעבוד עליך לעדכן את מפתח ה-API של הבוט.
+group:
+  welcome: |
+    🔹 היי! אני בוט לתמיכה טכנית.
+
+    כדי לאשר אותי בקבוצה זו, בעל הבוט חייב לבצע את הפקודה /authorize@{{bot.username}}.
+  auth:
+    ok: |
+      🔹 כדי לאשר אותי בקבוצה זו, בעל הבוט חייב לבצע את הפקודה
+      לקבלת עזרה בפקודה לחץ /help.
+    already: |
+      🔹 הבוט הזה כבר מורשה בקבוצה זו.
+    other: |
+      🔹 בוט מורשה בקבוצה אחרת.
+    deny: |
+      🔹 ⚠️ רק הבעלים של הבוט יכול לאשר אותו.
+    removed: |
+      🔹 ההרשאה נמחקה.
+  channel: |
+    🔹 ⚠️ הבוט הזה לא מיועד לשימוש בערוצים!
+
+member:
+  btn:
+    close: |
+      ❌
+    user: |
+      🙇‍♂️ מִשׁתַמֵשׁ
+    ban: |
+      🚷 באן
+    unban: |
+      🦾 ביטול באן
+    deleteall: |
+      🚫 מחק הכל
+    past_msg: |
+      ⤴️
+    digest: |
+      📃 לְעַכֵּל
+    fwd_info: |
+      ➡️
+  help: |
+    🔹 איך להישתמש?
+
+    הודעות ממשתמשי הבוט שלך יישלחו לכאן.
+
+    כדי להשיב למשתמש, עליך להשיב להודעה שהועברה.
+
+    /info בתגובה להודעת המשתמש מציג מידע על המשתמש וההגדרות שלו.
+  fail: |
+    🔹 ⚠️ אני לא יכול לקבל מידע על המשתמש. ההודעה לא נשלחה.
+  bot_baned: |
+    🔹 ⚠️ המשתמש חסם את הבוט. ההודעה לא נשלחה.
+  failcmd: |
+    🔹 ⚠️ אני לא יכול לקבל מידע על ההודעה הזו.
+  מידע: |
+    {{request.user.id | er}} <a href="tg://user?id={{request.user.id}}">&{{request.user.id}}</a> {{request.user.first_name | escape}}{%if request.user.last_name%} {{request.user.last_name | escape}}{%endif%}
+  userfail: |
+    🔹 ⚠️ לא ניתן לקבל מידע על המשתמש.
+  user: |
+    {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}
+
+    {%if user.username%}<b>🗣 Username</b>: @{{user.username}}{%endif%}
+    <b>🌎 שפה</b>: {{user.language_code}}
+    <b>🗽 נוצר:</b> {{user.created|elapsed}} <b>ago</b>
+    <b>🕐 הודעה אחרונה:</b> {{user.last_message|elapsed}} <b>ago</b>
+    <b>📥 הודעות</b>: {{requests}}
+    <b>📤 תשובות</b>: {{responses}}
+
+    {%if user.is_banned%}<b>⚠️ נחסם!</b>{%endif%}
+  ban: |
+    🔹 משתמש הוא {% if user.is_banned%}⚠️ חסום{%else%}בטל חסימה{%endif%}!
+  digest: |
+    🔹 Digest for {{user.user_id|er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}:
+    {%for msg in msgs%}
+    [{%if msg.msg_link_url%}<a href="{{msg.msg_link_url}}">{%endif%}{{msg.time|elapsed}}{%if msg.msg_link_url%}</a>{%endif%}] {%if msg.is_response%}🗣{%else%}{{user.user_id|er}}{%endif%}: {%if msg.msg.type == 'text'%}{{msg.msg.text|untag|crop}}{%else%}🏞 Media{%endif%}{%endfor%}
+  fwd_info: |
+    🔹 ההודעה הועברה מ{%if fwd.channel%} הערוץ{%elif fwd.bot%} הבוט{%elif fwd.hidden%} פרופיל נסתר{%endif%}:
+
+    {%if fwd.user_id%}{{fwd.user_id | er}} <a href="tg://user?id={{fwd.user_id}}">&{{fwd.user_id}}</a>{%if fwd.first_name%} {{fwd.first_name | escape}}{%endif%}{%if fwd.last_name%} {{fwd.last_name | escape}}{%endif%}
+    {%endif-%}
+    {%if fwd.username%}<b>🗣 Username</b>: @{{fwd.username}}
+    {%endif-%}
+    {%if fwd.sender_name%}<b>🗣 Sender name</b>: {{fwd.sender_name | escape}}
+    {%endif-%}
+    {%if fwd.signature%}<b>🗣 Signature</b>: {{fwd.signature | escape}}
+    {%endif-%}
+    {%if fwd.language_code %}<b>🌎 Language</b>: {{fwd.language_code}}
+    {%endif-%}
+
+user:
+  welcome: |
+    🔹 ברוך הבא!
+
+    שלח לכאן הודעה והיא תישלח לקבוצת התמיכה הטכנית.
+  sent: |
+    🔸 ההודעה נשלחה.
+  forward: |
+    🔹 ⚠️ אסור להעביר הודעות לכאן.
+  type: |
+    🔹 ⚠️ ההודעה לא נשלחה
+
+    אתה יכול לשלוח את סוגי ההודעות הבאים:
+
+    $types
+  types: |
+    {%if 'text' in bot.types%}📝 טקסט{{'\n'}}{%endif-%}
+    {%if 'audio' in bot.types%}💽 שמע{{'\n'}}{%endif-%}
+    {%if 'document' in bot.types%}📃 מסמכים{{'\n'}}{%endif-%}
+    {%if 'animation' in bot.types%}🐈 אנימציות{{'\n'}}{%endif-%}
+    {%if 'photo' in bot.types%}🖼️ תמונות{{'\n'}}{%endif-%}
+    {%if 'sticker' in bot.types%}❤️ סטיקרים{{'\n'}}{%endif-%}
+    {%if 'video' in bot.types%}📺 וידיאו{{'\n'}}{%endif-%}
+    {%if 'voice' in bot.types%}🎧 הקלטות{{'\n'}}{%endif-%}
+    {%if 'video_note' in bot.types%}🤳 הערות וידאו{{'\n'}}{%endif-%}
+    {%if 'contact' in bot.types%}📇 אנשי קשר{{'\n'}}{%endif-%}
+    {%if 'location' in bot.types%}🛰️ מיקומים{{'\n'}}{%endif-%}
+    {%if 'venue' in bot.types%}🏬 מקומות{%endif-%}
+
+messages:
+  text: |
+    🔹 הגדרות הודעה עבור @{{bot.username}}.
+
+    בחלק זה תוכל להגדיר את ההודעות שלך למשתמשים.
+    
+    ❓ ניתן להגדיר את הזמן שאחריו המשתמש יקבל שוב התראה לאחר שליחת ההודעה.
+    ❓ ניתן להשתמש במשתנים הבאים בכל ההודעות:
+       ▪️ <code>$first_name</code> - השם הפרטי של המשתמש
+       ▪️ <code>$last_name</code> - השם השני של המשתמש
+       ▪️ <code>$full_name</code> - שם פרטי+שני
+       ▪️ <code>$types</code> - רשימה של סוגי הודעות נתמכים
+
+    🔹 בחר את ההודעה המתאימה מלמטה ואז תוכל לערוך אותה או להחזיר את ההודעה הרגילה.
+  edition: |
+    🔹 מהדורה `{{T('messages/select/'+selected)}}` ל @{{bot.username}}.
+
+    שלח הודעה חדשה והיא תישמר.
+    לביטול עריכה לחץ /cancel.
+  error: |
+    🔹 אירעה שגיאה בעת שליחת ההודעה כנראה בגלל עיצוב לא חוקי.
+
+    <code>{{error}}</code>
+
+    🔹 תקן את העיצוב ושלח את ההודעה שלך שוב.
+
+    🔹 לביטול עריכה לחץ /cancel.
+  edit: |
+    ✍️ ערוך
+  revert: |
+    🔙 Revert
+  sent:
+    header: |
+      🕔 חזור על כל:
+    value: |
+      {%if bot.sent_delay == 0%}תמיד{%else%}{{bot.sent_delay}}מ{%endif%}
+    minus: |
+      ⏪
+    plus: |
+      ⏩
+  select:
+    welcome: |
+      {%if selected%}🔺️ {%endif%}👋 ברוך הבא
+    sent: |
+      {%if selected%}🔺️ {%endif%}📨 נשלח
+    forward: |
+      {%if selected%}🔺️ {%endif%}⏩ קדימה
+    type: |
+      {%if selected%}🔺️ {%endif%}🆎 סוג
+
+broadcast:
+  btn:
+    view: |
+      👀 הצג
+    start: |
+      ▶️ התחל
+    pause: |
+      ⏸ השהה
+    cancel: |
+      ❌ בטל
+    archive: |
+      📚 ארכיון
+
+  states:
+    new: |
+      🆕 חדש
+    started: |
+      ▶️ מופעל
+    paused: |
+      ⏸ השהה
+    cancelled: |
+      ❌ בטל
+    finished: |
+      ☑️ סיים
+
+  unknown: |
+    🔸 שידור לא ידוע!
+
+  exist: |
+    🔸 ניתן ליצור רק שידור פעיל אחד!
+
+  main: |
+    🔹 שדר עבור @{{bot.username}}
+    {%if current%}
+    שודר: #{{current._id}}
+    נוצר: <b>{{current.created|elapsed}}</b>{%if current.started%}
+    התחיל: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}{%if current.finished%}
+    הסתיים: <b>{{current.finished|elapsed}}</b>{%endif%}
+
+    <b>{{T('broadcast/states/'+current.state)}}</b>{%if stat%}
+
+    נשלח: <b>{{stat.sent}}</b> ל <b>{{stat.total}}</b>
+    Errors: <b>{{stat.errors}}</b>{%endif%}
+    {%else%}
+    ניתן ליצור רק שידור פעיל אחד בו-זמנית.
+
+    ❓ ניתן ליצור רק שידור פעיל אחד בו-זמנית.
+
+    ❓ עיבוד פקודות שידור (התחלה, השהייה, עצירה) עשויות להימשך עד דקה אחת.
+
+    ❓ שידורים שהסתיימו יועברו לארכיון.
+    {%endif%}
+  archive: |
+    🔹 ארכיון ברודקאסט עבור @{{bot.username}}
+  new: |
+    🔸 שידור חדש עבור @{{bot.username}}
+
+    שלח לי הודעה חדשה או לחץ /cancel.
+  notsupport: |
+    🔸 הבוט תומך רק בהודעות טקסט. נסה שוב או לחץ /cancel.
+  error: |
+    🔹 אירעה שגיאה במהלך יצירת הפוסט כנראה בגלל עיצוב לא חוקי.
+    <code>{{error}}</code>
+
+    🔹 נסה לתקן את העיצוב ושלח את הפוסט שלך שוב או לחץ /cancel.
+  created: |
+    🔸 השידור החדש שלך נוצר.
+  cancelled: |
+    🔸 השידור החדש שלך #{{broadcast._id}} בוטל.
+  started: |
+    🔸 השידור שלך #{{broadcast._id}} התחיל
+  paused: |
+    🔸 השידור שלך #{{broadcast._id}} הושהה.
+
+qreplies:
+  text: |
+    🔹 תשובות מהירות עבור @{{bot.username}}
+  new: |
+    🔸 תשובה מהירה חדשה עבור @{{bot.username}}
+
+    שלח לי הודעה חדשה או לחץ /cancel.
+  reply: |
+    🔸 תגובה מהירה ...
+  not_found: |
+    ⚠️ תשובה מהירה לא נמצאה!
+  deleted: |
+    🔹 תשובה מהירה נמחקת.
