@@ -1,17 +1,17 @@
 welcome: |
   🔸 @LastSupportBot v{{version}}.
-
+  
   ברוכים הבאים לבוט LastSupport.
-
+  
   <b>פקודות זמינות:</b>
-
+  
   /newbot - הוספת בוט חדש.
   /mybots - הצגת בוטים.
-
+  
   /language - שינוי שפה.
-
+  
   לתמיכה, (או סתם לראות כיצד בוט שנבנה ע"י LastSupport נראה) @RocketBotsBot.
-
+  
   חדשות ועדכונים: @RocketBotsNews
 
 common:
@@ -37,27 +37,27 @@ common:
   keyboard:
     set: |
       🔹 שלחו מקלדת להוספה להודעה בפורמטים הבאים:
-
+      
       <code>כותרת = https://example.com/</code>
-
+      
       ניתן להשתמש ב <b>1</b> עד <b>12</b> לחצנים.
-
+      
       לביטול שלחו /cancel.
     toomany: |
       🔹 יותר מידי לחצנים.
-
+      
       ניתן להשתמש ב <b>1</b> עד <b>12</b> לחצנים.
     error: |
       🔹 אירעה שגיאה בעת יצירת המקלדת עקב שגיאת פורמט.
       {%if error%}
       <code>{{error}}</code>
       {%endif%}
-
+      
       נסו לתקן את הפורמט ולשלוח שוב את ההודעה או לבטל עם /cancel.
     saved: |
       🔹 המקלדת נשמרה.
   langname: |
-    🇺🇸 English
+    🇮🇱 עברית
   cancelled: |
     🔹 בוטל. מה הלאה?
   unknown: |
@@ -68,24 +68,24 @@ common:
 
 lang:
   text: |
-    🔹 כרגע אני מדבר איתכם באנגלית. לאיזו שפה ברצונכם שאעבור?
-
+    🔹 כרגע אני מדבר איתכם בעברית. לאיזו שפה ברצונכם שאעבור?
+    
      ❓ שינוי השפה אינו משפיע על השפה של בוטים שכבר נוצרו.
-
+    
      ביכולתכם לשנות את השפה של הבוטים שכבר נוצרו בהגדרות של הבוט הזה.
-
+    
     <i>אם אתם רוצים לדבר עם בוט בשפה משלכם, אתם יכולים לתרגם אותו כאן:</i>
-
+    
     https://github.com/vd2org/lastsupport-templates
   ok: |
-    🔹 In english now.
+    🔹 עכשיו עברית
 
 mybots:
   bots: |
     🔹 הבוטים שלך:
   nobots: |
     🔹 אין ברשותך בוטים.
-
+    
     על מנת להוסיף בוט, שלחו /newbot.
   bot: |
     {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
@@ -93,48 +93,48 @@ mybots:
 newbot:
   token: |
     🔸 הוספת בוט חדש.
-
+    
     צרו בוט חדש ב @BotFather.
-
+    
     שלחו את הטוקן שקיבלתם או העבירו את ההודעה מ - BotFather.
-
+    
     לביטול שלחו /cancel.
   fail: |
     🔸 ⚠️ האימות נכשל.
-
+    
     בדקו את הטוקן ונסו שנית.
-
+    
     לביטול שלחו /cancel.
   exist: |
     🔸 ⚠️ הבוט כבר רשום.
-
+    
     לא ניתן להוסיף פעמיים את אותו הבוט.
-
+    
     לביטול שלחו /cancel.
   ok: |
     🔸 הבוט @{{bot.username}} נוסף בהצלחה.
-
+    
     עכשיו הגיע הזמן להגדיר אותו.
 
 manage:
   text: |
     @{{bot.username}}
-
+    
     מצב: {%if bot.active%}🎾 רץ{%else%}🏐️ כבוי{%endif%}
     נוצר: {{bot.created|elapsed}}
     שפה: {{bot.language}}
-
+    
     כמות משתמשים: {{bot.users_count}}
-
+    
     קבוצה: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>לא קיימת</i>{%endif%}
   language:
     language: |
       🌏 שפה
     text: |
       🔹 שפה עבור @{{bot.username}}.
-
+      
       שפה נוכחית: {{bot.language}}
-
+      
       ❓ שינוי השפה אינו ישנה את עיצוב הבוט או את עיצובם של הבוטים האחרים.
   start:
     start: |
@@ -155,11 +155,11 @@ manage:
       👫 הגדרות קבוצה
     text: |
       🔹 ניתן להוסיף את @{{bot.username}} לקבוצה על מנת שכל המשתמשים יוכלו לראות ולהגיב להודעות שמגיעות מהבוט.
-
+      
       הוסיפו את הבוט לקבוצה ושלחו בה את הפקודה /authorize@{{bot.username}}.
-
+      
       ⚠️ בוט יכול להיות מחובר לקבוצה אחת בלבד בו זמנית, ניתן להוסיף מספר בוטים לאותה הקבוצה.
-
+      
       הקבוצה שלך: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>לא הוגדרה</i>{%endif%}
     leave: |
       🚶התנתקו ועזבו
@@ -170,9 +170,9 @@ manage:
       💬 סוגי הודעות
     text: |
       🔹 הגדרות סוגי הודעות עבור @{{bot.username}}.
-
+      
       ❓ Use delay if you users sends messages though defective inline bots.
-
+      
       כאן ביכולתכם לבחור את סוגי ההודעות שמשתמשים יכולים לשלוח לבוט.
     types:
       text: |
@@ -214,7 +214,7 @@ manage:
       הצאט לא יוצא. 😓
       {%else%}
       הייצוא האחרון התבקש ב-{{export.created | elapsed}} ago.
-
+      
       מצב: <b>{{export.state|upper}}</b>
       {%endif%}
     request: |
@@ -234,24 +234,24 @@ manage:
       ⚠️ עליך לעצור את הבוט לפני עדכון הטוקן!
     enter: |
       🔸עדכון טוקן הבוט.
-
+      
       שלח לי טוקן או העבר לי את ההודעה מ BotFather.
-
+      
       לביטול העדכון לחצו /cancel.
     otherbot: |
       🔸 ⚠️ אי אפשר להשתמש בטוקן של בוט אחר.
-
+      
       בדקו את הטוקן ששלחתם ונסו שוב.
-
+      
       לביטול העדכון לחצו /cancel.
     updated: |
       🔸 הטוקן עודכן בהצלחה.
   delete:
     text: |
       🔸 להסיר @{{bot.username}} מהמערכת?
-
+      
       ⚠️ <b>לתשומת לבכם!</b> פעולה זו תסיר את ההגדרות, סטטיסטיקות יומן וכל הנתונים המשויכים לבוט!
-
+      
       ⚠️ <b>לתשומת לבכם!</b> לא ניתן לבטל פעולה זו!
       {%if step=='two'%}
       <b>📛📛📛 האם אתם בטוחים?!</b>{%endif%}
@@ -271,18 +271,18 @@ manage:
       8: זו טעות!
   auth: |
     ‼️‼️ פעילות הבוט @{{bot.username}} הופסקה בשל שגיאת אימות.
-
+    
     על מנת להמשיך עליכם לעדכן את טוקן הבוט.
 
 group:
   welcome: |
     🔹 היי! אני בוט לתמיכה טכנית.
-
+    
     כדי לאשר אותי בקבוצה זו, בעל הבוט חייב לבצע את הפקודה /authorize@{{bot.username}}.
   auth:
     ok: |
       🔹 הבוט עובד. כעת יגיעו ההודעות לקבוצה זו.
-
+      
       For command help click /help.
     already: |
       🔹 הבוט כבר עובד בקבוצה זו.
@@ -315,11 +315,11 @@ member:
       ➡️
   help: |
     🔹 איך משתמשים?
-
+    
     הודעות ממשתמשי הבוט שלכם יישלחו לכאן.
-
+    
     כדי להשיב למשתמש, עליכם להשיב להודעה שהועברה.
-
+    
     /info בתגובה להודעת המשתמש מציג מידע על המשתמש וההגדרות שלו.
   fail: |
     🔹 ⚠️אני לא יכול לקבל מידע על המשתמש. ההודעה לא נשלחה.
@@ -333,14 +333,14 @@ member:
     🔹 ⚠️ לא ניתן לקבל מידע על המשתמש.
   user: |
     {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}
-
+    
     {%if user.username%}<b>🗣 Username</b>: @{{user.username}}{%endif%}
     <b>🌎 Language</b>: {{user.language_code}}
     <b>🗽 Created:</b> {{user.created|elapsed}} <b>ago</b>
     <b>🕐 Last message:</b> {{user.last_message|elapsed}} <b>ago</b>
     <b>📥 Messages</b>: {{requests}}
     <b>📤 Replies</b>: {{responses}}
-
+    
     {%if user.is_banned%}<b>⚠️ חסום!</b>{%endif%}
   ban: |
     🔹 המשתמש {% if user.is_banned%}⚠️ חסום{%else%}אינו חסום{%endif%}!
@@ -350,7 +350,7 @@ member:
     [{%if msg.msg_link_url%}<a href="{{msg.msg_link_url}}">{%endif%}{{msg.time|elapsed}}{%if msg.msg_link_url%}</a>{%endif%}] {%if msg.is_response%}🗣{%else%}{{user.user_id|er}}{%endif%}: {%if msg.msg.type == 'text'%}{{msg.msg.text|untag|crop}}{%else%}🏞 מדיה{%endif%}{%endfor%}
   fwd_info: |
     🔹 ההודעה הועברה מ{%if fwd.channel%} הערוץ{%elif fwd.bot%} הבוט{%elif fwd.hidden%} פרופיל מוסתר{%endif%}:
-
+    
     {%if fwd.user_id%}{{fwd.user_id | er}} <a href="tg://user?id={{fwd.user_id}}">&{{fwd.user_id}}</a>{%if fwd.first_name%} {{fwd.first_name | escape}}{%endif%}{%if fwd.last_name%} {{fwd.last_name | escape}}{%endif%}
     {%endif-%}
     {%if fwd.username%}<b>🗣 שם משתמש</b>: @{{fwd.username}}
@@ -365,7 +365,7 @@ member:
 user:
   welcome: |
     🔹 ברוך הבא!
-
+    
     שלח לכאן הודעה והיא תישלח לקבוצת התמיכה הטכנית.
   sent: |
     🔸 ההודעה נשלחה.
@@ -373,9 +373,9 @@ user:
     🔹 ⚠️ אסור להעביר לכאן הודעות.
   type: |
     🔹 ⚠️ ההודעה לא נשלחה.
-
+    
     ניתן לשלוח את סוגי ההודעות הבאים:
-
+    
     $types
   types: |
     {%if 'text' in bot.types%}📝 הודעות טקסט{{'\n'}}{%endif-%}
@@ -394,29 +394,29 @@ user:
 messages:
   text: |
     🔹הגדרות הודעה עבור @{{bot.username}}.
-
+    
     בחלק זה תוכלו להגדיר את ההודעות שלכם עבור משתמשים.
-
+    
     ❓ ניתן להגדיר את הזמן שאחריו המשתמש יקבל שוב התראה לאחר שליחת ההודעה.
     ❓ניתן להשתמש במשתנים הבאים בכל ההודעות:
        ▪️ <code>$first_name</code> - השם הפרטי של המשתמש
        ▪️ <code>$last_name</code> - השם משפחה של המשתמש
        ▪️ <code>$full_name</code> - שם פרטי + שם משפחה
        ▪️ <code>$types</code> - רשימה של סוגי הודעות נתמכים
-
+    
     🔹 בחרו את ההודעה המתאימה מלמטה ואז תוכלו לערוך אותה או להחזיר את ההודעה הרגילה.
   edition: |
     🔹 עריכה `{{T('messages/select/'+selected)}}` for @{{bot.username}}.
-
+    
     שלחו הודעה חדשה והיא תישמר.
      לביטול העריכה לחץ /cancel.
   error: |
     🔹אירעה שגיאה בעת שליחת ההודעה כנראה בגלל עיצוב לא חוקי.
-
+    
     <code>{{error}}</code>
-
+    
     🔹תקנו את העיצוב ושלחו את ההודעה שלך שוב.
-
+    
     🔹 לביטול העריכה לחצו /cancel.
   edit: |
     ✍️ ערוך
@@ -479,33 +479,33 @@ broadcast:
     נוצר ב: <b>{{current.created|elapsed}}</b>{%if current.started%}
     התחיל ב: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}{%if current.finished%}
     הסתיים ב: <b>{{current.finished|elapsed}}</b>{%endif%}
-
+    
     <b>{{T('broadcast/states/'+current.state)}}</b>{%if stat%}
-
+    
     נשלחו: <b>{{stat.sent}}</b> of <b>{{stat.total}}</b>
     שגיאות: <b>{{stat.errors}}</b>{%endif%}
     {%else%}
     עדיין אין שידורים פעילים.
-
+    
     ❓ רק שידור אחד יכול להיות פעיל בכל זמן נתון.
-
+    
     ❓ זמן העיבוד של פקודות שידור (start, pause, stop) עלול לקחת עד דקה.
-
+    
     ❓ שידורים שהסתיימו יועברו אל הארכיון.
     {%endif%}
   archive: |
     🔹 שידורים בארכיון עבור @{{bot.username}}
   new: |
     🔸 שידור חדש עבור @{{bot.username}}
-
+    
     שלחו הודעה או לחצו /cancel לביטול.
   notsupport: |
     🔸 הבוט תומך בהודעות טקסט בלבד, נסו שוב או שלחו /cancel לביטול.
   error: |
     🔹 אירעה שגיאה בעת יצירת הפוסט, ככל הנראה בשל בעיה בפורמט.
-
+    
     <code>{{error}}</code>
-
+    
     🔹 נסו לתקן את הפורמט ולשלוח שוב את ההודעה או בטלו עם /cancel.
   created: |
     🔸 השידור החדש נוצר בהצלחה.
@@ -521,7 +521,7 @@ qreplies:
     🔹 תגובות מהירות עבור @{{bot.username}}
   new: |
     🔸 תגובה מהירה חדשה עבור @{{bot.username}}
-
+    
     שלחו הודעות חדשות או בטלו עם /cancel.
   reply: |
     🔸 תגובה מהירה ...
