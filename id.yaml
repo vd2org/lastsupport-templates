@@ -1,17 +1,17 @@
 welcome: |
   🔸 @LastSupportBot v{{version}}.
-
+  
   Selamat datang di dukungan teknis bot..
-
+  
   <b>Perintah yang tersedia:</b>
-
+  
   /newbot - Tambahkan bot baru.
   /mybots - Perlihatkan bot.
-
+  
   /language - Ubah bahasa.
-
+  
   Untuk dukungan teknis, serta untuk melihat cara kerjanya secara langsung, silakan hubungi @RocketBotsBot.
-
+  
   Berita dan pembaruan: @RocketBotsNews
 
 common:
@@ -37,22 +37,22 @@ common:
   keyboard:
     set: |
       🔹 Kirimkan saya keyboard untuk ditambahkan ke postingan dalam format berikut:
-
+      
       <code>Caption = https://example.com/</code>
-
+      
       Anda dapat menggunakan dari <b>1</b> to <b>12</b> tombol.
-
+      
       Untuk batal, tekan /cancel
     toomany: |
       🔹 Terlalu banyak tombol.
-
+      
       Anda dapat menggunakan dari <b>1</b> to <b>12</b> tombol.
     error: |
       🔹 Ada kesalahan saat mengatur keyboard mungkin karena pemformatan tidak valid.
       {%if error%}
       <code>{{error}}</code>
       {%endif%}
-
+      
       Coba perbaiki pemformatan dan kirim keyboard Anda lagi atau tekan /cancel.
     saved: |
       🔹 Keyboard telah disimpan.
@@ -69,13 +69,13 @@ common:
 lang:
   text: |
     🔹 Saat ini saya berbicara dengan Anda dalam bahasa Indonesia. Bahasa apa yang Anda ingin untuk saya beralih ke?
-
+    
     ❓ Mengubah bahasa tidak memengaruhi bahasa bot yang sudah dibuat.
-
+    
     Anda dapat mengubah bahasa bot yang sudah dibuat di pengaturan bot ini.
-
+    
     <i>Jika Anda ingin berbicara dengan bot dalam bahasa Anda, Anda dapat menerjemahkannya di sini:</i>
-
+    
     https://github.com/vd2org/lastsupport-templates
   ok: |
     🔹 Di indonesia sekarang.
@@ -85,7 +85,7 @@ mybots:
     🔹 Bot Anda:
   nobots: |
     🔹 Anda tidak memiliki bot sama sekali.
-
+    
     To add a new team use /newbot.
   bot: |
     {%if bot.active%}🎾{%else%}🏐️{%endif%} {{bot.username}}
@@ -93,48 +93,48 @@ mybots:
 newbot:
   token: |
     🔸 Tambahkan bot baru.
-
+    
     Sebagai permulaan, Anda perlu membuat bot baru dari @BotFather.
-
+    
     Kirikan saya token atau cukup teruskan pesan dengan token dari BotFather.
-
+    
     Untuk membatalkan penambahan bot klik /cancel.
   fail: |
     🔸 ⚠️ Tidak dapat mengotorisasi bot Anda.
-
+    
     Periksa token terkirim dan coba lagi.
-
+    
     Untuk membatalkan penambahan bot klik /cancel.
   exist: |
     🔸 ⚠️ Bot ini sudah terdaftarkan.
-
+    
     Anda tidak dapat menambahkan satu bot dua kali.
-
+    
     Untuk membatalkan penambahan bot klik /cancel.
   ok: |
     🔸 Bot @{{bot.username}} diperiksa dan ditambahkan.
-
+    
      Sekarang Anda dapat mengkonfigurasinya.
 
 manage:
   text: |
     @{{bot.username}}
-
+    
     Status: {%if bot.active%}🎾 Running{%else%}🏐️ Switched off{%endif%}
     Dibuat: {{bot.created|elapsed}}
     Bahasa: {{bot.language}}
-
+    
     Pengguna: {{bot.users_count}}
-
+    
     Grup: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>None</i>{%endif%}
   language:
     language: |
       🌏 Bahasa
     text: |
       🔹 Bahasa untuk @{{bot.username}}.
-
+      
       Bahasa saat ini: {{bot.language}}
-
+      
       ❓ Mengubah bahasa tidak mempengaruhi bahasa desain bot, serta bot yang dibuat lainnya.
   start:
     start: |
@@ -155,11 +155,11 @@ manage:
       👫 Pengaturan grup
     text: |
       🔹 Anda dapat menambahkan @{{bot.username}} dalam grup untuk menjawab pesan tidak hanya kepada Anda tetapi untuk semua anggota grup.
-
+      
       Tambahkan bot ke grup dan jalankan perintah /authorize@{{bot.username}}.
-
+      
       ⚠️ Bot hanya dapat bekerja dalam satu grup pada satu waktu. Anda dapat menambahkan beberapa bot yang berbeda ke grup yang sama.
-
+      
       Grup anda: {%if bot.group%}{%if bot.group.link%}<a href="{{bot.group.link}}">{{bot.group.title|escape}}</a>{%else%}{{bot.group.title|escape}}{%endif%}{%else%}<i>Tidak diatur</i>{%endif%}
     leave: |
       🚶 Nonaktifkan & tinggalkan
@@ -170,9 +170,9 @@ manage:
       💬 Tipe pesan
     text: |
       🔹 Pengaturan tipe pesan untuk @{{bot.username}}.
-
+      
       ❓ Gunakan penundaan jika Pengguna mengirim pesan meskipun bot inline rusak.
-
+      
       Di sini Anda dapat memilih jenis pesan, yang dapat dikirim pengguna ke bot Anda.
     types:
       text: |
@@ -214,7 +214,7 @@ manage:
       Belum ada yang diekspor. 😓
       {%else%}
       Ekspor terakhir diminta di {{export.created | elapsed}} lalu.
-
+      
       Status: <b>{{export.state|upper}}</b>
       {%endif%}
     request: |
@@ -234,24 +234,24 @@ manage:
       ⚠️ Anda harus menghentikan bot sebelum memperbarui token!
     enter: |
       🔸 Memperbarui token bot.
-
+      
       Kirimkan saya token atau cukup teruskan pesan dengan token dari BotFather.
-
+      
       Untuk membatalkan pembaruan tekan /cancel
     otherbot: |
       🔸 ⚠️ Anda tidak dapat menggunakan token bot lain.
-
+      
       Periksa token terkirim dan coba lagi.
-
+      
       Untuk membatalkan pembaruan tekan /cancel
     updated: |
       🔸 Token telah diperbarui.
   delete:
     text: |
       🔸 Hapus @{{bot.username}} dari sistem?
-
+      
       ⚠️ <b>Perhatian!</b> Ini akan menghapus pengaturan, statistik log, dan semua data yang terkait dengan bot!
-
+      
       ⚠️ <b>Perhatian!</b> Aksi ini tidak dapat dibatalkan.
       {%if step=='two'%}
       <b>📛📛📛 Apakah Anda benar-benar yakin ?!!</b>{%endif%}
@@ -270,19 +270,19 @@ manage:
       7: Tidak akan!
       8: Ini sebuah kesalahan!
   auth: |
-    ‼️‼️ Bot anda @{{bot.username}} telah dihentikan karena ototorisasi gagal.
-
+    ‼️ Bot anda @{{bot.username}} telah dihentikan karena ototorisasi gagal.
+    
     Untuk melanjutkan pekerjaan, Anda harus memperbarui api-key bot.
 
 group:
   welcome: |
     🔹 Hai! Saya adalah bot dukungan teknis.
-
+    
     Untuk mengotorisasi saya dalam grup ini, pemilik bot harus menjalankan perintah /authorize@{{bot.username}}.
   auth:
     ok: |
       🔹 Bot diotorisasi. Sekarang pesan akan datang ke grup ini.
-
+      
       Untuk bantuan perintah klik /help.
     already: |
       🔹 Bot ini sudah diotorisasi dalam grup ini.
@@ -315,11 +315,11 @@ member:
       ➡️
   help: |
     🔹 Bagaimana cara menggunakan?
-
+    
     Pesan dari pengguna bot Anda akan dikirim ke sini.
-
+    
     Untuk membalas pengguna, Anda harus membalas pesan yang diteruskan.
-
+    
     /info sebagai tanggapan terhadap pesan pengguna, menampilkan informasi tentang pengguna dan pengaturannya.
   fail: |
     🔹 ⚠️ Saya tidak bisa mendapatkan informasi tentang pengguna. Pesan tidak terkirim.
@@ -333,14 +333,14 @@ member:
     🔹 ⚠️ Tidak dapat mendapatkan informasi tentang pengguna ini.
   user: |
     {{user.user_id | er}} <a href="tg://user?id={{user.user_id}}">&{{user.user_id}}</a> {{user.first_name | escape}}{%if user.last_name%} {{user.last_name | escape}}{%endif%}
-
+    
     {%if user.username%}<b>🗣 Username</b>: @{{user.username}}{%endif%}
     <b>🌎 Bahasa</b>: {{user.language_code}}
     <b>🗽 Dibuat:</b> {{user.created|elapsed}} <b>ago</b>
     <b>🕐 Pesan terakhir:</b> {{user.last_message|elapsed}} <b>ago</b>
     <b>📥 Pesan</b>: {{requests}}
     <b>📤 Balasan</b>: {{responses}}
-
+    
     {%if user.is_banned%}<b>⚠️ Diblokir!</b>{%endif%}
   ban: |
     🔹 User is {% if user.is_banned%}⚠️ blokir{%else%}telah di buka blokir{%endif%}!
@@ -350,7 +350,7 @@ member:
     [{%if msg.msg_link_url%}<a href="{{msg.msg_link_url}}">{%endif%}{{msg.time|elapsed}}{%if msg.msg_link_url%}</a>{%endif%}] {%if msg.is_response%}🗣{%else%}{{user.user_id|er}}{%endif%}: {%if msg.msg.type == 'text'%}{{msg.msg.text|untag|crop}}{%else%}🏞 Media{%endif%}{%endfor%}
   fwd_info: |
     🔹 Pesan telah diteruskan dari{%if fwd.channel%} saluran{%elif fwd.bot%} bot{%elif fwd.hidden%} profil tersembunyi{%endif%}:
-
+    
     {%if fwd.user_id%}{{fwd.user_id | er}} <a href="tg://user?id={{fwd.user_id}}">&{{fwd.user_id}}</a>{%if fwd.first_name%} {{fwd.first_name | escape}}{%endif%}{%if fwd.last_name%} {{fwd.last_name | escape}}{%endif%}
     {%endif-%}
     {%if fwd.username%}<b>🗣 Nama pengguna</b>: @{{fwd.username}}
@@ -365,7 +365,7 @@ member:
 user:
   welcome: |
     🔹 Selamat datang!
-
+    
     Kirim pesan ke sini dan akan dikirim ke grup dukungan teknis.
   sent: |
     🔸 Pesan telah terkirim.
@@ -373,9 +373,9 @@ user:
     🔹 ⚠️ Dilarang untuk meneruskan pesan di sini.
   type: |
     🔹 ⚠️ Pesan tidak terkirim
-
+    
     Anda dapat mengirim jenis pesan berikut:
-
+    
     $types
   types: |
     {%if 'text' in bot.types%}📝 Text{{'\n'}}{%endif-%}
@@ -394,29 +394,29 @@ user:
 messages:
   text: |
     🔹 Pesan pengaturan untuk @{{bot.username}}.
-
+    
     Di bagian ini Anda dapat mengatur pesan untuk pengguna.
-
+    
     ❓ Anda dapat mengatur waktu setelah itu pengguna akan menerima pemberitahuan lagi setelah pesan dikirim.
     ❓ Variabel berikut dapat digunakan di semua pesan:
        ▪️ <code>$first_name</code> - nama depan pengguna
        ▪️ <code>$last_name</code> - nama belakang pengguna
        ▪️ <code>$full_name</code> - nama depan+belakang
        ▪️ <code>$types</code> - daftar tipe pesan yang didukung
-
+    
     🔹 Pilih pesan yang sesuai dari bawah dan kemudian Anda dapat mengeditnya atau mengembalikan pesan standar.
   edition: |
     🔹 Edit `{{T('messages/select/'+selected)}}` untuk @{{bot.username}}.
-
+    
     Kirim pesan baru dan itu akan disimpan.
     Untuk batal mengedit tekan /cancel
   error: |
     🔹 Ada kesalahan saat mengirim pesan mungkin karena pemformatan tidak valid.
-
+    
     <code>{{error}}</code>
-
+    
     🔹 Perbaiki pemformatan dan kirim pesan Anda lagi.
-
+    
     🔹 Untuk batal tekan /cancel
   edit: |
     ✍️ Edit
@@ -479,33 +479,33 @@ broadcast:
     Dibuat: <b>{{current.created|elapsed}}</b>{%if current.started%}
     Dimulai: <b>{{current.started|elapsed(show_seconds=True)}}</b>{%endif%}{%if current.finished%}
     Selesai: <b>{{current.finished|elapsed}}</b>{%endif%}
-
+    
     <b>{{T('broadcast/states/'+current.state)}}</b>{%if stat%}
-
+    
     Terkirim: <b>{{stat.sent}}</b> of <b>{{stat.total}}</b>
     Error: <b>{{stat.errors}}</b>{%endif%}
     {%else%}
     Tidak ada siaran aktif.
-
+    
     ❓ Hanya satu siaran aktif yang dapat dibuat secara bersamaan.
-
+    
     ❓ Perintah siaran (mulai, jeda, berhenti) dapat memakan waktu hingga satu menit untuk diproses.
-
+    
     ❓ Siaran yang sudah selesai akan dipindahkan ke arsip.
     {%endif%}
   archive: |
     🔹 Arsip siaran untuk @{{bot.username}}
   new: |
     🔸 Siaran baru untuk @{{bot.username}}
-
+    
     Kirimkan pesan baru atau tekan /cancel
   notsupport: |
     🔸 Bot hanya mendukung pesan teks. Coba lagi atau tekan /batalkan.
   error: |
     🔹 Ada kesalahan saat membuat posting mungkin karena pemformatan tidak valid.
-
+    
     <code>{{error}}</code>
-
+    
     🔹 Coba perbaiki pemformatan dan kirim posting Anda lagi atau tekan /batalkan.
   created: |
     🔸 Siaran baru Anda berhasil dibuat.
@@ -521,7 +521,7 @@ qreplies:
     🔹 Balasan cepat untuk @{{bot.username}}
   new: |
     🔸 Balasan cepat baru untuk @{{bot.username}}
-
+    
     Kirimi saya pesan baru atau tekan /cancel.
   reply: |
     🔸 Balasan cepat ...
