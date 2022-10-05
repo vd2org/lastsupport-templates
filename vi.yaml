@@ -199,6 +199,8 @@ manage:
         {%if 'location' in bot.types%} ✅ {%else%} ❌ {%endif%} 🛰️ Vị trí
       venue: |
         {%if 'venue' in bot.types%} ✅ {%else%} ❌ {%endif%} 🏬 Địa điểm
+      links: |
+        {%if bot.allow_links%}✅{%else%}❌{%endif%} 🔗 Links
       forwards: |
         {%if bot.allow_forwards%} ✅ {%else%} ❌ {%endif%} ↪️ Cho phép chuyển tiếp
       delay: |
@@ -371,6 +373,8 @@ user:
     🔸 Tin nhắn đã được gửi.
   forward: |
     🔹 ⚠️ Cấm chuyển tiếp tin nhắn tại đây.
+  links: |
+    🔹 ⚠️ Forbid to send messages with links here.
   type: |
     🔹 ⚠️ Tin nhắn chưa được gửi
 
@@ -438,6 +442,8 @@ messages:
       {%if selected%}🔺️ {%endif%} 📨 Đã gửi
     forward: |
       {%if selected%}🔺️ {%endif%} ⏩ Chuyển tiếp
+    links: |
+      {%if selected%}🔺️ {%endif%}🔗 Links
     type: |
       {%if selected%}🔺️ {%endif%} 🆎 Loại
 

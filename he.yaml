@@ -198,7 +198,9 @@ manage:
       location: |
         {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ מיקום
       venue: |
-        {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 Venues
+        {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 מיקום המשפת
+      links: |
+        {%if bot.allow_links%}✅{%else%}❌{%endif%} 🔗 לינקים
       forwards: |
         {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ אפשר העברה
       delay: |
@@ -371,6 +373,8 @@ user:
     🔸 ההודעה נשלחה.
   forward: |
     🔹 ⚠️ אסור להעביר לכאן הודעות.
+  links: |
+    🔹 ⚠️ אסור לשלוח לכאן הודעות עם לינקים.
   type: |
     🔹 ⚠️ ההודעה לא נשלחה.
     
@@ -389,7 +393,7 @@ user:
     {%if 'video_note' in bot.types%}🤳 הודעות וידאו{{'\n'}}{%endif-%}
     {%if 'contact' in bot.types%}📇 אנשי קשר{{'\n'}}{%endif-%}
     {%if 'location' in bot.types%}🛰️ מיקום{{'\n'}}{%endif-%}
-    {%if 'venue' in bot.types%}🏬 Venues{%endif-%}
+    {%if 'venue' in bot.types%}🏬 מיקום המשפת{%endif-%}
 
 messages:
   text: |
@@ -438,6 +442,8 @@ messages:
       {%if selected%}🔺️ {%endif%}📨 נשלח
     forward: |
       {%if selected%}🔺️ {%endif%}⏩ הועבר
+    links: |
+      {%if selected%}🔺️ {%endif%}🔗 לינקים
     type: |
       {%if selected%}🔺️ {%endif%}🆎 סוג
 

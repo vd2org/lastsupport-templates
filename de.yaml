@@ -199,6 +199,8 @@ manage:
         {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ Standorte
       venue: |
         {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 Veranstaltungsorte
+      links: |
+        {%if bot.allow_links%}✅{%else%}❌{%endif%} 🔗 Links
       forwards: |
         {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ Weiterleiten zulassen
       delay: |
@@ -371,6 +373,8 @@ user:
     🔸 Ihre Frage wurde akzeptiert.
   forward: |
     🔹 ⚠️ Sendung fehlgeschlagen.
+  links: |
+    🔹 ⚠️ Forbid to send messages with links here.
   type: |
     🔹 ⚠️ Ihre Frage wurde leider nicht akzeptiert.
 
@@ -438,6 +442,8 @@ messages:
       {%if selected%}🔺️ {%endif%}📨 Senden
     forward: |
       {%if selected%}🔺️ {%endif%}⏩ Weiterleiten
+    links: |
+      {%if selected%}🔺️ {%endif%}🔗 Links
     type: |
       {%if selected%}🔺️ {%endif%}🆎 Typ
 

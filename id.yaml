@@ -199,6 +199,8 @@ manage:
         {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ Lokasi
       venue: |
         {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 Venues
+      links: |
+        {%if bot.allow_links%}✅{%else%}❌{%endif%} 🔗 Links
       forwards: |
         {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ Izinkan pesan diteruskan
       delay: |
@@ -371,6 +373,8 @@ user:
     🔸 Pesan telah terkirim.
   forward: |
     🔹 ⚠️ Dilarang untuk meneruskan pesan di sini.
+  links: |
+    🔹 ⚠️ Forbid to send messages with links here.
   type: |
     🔹 ⚠️ Pesan tidak terkirim
     

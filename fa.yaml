@@ -199,6 +199,8 @@ manage:
         {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ موقعیت مکانی
       venue: |
         {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 مکان
+      links: |
+        {%if bot.allow_links%}✅{%else%}❌{%endif%} 🔗 Links
       forwards: |
         {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ اجازه فوروارد
       delay: |
@@ -371,6 +373,8 @@ user:
     🔸 پیام ارسال شد.
   forward: |
     🔹 ⚠️ فوروارد پیام‌ها به اینجا ممنوع است.
+  links: |
+    🔹 ⚠️ Forbid to send messages with links here.
   type: |
     🔹 ⚠️ پیام ارسال نشد
     
@@ -438,6 +442,8 @@ messages:
       {%if selected%}🔺️ {%endif%}📨 ارسال شده
     forward: |
       {%if selected%}🔺️ {%endif%}⏩ فوروارد
+    links: |
+      {%if selected%}🔺️ {%endif%}🔗 Links
     type: |
       {%if selected%}🔺️ {%endif%}🆎 نوع
 

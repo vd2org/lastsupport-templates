@@ -199,6 +199,8 @@ manage:
         {%if 'location' in bot.types%}✅{%else%}❌{%endif%} 🛰️ Locations
       venue: |
         {%if 'venue' in bot.types%}✅{%else%}❌{%endif%} 🏬 Venues
+      links: |
+        {%if bot.allow_links%}✅{%else%}❌{%endif%} 🔗 Links
       forwards: |
         {%if bot.allow_forwards%}✅{%else%}❌{%endif%} ↪️ Allow forwards
       delay: |
@@ -371,6 +373,8 @@ user:
     🔸 Message was sent.
   forward: |
     🔹 ⚠️ Forbid to forward messages here.
+  links: |
+    🔹 ⚠️ Forbid to send messages with links here.
   type: |
     🔹 ⚠️ Message was not sent
 
@@ -438,6 +442,8 @@ messages:
       {%if selected%}🔺️ {%endif%}📨 Sent
     forward: |
       {%if selected%}🔺️ {%endif%}⏩ Forward
+    links: |
+      {%if selected%}🔺️ {%endif%}🔗 Links
     type: |
       {%if selected%}🔺️ {%endif%}🆎 Type
 
