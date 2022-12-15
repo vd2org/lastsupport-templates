@@ -442,6 +442,8 @@ messages:
       {%if selected%}🔺️ {%endif%}📨 Terkirim
     forward: |
       {%if selected%}🔺️ {%endif%}⏩ Diteruskan
+    links: |
+      {%if selected%}🔺️ {%endif%}🔗 Links
     type: |
       {%if selected%}🔺️ {%endif%}🆎 Tipe
 
