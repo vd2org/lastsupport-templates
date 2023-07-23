@@ -9,6 +9,8 @@ welcome: |
   /mybots - نشان دادن ربات‌ها.
 
   /language - تغییر زبان.
+  
+  Your id is: <code>{{owner._id}}</code>.
 
   برای پشتیبانی فنی و همچنین برای اینکه ببینید بصورت زنده چگونه کار می‌کند، لطفا با @RocketBotsBot در تماس باشید.
 
@@ -271,6 +273,37 @@ manage:
       6: نه! نه! نه!
       7: هیچ‌وقت!
       8: این یک اشتباه بود!
+  transfer:
+    btn: |
+      ⏩️ Transfer
+    text: |
+      🔸 Transfer @{{bot.username}}.
+      {%if new_owner%}
+      <b>The bot will be transferred to <code>{{new_owner._id}}</code>!</b>
+      {%endif%}
+      ⚠️ <b>Attention!</b> The bot will be transferred to another account!
+
+      ⚠️ <b>Attention!</b> This action cannot be undone!
+      {%if step=='zero'%}
+      To cancel transferring click /cancel.
+      
+      ❓ Id can be viewed by <code>/start</code> command. The new owner must give you their id.
+      
+      <b>Please enter the id of the user to transfer the bot to:</b>{%endif%}
+      {%if step=='two'%}
+      <b>📛📛📛 Are you really sure?!</b>{%endif%}
+    wrong: |
+      🔸 Wrong user id.
+      
+      To cancel transferring click /cancel.
+
+      <b>Please enter id of the user to transfer the bot to:</b>
+    proceed: |
+      ⏩️ Proceed transfer..
+    write: |
+      🔸 <b>The new owner have to write to this bot first!</b>
+    transferred: |
+      🔸 @{{bot.username}} is transferred to {%if mew_owner%}<code>{{mew_owner._id}}</code>{%else%}you{%endif%}!
   auth: |
     ‼️‼️ ربات شما @{{bot.username}} به دلیل شکست احراز هویت متوقف شد.
     

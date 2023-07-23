@@ -3,12 +3,14 @@ welcome: |
 
   Welcome to the bot technical support.
 
-  <b>Avaliable commands:</b>
+  <b>Available commands:</b>
 
   /newbot - Add new bot.
   /mybots - Show bots.
 
   /language - Change language.
+  
+  Your id is: <code>{{owner._id}}</code>.
 
   For technical support, as well as to see how it works live, please contact @RocketBotsBot.
 
@@ -258,7 +260,7 @@ manage:
       {%if step=='two'%}
       <b>📛📛📛 Are you really sure?!</b>{%endif%}
     deleted: |
-      🔸 Are you really sure @{{bot.username}} deleted from the system.
+      🔸 @{{bot.username}} deleted from the system.
     positives:
       1: Yes.
       2: Yes, i am sure!
@@ -271,8 +273,39 @@ manage:
       6: No! No! No!
       7: Never!
       8: This is a mistake!
+  transfer:
+    btn: |
+      ⏩️ Transfer
+    text: |
+      🔸 Transfer @{{bot.username}}.
+      {%if new_owner%}
+      <b>The bot will be transferred to <code>{{new_owner._id}}</code>!</b>
+      {%endif%}
+      ⚠️ <b>Attention!</b> The bot will be transferred to another account!
+
+      ⚠️ <b>Attention!</b> This action cannot be undone!
+      {%if step=='zero'%}
+      To cancel transferring click /cancel.
+      
+      ❓ Id can be viewed by <code>/start</code> command. The new owner must give you their id.
+      
+      <b>Please enter the id of the user to transfer the bot to:</b>{%endif%}
+      {%if step=='two'%}
+      <b>📛📛📛 Are you really sure?!</b>{%endif%}
+    wrong: |
+      🔸 Wrong user id.
+      
+      To cancel transferring click /cancel.
+
+      <b>Please enter id of the user to transfer the bot to:</b>
+    proceed: |
+      ⏩️ Proceed transfer..
+    write: |
+      🔸 <b>The new owner have to write to this bot first!</b>
+    transferred: |
+      🔸 @{{bot.username}} is transferred to {%if mew_owner%}<code>{{mew_owner._id}}</code>{%else%}you{%endif%}!
   auth: |
-    ‼️‼️ Your bot @{{bot.username}} was stoped due to authorization fail.
+    ‼️‼️ Your bot @{{bot.username}} was stopped due to authorization fail.
 
     To continue work you should update api-key of the bot.
 

@@ -9,6 +9,8 @@ welcome: |
   /mybots - Bots zeigen.
 
   /language - Sprache wechseln.
+  
+  Your id is: <code>{{owner._id}}</code>.
 
   Für technische Unterstützung und um zu schauen, wie der Bot funktioniert, wenden Sie sich bitte an @RocketBotsBot.
 
@@ -271,6 +273,37 @@ manage:
       6: Nein! Nein! Nein!
       7: Ne!
       8: Das ist ein Fehler!
+  transfer:
+    btn: |
+      ⏩️ Transfer
+    text: |
+      🔸 Transfer @{{bot.username}}.
+      {%if new_owner%}
+      <b>The bot will be transferred to <code>{{new_owner._id}}</code>!</b>
+      {%endif%}
+      ⚠️ <b>Attention!</b> The bot will be transferred to another account!
+
+      ⚠️ <b>Attention!</b> This action cannot be undone!
+      {%if step=='zero'%}
+      To cancel transferring click /cancel.
+      
+      ❓ Id can be viewed by <code>/start</code> command. The new owner must give you their id.
+      
+      <b>Please enter the id of the user to transfer the bot to:</b>{%endif%}
+      {%if step=='two'%}
+      <b>📛📛📛 Are you really sure?!</b>{%endif%}
+    wrong: |
+      🔸 Wrong user id.
+      
+      To cancel transferring click /cancel.
+
+      <b>Please enter id of the user to transfer the bot to:</b>
+    proceed: |
+      ⏩️ Proceed transfer..
+    write: |
+      🔸 <b>The new owner have to write to this bot first!</b>
+    transferred: |
+      🔸 @{{bot.username}} is transferred to {%if mew_owner%}<code>{{mew_owner._id}}</code>{%else%}you{%endif%}!
   auth: |
     ‼️‼️ Ihren Bot @{{bot.username}} wurde wegen fehlgeschlagener Autorisierung angehalten.
 
