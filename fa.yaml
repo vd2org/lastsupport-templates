@@ -568,3 +568,52 @@ qreplies:
     ⚠️ پاسخ سریع پیدا نشد!
   deleted: |
     🔹 پاسخ سریع حذف شده است.
+
+captcha:
+  btn:
+    manage: |
+      🥊 Captcha
+    toggle: |
+      {%if not bot.captcha.enabled%}🎾 Enable{%else%}🏐 Disable{%endif%}
+    reset: |
+      🔄 Reset users
+  text: |
+    🔹 Captcha settings for @{{bot.username}}
+    
+    Current state: {%if bot.captcha.enabled%}🎾Включено{%else%}🏐️Выключено{%endif%}
+    
+    ❓ Button "🔄 Reset users" will enable captcha for all existed users.
+  new: |
+    🔸 New captcha for @{{bot.username}}
+    {%if error%}
+    ⚠️ There was an error while creating the captcha probably due to invalid formatting.
+
+    <b>Error:</b> <code>{{error}}</code>
+    {%endif%}
+    ❓ The message must have question and the list of answers. Question and answers must be separated by <b>two</b> empty lines!
+    ❓ There must be at lest <b>two</b> answers. The first answer must be the correct one!
+    
+    ❓ Example
+    
+    <code>Very difficult question?
+    
+    
+    Right answer
+    Wrong answer 1
+    Wrong answer 2
+    Wrong answer 3
+    Wrong answer 4</code>
+    
+    Or press /cancel to cancel.
+  deleted: |
+    🔹 Captcha was deleted
+  reset: |
+    🔹 All users was reset.
+  no_questions: |
+    ⚠️ You have to add at least one captcha!
+  must: |
+    ⚠️ You have to pass captcha first by /start command.
+  failed: |
+    ⚠️ Wrong answer!
+  passed: |
+    😊 You have passed the captcha!
