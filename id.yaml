@@ -10,7 +10,7 @@ welcome: |
   
   /language - Ubah bahasa.
   
-  Your id is: <code>{{owner._id}}</code>.
+  ID Anda adalah: <code>{{owner._id}}</code>.
   
   Untuk dukungan teknis, serta untuk melihat cara kerjanya secara langsung, silakan hubungi @RocketBotsBot.
   
@@ -279,31 +279,31 @@ manage:
     text: |
       🔸 Transfer @{{bot.username}}.
       {%if new_owner%}
-      <b>The bot will be transferred to <code>{{new_owner._id}}</code>!</b>
+      <b>Bot ini akan di transferkan ke <code>{{new_owner._id}}</code>!</b>
       {%endif%}
-      ⚠️ <b>Attention!</b> The bot will be transferred to another account!
+      ⚠️ <b>Attention!</b> Bot ini akan di transferkan ke akun lain!
 
-      ⚠️ <b>Attention!</b> This action cannot be undone!
+      ⚠️ <b>Attention!</b> Aksi ini tidak dapat diundo!
       {%if step=='zero'%}
-      To cancel transferring click /cancel.
+      Untuk membatalkan pentransferan, tekan /cancel.
       
-      ❓ Id can be viewed by <code>/start</code> command. The new owner must give you their id.
+      ❓ ID dapat dilihat di perintah <code>/start</code>. Pemilik harus memberikan ID mereka.
       
-      <b>Please enter the id of the user to transfer the bot to:</b>{%endif%}
+      <b>Masukkan ID pengguna untuk mentransfer bot ini</b>{%endif%}
       {%if step=='two'%}
-      <b>📛📛📛 Are you really sure?!</b>{%endif%}
+      <b>📛📛📛 Apakah Anda benar-benar yakin?!</b>{%endif%}
     wrong: |
-      🔸 Wrong user id.
+      🔸 ID pengguna ini salah.
       
-      To cancel transferring click /cancel.
+      Untuk membatalkan pentransferan, tekan /cancel.
 
-      <b>Please enter id of the user to transfer the bot to:</b>
+      <b>Silahkan masukkan ID pengguna untuk mentransfer bot ini</b>
     proceed: |
-      ⏩️ Proceed transfer..
+      ⏩️ Memproses pentransferan...
     write: |
-      🔸 <b>The new owner have to write to this bot first!</b>
+      🔸 <b>Pemilik baru harus menulis ke bot ini terlebih dahulu!</b>
     transferred: |
-      🔸 @{{bot.username}} is transferred to {%if mew_owner%}<code>{{mew_owner._id}}</code>{%else%}you{%endif%}!
+      🔸 @{{bot.username}} telah ditransfer ke {%if mew_owner%}<code>{{mew_owner._id}}</code>{%else%}Anda{%endif%}!
   auth: |
     ‼️ Bot anda @{{bot.username}} telah dihentikan karena ototorisasi gagal.
     
