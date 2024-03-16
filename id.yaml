@@ -125,6 +125,8 @@ manage:
     Status: {%if bot.active%}🎾 Running{%else%}🏐️ Switched off{%endif%}
     Dibuat: {{bot.created|elapsed}}
     Bahasa: {{bot.language}}
+        
+    Paid till: {{bot.paid_till.strftime('%Y-%m-%d')}}
     
     Pengguna: {{bot.users_count}}
     
@@ -262,17 +264,17 @@ manage:
     deleted: |
       🔸 Apakan anda benar-benar yakin @{{bot.username}} dihapus dari sistem..
     positives:
-      1: Ya.
-      2: Ya, saya yakin!
+      "1": Ya.
+      "2": Ya, saya yakin!
     negatives:
-      1: Tidak!
-      2: Fuck tidak!
-      3: Tidak akan!
-      4: Saya berubah pikiran!
-      5: Lain kali!
-      6: Tidak! Tidak! Tidak!
-      7: Tidak akan!
-      8: Ini sebuah kesalahan!
+      "1": Tidak!
+      "2": Fuck tidak!
+      "3": Tidak akan!
+      "4": Saya berubah pikiran!
+      "5": Lain kali!
+      "6": Tidak! Tidak! Tidak!
+      "7": Tidak akan!
+      "8": Ini sebuah kesalahan!
   transfer:
     btn: |
       ⏩️ Transfer
@@ -308,6 +310,11 @@ manage:
     ‼️ Bot anda @{{bot.username}} telah dihentikan karena ototorisasi gagal.
     
     Untuk melanjutkan pekerjaan, Anda harus memperbarui api-key bot.
+  subscription: |
+    ‼️‼️ Your subscription for bot @{{bot.username}} has expired.
+    
+    Please contact @RocketBotsBot to renew it.
+
 
 group:
   welcome: |

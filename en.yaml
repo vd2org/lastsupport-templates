@@ -125,6 +125,8 @@ manage:
     Status: {%if bot.active%}🎾 Running{%else%}🏐️ Switched off{%endif%}
     Created: {{bot.created|elapsed}}
     Language: {{bot.language}}
+    
+    Paid till: {{bot.paid_till.strftime('%Y-%m-%d')}}
 
     Users: {{bot.users_count}}
 
@@ -241,13 +243,13 @@ manage:
 
       Send me token or simply forward message with token from BotFather.
 
-      To cancel the updation click /cancel.
+      To cancel the update click /cancel.
     otherbot: |
       🔸 ⚠️ You can't use token of another bot.
 
       Check sent token and try again.
 
-      To cancel the updation click /cancel.
+      To cancel the update click /cancel.
     updated: |
       🔸 Token was successfully updated.
   delete:
@@ -262,17 +264,17 @@ manage:
     deleted: |
       🔸 @{{bot.username}} deleted from the system.
     positives:
-      1: Yes.
-      2: Yes, i am sure!
+      "1": Yes.
+      "2": Yes, i am sure!
     negatives:
-      1: No!
-      2: Hell no!
-      3: Never!
-      4: I changed my mind!
-      5: Next time!
-      6: No! No! No!
-      7: Never!
-      8: This is a mistake!
+      "1": No!
+      "2": Hell no!
+      "3": Never!
+      "4": I changed my mind!
+      "5": Next time!
+      "6": No! No! No!
+      "7": Never!
+      "8": This is a mistake!
   transfer:
     btn: |
       ⏩️ Transfer
@@ -308,6 +310,10 @@ manage:
     ‼️‼️ Your bot @{{bot.username}} was stopped due to authorization fail.
 
     To continue work you should update api-key of the bot.
+  subscription: |
+    ‼️‼️ Your subscription for bot @{{bot.username}} has expired.
+    
+    Please contact @RocketBotsBot to renew it.
 
 group:
   welcome: |

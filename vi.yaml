@@ -125,6 +125,8 @@ manage:
     Trạng thái: {%if bot.active%} 🎾 Đang chạy {%else%} 🏐️ Đã tắt {%endif%}
     Đã tạo: {{bot.create | elapsed}}
     Ngôn ngữ: {{bot.language}}
+        
+    Paid till: {{bot.paid_till.strftime('%Y-%m-%d')}}
 
     Users: {{bot.users_count}}
 
@@ -262,17 +264,17 @@ manage:
     deleted: |
       🔸 Bạn có thực sự chắc chắn rằng @{{bot.username}} đã bị xóa khỏi hệ thống không.
     positives:
-      1: Vâng.
-      2: Vâng, tôi chắc chắn!
+      "1": Vâng.
+      "2": Vâng, tôi chắc chắn!
     negatives:
-      1: Không!
-      2: Không!
-      3: Không bao giờ!
-      4: Tôi đã đổi ý!
-      5: Lần sau!
-      6: Không! Không! Không!
-      7: Không bao giờ!
-      8: Đây là một sai lầm!
+      "1": Không!
+      "2": Không!
+      "3": Không bao giờ!
+      "4": Tôi đã đổi ý!
+      "5": Lần sau!
+      "6": Không! Không! Không!
+      "7": Không bao giờ!
+      "8": Đây là một sai lầm!
   transfer:
     btn: |
       ⏩️ Transfer
@@ -308,6 +310,11 @@ manage:
     ‼ ️‼ ️ Bot @{{bot.username}} của bạn đã bị dừng do không cấp quyền được.
 
     Để tiếp tục công việc, bạn nên cập nhật api-key của bot.
+  subscription: |
+    ‼️‼️ Your subscription for bot @{{bot.username}} has expired.
+    
+    Please contact @RocketBotsBot to renew it.
+
 
 group:
   welcome: |

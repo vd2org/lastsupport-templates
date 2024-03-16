@@ -125,6 +125,8 @@ manage:
     Stand: {%if bot.active%}🎾 Aktiv{%else%}🏐️ Ausgeschaltet{%endif%}
     Erstellt: {{bot.created|elapsed}}
     Sprache: {{bot.language}}
+        
+    Paid till: {{bot.paid_till.strftime('%Y-%m-%d')}}
 
     Users: {{bot.users_count}}
 
@@ -262,17 +264,17 @@ manage:
     deleted: |
       🔸 Der Bot @{{bot.username}} wurde gelöscht.
     positives:
-      1: Ja.
-      2: Ja, sicher!
+      "1": Ja.
+      "2": Ja, sicher!
     negatives:
-      1: Nein!
-      2: Auf keinen Fall!
-      3: Niemals!
-      4: Ich habe meine Meinung geändert!
-      5: Nächstes Mal!
-      6: Nein! Nein! Nein!
-      7: Ne!
-      8: Das ist ein Fehler!
+      "1": Nein!
+      "2": Auf keinen Fall!
+      "3": Niemals!
+      "4": Ich habe meine Meinung geändert!
+      "5": Nächstes Mal!
+      "6": Nein! Nein! Nein!
+      "7": Ne!
+      "8": Das ist ein Fehler!
   transfer:
     btn: |
       ⏩️ Transfer
@@ -308,6 +310,11 @@ manage:
     ‼️‼️ Ihren Bot @{{bot.username}} wurde wegen fehlgeschlagener Autorisierung angehalten.
 
     Um mit der Arbeit fortzufahren, aktualisieren Sie den Token des Bots nochmal.
+  subscription: |
+    ‼️‼️ Your subscription for bot @{{bot.username}} has expired.
+    
+    Please contact @RocketBotsBot to renew it.
+    
 
 group:
   welcome: |
