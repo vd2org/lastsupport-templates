@@ -320,6 +320,10 @@ group:
     🔹 Hi! I'm a technical support bot.
 
     To authorize me in this group, the bot owner must execute the command /authorize@{{bot.username}}.
+  supergroup: |
+    🔹 ⚠️ This bot is not intended for use in regular group!
+
+    Convert the group to a supergroup to use the bot.
   auth:
     ok: |
       🔹 Bot was authorized. Now messages will come to this group.

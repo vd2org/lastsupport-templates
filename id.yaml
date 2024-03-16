@@ -321,6 +321,10 @@ group:
     🔹 Hai! Saya adalah bot dukungan teknis.
     
     Untuk mengotorisasi saya dalam grup ini, pemilik bot harus menjalankan perintah /authorize@{{bot.username}}.
+  supergroup: |
+    🔹 ⚠️ This bot is not intended for use in regular group!
+
+    Convert the group to a supergroup to use the bot.
   auth:
     ok: |
       🔹 Bot diotorisasi. Sekarang pesan akan datang ke grup ini.

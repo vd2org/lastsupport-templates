@@ -321,6 +321,10 @@ group:
     🔹 Hallo! Ich bin technischer Support-Bot.
 
     Um mich in dieser Gruppe hinzuzufügen, muss der Bot-Besitzer den Befehl /authorize@{{bot.username}} ausführen.
+  supergroup: |
+    🔹 ⚠️ This bot is not intended for use in regular group!
+
+    Convert the group to a supergroup to use the bot.
   auth:
     ok: |
       🔹 Ich bin zu dieser Gruppe hinzufügt. Nun kommen meine Meldungen zu dieser Gruppe.

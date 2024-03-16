@@ -321,6 +321,10 @@ group:
     🔹 Xin chào! Tôi là một bot hỗ trợ kỹ thuật.
 
     Để ủy quyền cho tôi trong nhóm này, chủ sở hữu bot phải thực thi lệnh /authorize@{{bot.username}}.
+  supergroup: |
+    🔹 ⚠️ This bot is not intended for use in regular group!
+
+    Convert the group to a supergroup to use the bot.
   auth:
     ok: |
       🔹 Bot đã được ủy quyền. Bây giờ tin nhắn sẽ đến với nhóm này.

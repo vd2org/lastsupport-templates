@@ -320,6 +320,10 @@ group:
     🔹 היי! אני בוט לתמיכה טכנית.
     
     כדי לאשר אותי בקבוצה זו, בעל הבוט חייב לבצע את הפקודה /authorize@{{bot.username}}.
+  supergroup: |
+    🔹 ⚠️ This bot is not intended for use in regular group!
+
+    Convert the group to a supergroup to use the bot.
   auth:
     ok: |
       🔹 הבוט עובד. כעת יגיעו ההודעות לקבוצה זו.
