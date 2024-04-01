@@ -127,6 +127,7 @@ manage:
     Bahasa: {{bot.language}}
         
     Paid till: {{bot.paid_till.strftime('%Y-%m-%d')}}
+    For payment please call @RocketBotsBot
     
     Pengguna: {{bot.users_count}}
     

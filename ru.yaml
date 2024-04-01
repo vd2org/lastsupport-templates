@@ -123,6 +123,7 @@ manage:
     Язык: {{bot.language}}
         
     Оплачен до: {{bot.paid_till.strftime('%Y-%m-%d')}}
+    По вопросам оплаты: @RocketBotsBot
 
     Пользователей: {{bot.users_count}}
 
